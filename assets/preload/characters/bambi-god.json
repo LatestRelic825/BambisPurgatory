@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"loop": true,
+			"offsets": [
+				-50,
+				-70
+			],
+			"anim": "idle",
+			"fps": 6,
+			"name": "IDLE",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-210,
+				-110
+			],
+			"anim": "singRIGHT",
+			"fps": 6,
+			"name": "RIGHT",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				71,
+				40
+			],
+			"anim": "singDOWN",
+			"fps": 6,
+			"name": "DOWN",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-58,
+				-30
+			],
+			"anim": "singUP",
+			"fps": 6,
+			"name": "UP",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-20,
+				10
+			],
+			"anim": "singLEFT",
+			"fps": 6,
+			"name": "LEFT",
+			"indices": []
+		}
+	],
+	"no_antialiasing": true,
+	"image": "characters/god_expunged",
+	"position": [
+		60,
+		-330
+	],
+	"healthicon": "bambiGod",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		255,
+		255
+	],
+	"camera_position": [
+		-120,
+		-180
+	],
+	"sing_duration": 6.1,
+	"scale": 1.7
+}
