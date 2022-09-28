@@ -269,7 +269,9 @@ class PlayState extends MusicBeatState
 	var santa:BGSprite;
 	var heyTimer:Float;
 
+	var blackScreen:FlxSprite;
 	var blackScreendeez:FlxSprite;
+	var redGlow:FlxSprite;
 
 	var bgGirls:BackgroundGirls;
 	var wiggleShit:WiggleEffect = new WiggleEffect();
@@ -496,10 +498,26 @@ class PlayState extends MusicBeatState
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
 
+		blackScreen = new FlxSprite(-215, -120).makeGraphic(Std.int(FlxG.width * 100), Std.int(FlxG.height * 150), FlxColor.BLACK);
+		blackScreen.scrollFactor.set();
+
 		blackScreendeez = new FlxSprite(-120, -120).makeGraphic(Std.int(FlxG.width * 100), Std.int(FlxG.height * 150), FlxColor.BLACK);
 		blackScreendeez.scrollFactor.set();
 		blackScreendeez.alpha = 0;
 		add(blackScreendeez);
+
+		redGlow = new FlxSprite(-120, -120).loadGraphic(Paths.image('dave/redGlow'));
+		redGlow.scrollFactor.set();
+		redGlow.antialiasing = true;
+		redGlow.active = true;
+		redGlow.screenCenter();
+		add(redGlow);
+		redGlow.visible = false;
+
+		if(SONG.song.toLowerCase() == "shattered") { 
+			// preload scared bf
+		    Paths.returnGraphic('characters/BOYFRIENDSCARED');
+	    }
 
 		#if desktop
 		storyDifficultyText = CoolUtil.difficulties[storyDifficulty];
@@ -1938,6 +1956,7 @@ class PlayState extends MusicBeatState
 		timeBar.cameras = [camHUD];
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
+		redGlow.cameras = [camHUD];
 		doof.cameras = [camHUD];
 
 		// if (SONG.song == 'South')
@@ -3910,29 +3929,30 @@ class PlayState extends MusicBeatState
 					case 15:
 						showonlystrums();
 				}
-		/*case 'shattered':
-			switch (curStep)
-			{
-				case 0:
-					hideshit();
-				case 1:
-					camHUD.alpha = 0;
-					restoreHUDElements();
-				case 120:
-					showHUDFade();
-				case 895:
-					add(blackScreen);
-				case 896:
-					FlxTween.tween(blackScreen, {alpha:0}, 10);
-				case 1024:
-					FlxTween.tween(blackScreen, {alpha:1}, 5);
-				case 1090:
-					FlxTween.tween(blackScreen, {alpha:0}, 2);
-				case 1665:
-					boyfriend.playAnim('hurt', true);
-				case 1792:
-					redGlow.visible = true;
-			}*/
+			case 'shattered':
+				switch (curStep)
+				{
+					case 0:
+						hideshit();
+					case 1:
+						camHUD.alpha = 0;
+						restoreHUDElements();
+					case 120:
+						showHUDFade();
+					case 895:
+						add(blackScreen);
+					case 896:
+						FlxTween.tween(blackScreen, {alpha:0}, 10);
+					case 1024:
+						FlxTween.tween(blackScreen, {alpha:1}, 5);
+					case 1090:
+						FlxTween.tween(blackScreen, {alpha:0}, 2);
+					case 1665:
+						triggerEventNote('Change Character', '0', 'bf-scared');
+						boyfriend.playAnim('hurt', true);
+					case 1792:
+						redGlow.visible = true;
+				}
 			case 'rsod': // i should probably organize this one jesus
 				switch (curStep)
 				{
