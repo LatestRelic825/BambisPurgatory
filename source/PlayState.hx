@@ -298,7 +298,6 @@ class PlayState extends MusicBeatState
 	var timeTxt:FlxText;
 	var tutorialTxt:FlxText;
 	var composersText:FlxText;
-	var judgementCounter:FlxText;
 
 	// ASS //
 	var scoreTxtTween:FlxTween;
@@ -1847,23 +1846,6 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
-		judgementCounter = new FlxText(20, 0, 0, "", 20);
-		judgementCounter.setFormat(Paths.font("comic-sans.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		judgementCounter.borderSize = 2;
-		judgementCounter.borderQuality = 2;
-		judgementCounter.scrollFactor.set();
-		judgementCounter.cameras = [camHUD];
-		judgementCounter.screenCenter(Y);
-		if (ClientPrefs.judgementCounter == 'Advanced') {
-			judgementCounter.text = 'Combo: ${combo}\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nTotal Notes: ${totalNotesHit}\nMisses: ${songMisses}';
-		}
-		if (ClientPrefs.judgementCounter == 'Simple') {
-			judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}';
-		}
-		if (ClientPrefs.judgementCounter != 'Disabled') {
-			add(judgementCounter);
-		}
-
 		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "[BOTPLAY]", 32);
 		botplayTxt.setFormat(Paths.font("comic.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
@@ -1969,7 +1951,6 @@ class PlayState extends MusicBeatState
 		iconP1.cameras = [camHUD];
 		iconP2.cameras = [camHUD];
 		healthBarOverlay.cameras = [camHUD];
-		judgementCounter.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		botplayTxt.cameras = [camHUD];
 		timeBar.cameras = [camHUD];
@@ -3947,37 +3928,6 @@ class PlayState extends MusicBeatState
 						hideshit();
 					case 15:
 						showonlystrums();
-					case 1792:
-						FlxTween.tween(FlxG.camera, {zoom:1.30}, 10.82);
-						FlxTween.tween(scoreTxt, {alpha:0}, 1);
-						FlxTween.tween(timeBarBG, {alpha:0}, 1);
-						FlxTween.tween(timeBar, {alpha:0}, 1);
-						FlxTween.tween(timeTxt, {alpha:0}, 1);
-						FlxTween.tween(judgementCounter, {alpha:0}, 1);
-						FlxTween.tween(songinfoBar, {alpha:0}, 1);
-						FlxTween.tween(healthBar, {alpha:0}, 1);
-						FlxTween.tween(healthBarOverlay, {alpha:0}, 1);
-						FlxTween.tween(healthBarBG, {alpha:0}, 1);
-						FlxTween.tween(iconP1, {alpha:0}, 1);
-						FlxTween.tween(iconP2, {alpha:0}, 1);
-						FlxTween.tween(botplayTxt, {alpha:0}, 1);
-					case 1920:
-						defaultCamZoom = 1.30;
-						FlxTween.tween(FlxG.camera, {zoom:0.55}, 10.82);
-					case 2048:
-						defaultCamZoom = 0.55;
-						FlxTween.tween(scoreTxt, {alpha:1}, 1);
-						FlxTween.tween(timeBarBG, {alpha:1}, 1);
-						FlxTween.tween(timeBar, {alpha:1}, 1);
-						FlxTween.tween(timeTxt, {alpha:1}, 1);
-						FlxTween.tween(judgementCounter, {alpha:1}, 1);
-						FlxTween.tween(songinfoBar, {alpha:1}, 1);
-						FlxTween.tween(healthBar, {alpha:1}, 1);
-						FlxTween.tween(healthBarOverlay, {alpha:1}, 1);
-						FlxTween.tween(healthBarBG, {alpha:1}, 1);
-						FlxTween.tween(iconP1, {alpha:1}, 1);
-						FlxTween.tween(iconP2, {alpha:1}, 1);
-						FlxTween.tween(botplayTxt, {alpha:1}, 1);
 				}
 			case 'shattered':
 				switch (curStep)
@@ -6231,8 +6181,7 @@ class PlayState extends MusicBeatState
 			iconP1.visible = false;
 			iconP2.visible = false;
 			scoreTxt.visible = false;
-		}
-		judgementCounter.visible = false; 
+		} 
 		strumLineNotes.visible = false;
 		grpNoteSplashes.visible = false;
 		notes.visible = false;
@@ -6254,7 +6203,6 @@ class PlayState extends MusicBeatState
 			iconP2.visible = true;
 			scoreTxt.visible = true;
 		} 
-		judgementCounter.visible = true;
 		strumLineNotes.visible = true;
 		grpNoteSplashes.visible = true;
 		notes.visible = true;
@@ -6276,7 +6224,6 @@ class PlayState extends MusicBeatState
 	    	iconP2.visible = false;
 			scoreTxt.visible = false;
 		}
-		judgementCounter.visible = true;
 		strumLineNotes.visible = true;
 		grpNoteSplashes.visible = true;
 		notes.visible = true;
@@ -6796,11 +6743,6 @@ class PlayState extends MusicBeatState
 		setOnLuas('rating', ratingPercent);
 		setOnLuas('ratingName', ratingName);
 		setOnLuas('ratingFC', ratingFC);
-		if (ClientPrefs.judgementCounter == 'Advanced') {
-			judgementCounter.text = 'Total Notes: ${totalPlayed}\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nCombo: ${combo}\nMisses: ${songMisses}';
-		} else if (ClientPrefs.judgementCounter == 'Simple') {
-			judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}';
-		}
 	}
 
 	#if ACHIEVEMENTS_ALLOWED
