@@ -38,7 +38,7 @@ class ClientPrefs {
 	public static var follownote:Bool = true;
 	public static var laneunderlay:Bool = false;
 	public static var laneTransparency:Float = 0.5;
-	public static var judgementCounter:Bool = false;
+	public static var judgementCounter:String = 'Disabled';
 	public static var noteCombo:Bool = true;
 	public static var ratingsinHUD:Bool = true;
 	// ENDS HERE
