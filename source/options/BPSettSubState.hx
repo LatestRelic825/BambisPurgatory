@@ -41,11 +41,12 @@ class BPSettSubState extends BaseOptionsMenu
 			true);
 		addOption(option);
 
-		var option:Option = new Option('Judgement Counter',
+		var option:Option = new Option('Judgement Counter:',
 			"Shows a judgement counter at the left of the screen (Example: Sicks: 93,\nGoods:0, Bads: 1, 'Shits: 0)",
 			'judgementCounter',
-			'bool',
-			true);
+			'string',
+			'Disabled',
+			['Disabled', 'Simple', 'Advanced']);
 		addOption(option);
 
 		var option:Option = new Option('Sections Note Combo',
