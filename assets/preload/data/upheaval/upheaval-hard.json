@@ -4,12 +4,72 @@
 		"sectionLengths": [],
 		"events": [
 			[
+				40342.1052631579,
+				[
+					[
+						"Change Character",
+						"1",
+						"bambi-god-24fps"
+					]
+				]
+			],
+			[
+				40421.0526315789,
+				[
+					[
+						"Quick note spin",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				45473.6842105263,
+				[
+					[
+						"Quick note spin",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				55026.3157894737,
+				[
+					[
+						"Quick note spin",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				60000,
+				[
+					[
+						"Quick note spin",
+						"0",
+						""
+					]
+				]
+			],
+			[
 				60631.5789473684,
 				[
 					[
 						"Change Character",
 						"1",
 						"god-expunged-1"
+					]
+				]
+			],
+			[
+				60634.8684210526,
+				[
+					[
+						"Quick note spin",
+						"0",
+						""
 					]
 				]
 			],
@@ -48,6 +108,46 @@
 				[
 					[
 						"Toggle Eyesores",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				63078.947368421,
+				[
+					[
+						"Quick note spin",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				64342.1052631578,
+				[
+					[
+						"Quick note spin",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				68842.1052631578,
+				[
+					[
+						"Quick note spin",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				70105.2631578947,
+				[
+					[
+						"Quick note spin",
 						"0",
 						""
 					]
@@ -15418,6 +15518,46 @@
 				"bpm": 190
 			},
 			{
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 190,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 190,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 190
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 190
+			},
+			{
 				"gfSection": false,
 				"altAnim": false,
 				"typeOfSection": 0,
@@ -15438,7 +15578,7 @@
 				"mustHitSection": true
 			}
 		],
-		"player2": "bambi-god",
+		"player2": "dad",
 		"player3": null,
 		"song": "Upheaval",
 		"needsVoices": true,

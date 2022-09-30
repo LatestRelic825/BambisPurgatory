@@ -1,0 +1,48 @@
+{
+	"storyName": "Rematch",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"songs": [
+		[
+			"Roundabout",
+			"dave",
+			[
+				64,
+				89,
+				235
+			]
+		],
+		[
+			"Rascal",
+			"caillougetsgroundedforseventeenthousandyears",
+			[
+				144,
+				0,
+				55
+			]
+		],
+		[
+			"Triple Threat",
+			"uhmmm",
+			[
+				128,
+				0,
+				0
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "Rematch"
+}

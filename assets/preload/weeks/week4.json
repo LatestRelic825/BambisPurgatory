@@ -1,5 +1,5 @@
 {
-	"storyName": "Bambis Rage",
+	"storyName": "Crustation And The Poip Guy Thingy Bud CHum Pal Friend Buddy Chum Pal Friend Buddy",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
 	"weekBefore": "tutorial",
@@ -11,30 +11,30 @@
 	"startUnlocked": true,
 	"songs": [
 		[
-			"Shattered",
-			"bambiMad",
+			"Delivery",
+			"crusti",
 			[
-				0,
 				215,
+				69,
 				0
 			]
 		],
 		[
-			"Fallowed",
-			"bambiRage",
+			"Acquaintance",
+			"minion",
 			[
-				255,
-				0,
-				0
+				146,
+				13,
+				193
 			]
 		],
 		[
-			"Reality-Breaking",
-			"bambiGod2d",
+			"Double Act",
+			"doubleee",
 			[
-				255,
-				255,
-				255
+				215,
+				69,
+				140
 			]
 		]
 	],
@@ -44,5 +44,5 @@
 		"",
 		""
 	],
-	"weekName": "Rage Week"
+	"weekName": "IG()YHU$#*(_H#$"
 }

@@ -1,5 +1,5 @@
 {
-	"storyName": "Bambis Rage",
+	"storyName": "Hell",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
 	"weekBefore": "tutorial",
@@ -11,26 +11,26 @@
 	"startUnlocked": true,
 	"songs": [
 		[
-			"Shattered",
-			"bambiMad",
-			[
-				0,
-				215,
-				0
-			]
-		],
-		[
-			"Fallowed",
-			"bambiRage",
+			"Rebound",
+			"bambiGod",
 			[
 				255,
-				0,
-				0
+				255,
+				255
 			]
 		],
 		[
-			"Reality-Breaking",
-			"bambiGod2d",
+			"Disposition",
+			"bambiGod",
+			[
+				255,
+				255,
+				255
+			]
+		],
+		[
+			"Upheaval",
+			"bambiGod",
 			[
 				255,
 				255,
@@ -44,5 +44,5 @@
 		"",
 		""
 	],
-	"weekName": "Rage Week"
+	"weekName": "WeekHell"
 }

@@ -1,0 +1,48 @@
+{
+	"storyName": "Your Fucked Lol",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"songs": [
+		[
+			"Tyranny",
+			"trueexpunged",
+			[
+				215,
+				0,
+				0
+			]
+		],
+		[
+			"Cataclysmic",
+			"trueexpunged",
+			[
+				215,
+				0,
+				0
+			]
+		],
+		[
+			"Antagonism",
+			"ohfuck",
+			[
+				135,
+				0,
+				0
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "Expungolo"
+}
