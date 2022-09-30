@@ -62,12 +62,12 @@
 		-200,
 		-100
 	],
-	"healthicon": "bf",
+	"healthicon": "icon-bambiGod-1",
 	"flip_x": false,
 	"healthbar_colors": [
-		49,
-		176,
-		209
+		255,
+		255,
+		255
 	],
 	"camera_position": [
 		0,
