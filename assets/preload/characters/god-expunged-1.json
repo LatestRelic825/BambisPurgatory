@@ -7,7 +7,7 @@
 				80
 			],
 			"anim": "idle",
-			"fps": 24,
+			"fps": 4,
 			"name": "Idle",
 			"indices": []
 		},
@@ -18,7 +18,7 @@
 				21
 			],
 			"anim": "singLEFT",
-			"fps": 24,
+			"fps": 8,
 			"name": "Left",
 			"indices": []
 		},
@@ -29,7 +29,7 @@
 				-81
 			],
 			"anim": "singDOWN",
-			"fps": 24,
+			"fps": 8,
 			"name": "Down",
 			"indices": []
 		},
@@ -40,7 +40,7 @@
 				537
 			],
 			"anim": "singUP",
-			"fps": 24,
+			"fps": 8,
 			"name": "Up",
 			"indices": []
 		},
@@ -50,7 +50,7 @@
 				93
 			],
 			"loop": false,
-			"fps": 24,
+			"fps": 8,
 			"anim": "singRIGHT",
 			"indices": [],
 			"name": "Right"
@@ -62,12 +62,12 @@
 		-200,
 		-100
 	],
-	"healthicon": "bf",
+	"healthicon": "god-expunged-1",
 	"flip_x": false,
 	"healthbar_colors": [
-		49,
-		176,
-		209
+		40,
+		40,
+		40
 	],
 	"camera_position": [
 		0,

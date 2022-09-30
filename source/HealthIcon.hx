@@ -28,18 +28,27 @@ class HealthIcon extends FlxSprite
 	{
 		super.update(elapsed);
 		offset.set(Std.int(FlxMath.bound(width - 150,0)),Std.int(FlxMath.bound(height - 150,0))); // this is for the dnb bounce to work properly //
+		// note to self: turn this into a switch statement
 		if(this.char == 'bambiGod2d') {
 			//fuckin offsets
 			switch(animation.curAnim.name) {
 				case 'neutral':
 					offset.y += 140;
 				case 'defeat':
-					offset.x += 50;
+					offset.x += 40;
 					offset.y += 115;
 				case 'winning':
 					offset.x += -50;
 					offset.y += 130;
 			}
+			offset.x += FlxG.random.int(-2, 2);
+			offset.y += FlxG.random.int(-2, 2);
+			angle = FlxG.random.int(-2, 2);
+		}
+		if(this.char == 'god-expunged-1') {
+			//fuckin offsets
+			offset.x -= 40;
+
 			offset.x += FlxG.random.int(-2, 2);
 			offset.y += FlxG.random.int(-2, 2);
 			angle = FlxG.random.int(-2, 2);
@@ -70,6 +79,17 @@ class HealthIcon extends FlxSprite
 
 					updateHitbox();
 					offset.set(Std.int(FlxMath.bound(width - 150,0)),175);
+					this.isAnim = true;	
+				case 'god-expunged-1':
+					var name:String = 'icons/icon-god-expunged-1';
+					frames = Paths.getSparrowAtlas(name);
+
+					animation.addByPrefix('neutral', 'Normal', 12, true, isPlayer);
+					animation.addByPrefix('defeat', 'Dead', 12, true, isPlayer);
+					animation.addByPrefix('winning', 'Win', 12, true, isPlayer);
+					animation.play('neutral');
+					updateHitbox();
+
 					this.isAnim = true;	
 				default:
 					var name:String = 'icons/' + char;
