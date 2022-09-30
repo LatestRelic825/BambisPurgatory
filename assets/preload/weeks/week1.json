@@ -1,0 +1,48 @@
+{
+	"storyName": "Bambis Rage",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekBefore": "tutorial",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"songs": [
+		[
+			"Shattered",
+			"bambiMad",
+			[
+				0,
+				215,
+				0
+			]
+		],
+		[
+			"Fallowed",
+			"bambiRage",
+			[
+				255,
+				0,
+				0
+			]
+		],
+		[
+			"Reality-Breaking",
+			"bambiGod2d",
+			[
+				255,
+				255,
+				255
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"weekName": "Rage Week"
+}

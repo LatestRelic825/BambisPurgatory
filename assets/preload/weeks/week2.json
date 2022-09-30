@@ -1,0 +1,48 @@
+{
+	"storyName": "Hell",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekBefore": "tutorial",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"songs": [
+		[
+			"Rebound",
+			"bambiGod",
+			[
+				255,
+				255,
+				255
+			]
+		],
+		[
+			"Disposition",
+			"bambiGod",
+			[
+				255,
+				255,
+				255
+			]
+		],
+		[
+			"Upheaval",
+			"bambiGod",
+			[
+				255,
+				255,
+				255
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"weekName": "WeekHell"
+}
