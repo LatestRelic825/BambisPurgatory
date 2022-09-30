@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="icon-bambiGod-1.png">
+	<!-- Created with Adobe Animate version 22.0.3.179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Dead0000" x="0" y="0" width="181" height="176" frameX="-4" frameY="-1" frameWidth="186" frameHeight="178"/>
+	<SubTexture name="Dead0001" x="181" y="0" width="183" height="176" frameX="-3" frameY="-1" frameWidth="186" frameHeight="178"/>
+	<SubTexture name="Dead0002" x="364" y="0" width="181" height="176" frameX="-3" frameY="-2" frameWidth="186" frameHeight="178"/>
+	<SubTexture name="Dead0003" x="545" y="0" width="181" height="176" frameX="-3" frameY="0" frameWidth="186" frameHeight="178"/>
+	<SubTexture name="Dead0004" x="726" y="0" width="181" height="176" frameX="-5" frameY="-2" frameWidth="186" frameHeight="178"/>
+	<SubTexture name="Dead0005" x="0" y="176" width="181" height="176" frameX="-4" frameY="0" frameWidth="186" frameHeight="178"/>
+	<SubTexture name="Dead0006" x="181" y="176" width="184" height="176" frameX="0" frameY="-2" frameWidth="186" frameHeight="178"/>
+	<SubTexture name="Dead0007" x="365" y="176" width="181" height="176" frameX="-5" frameY="0" frameWidth="186" frameHeight="178"/>
+	<SubTexture name="Normal0000" x="546" y="176" width="171" height="175"/>
+	<SubTexture name="Normal0001" x="717" y="176" width="171" height="175"/>
+	<SubTexture name="Normal0002" x="0" y="352" width="171" height="175"/>
+	<SubTexture name="Normal0003" x="171" y="352" width="171" height="175"/>
+	<SubTexture name="Normal0004" x="342" y="352" width="171" height="175"/>
+	<SubTexture name="Normal0005" x="513" y="352" width="171" height="175"/>
+	<SubTexture name="Normal0006" x="684" y="352" width="171" height="175"/>
+	<SubTexture name="Normal0007" x="0" y="527" width="171" height="175"/>
+	<SubTexture name="Win0000" x="171" y="527" width="181" height="176" frameX="-1" frameY="0" frameWidth="183" frameHeight="176"/>
+	<SubTexture name="Win0001" x="171" y="527" width="181" height="176" frameX="0" frameY="0" frameWidth="183" frameHeight="176"/>
+	<SubTexture name="Win0002" x="171" y="527" width="181" height="176" frameX="-1" frameY="0" frameWidth="183" frameHeight="176"/>
+	<SubTexture name="Win0003" x="171" y="527" width="181" height="176" frameX="-2" frameY="0" frameWidth="183" frameHeight="176"/>
+</TextureAtlas>
