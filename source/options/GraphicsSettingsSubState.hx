@@ -68,7 +68,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 			#if mac 120#else 144#end);
 		addOption(option);
 
-		option.minValue =#if mac 120#else 144#end;
+		option.minValue = 60;
 		option.maxValue = 240;
 		option.displayFormat = '%v FPS';
 		option.onChange = onChangeFramerate;

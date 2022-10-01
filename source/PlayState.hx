@@ -405,6 +405,10 @@ class PlayState extends MusicBeatState
 	var olddaveGate:FlxSprite;
 	var olddaveHills:FlxSprite;
 
+	var poopBG:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dave/3dFucked'));
+	public var redTunnel:FlxSprite;
+	public var redBG:FlxSprite;
+
 	// trails!!1 //
 	var evilTrail:FlxTrail;
 	var scaryTrail:FlxTrail;
@@ -1099,6 +1103,44 @@ class PlayState extends MusicBeatState
 					testshader.waveSpeed = 2;
 					bg.shader = testshader.shader;
 					curbg = bg;
+					//}
+				}
+
+			case '3dFucked':
+				{
+					defaultCamZoom = 0.6;
+					curStage = '3dFucked';
+					poopBG.loadGraphic(Paths.image('dave/3dFucked'));
+					poopBG.antialiasing = true;
+					poopBG.setGraphicSize(Std.int(poopBG.width * 1.8));
+					poopBG.antialiasing = true;
+					poopBG.scrollFactor.set(0.4, 0.4);
+					poopBG.active = true;
+					add(poopBG);
+		
+					redBG = new FlxSprite(-1000, -700).loadGraphic(Paths.image('bambi/redTunnelBG'));
+					redBG.setGraphicSize(Std.int(redBG.width * 1.15));
+					redBG.updateHitbox();
+					redBG.active = false;
+					redBG.visible = false;
+					add(redBG);
+		
+					redTunnel = new FlxSprite(-1000, -700).loadGraphic(Paths.image('bambi/redTunnel'));
+					redTunnel.setGraphicSize(Std.int(redTunnel.width * 1.15));
+					redTunnel.updateHitbox();
+					redTunnel.active = false;
+					redTunnel.visible = false;
+					add(redTunnel);
+		
+					//if(ClientPrefs.waving)
+				//	{
+					// below code assumes shaders are always enabled which is bad
+					var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
+					testshader.waveAmplitude = 0.1;
+					testshader.waveFrequency = 5;
+					testshader.waveSpeed = 2;
+					poopBG.shader = testshader.shader;
+					curbg = poopBG;
 					//}
 				}
 			// ends here //
@@ -1909,6 +1951,9 @@ class PlayState extends MusicBeatState
 			// add aadsta's songs here
 			case 'acquaintance':
 				composersWatermark = 'AadstaPinwheel';
+			// add cheemy's songs here
+			case 'crimson corridor':
+				composersWatermark = 'cheemy';
 			// shredboi high definition songs here
 			case 'rebound' | 'disposition' | 'roundabout' | 'rsod':
 				composersWatermark = 'ShredBoi';
@@ -2938,7 +2983,7 @@ class PlayState extends MusicBeatState
 
 			// add songs wich dont have the countdown here //
 			switch (curSong.toLowerCase()) {
-				case 'roundabout' | 'upheaval':
+				case 'roundabout' | 'upheaval' | 'crimson corridor':
 			    	skipCountdown = true;
 			}
 			// ass //
@@ -3828,6 +3873,11 @@ class PlayState extends MusicBeatState
 			}
 		}
 
+		if(redTunnel != null)
+		{
+			redTunnel.angle += elapsed * 3.5;
+		}
+
 		FlxG.camera.setFilters([new ShaderFilter(screenshader.shader)]); 
 		//    /\/\ this is very stupid but doesn't effect memory all that much so
 
@@ -4070,6 +4120,78 @@ class PlayState extends MusicBeatState
 						camZooming = true;
 					case 2628:
 						camZooming = false;
+				}
+			case 'crimson corridor':
+				switch (curStep)
+				{
+					case 0:
+						hideshit();
+						strumLineNotes.visible = false;
+						FlxTween.tween(redTunnel, {"scale.x": 1.15, "scale.y": 1.15}, 0.001, {ease: FlxEase.circInOut});
+						redTunnel.active = false;
+						redTunnel.visible = false;
+						redBG.visible = false;
+						redBG.active = false;
+						FlxTween.tween(redBG, {"scale.x": 9, "scale.y": 9}, 0.001, {ease: FlxEase.circInOut});
+						poopBG.visible = false;
+						boyfriend.alpha = 0;
+						gf.alpha = 0;
+						dad.alpha = 0;
+						redTunnel.alpha = 0;
+						redBG.alpha = 0;
+					case 1:
+						FlxTween.tween(scoreTxt, {alpha:0}, 0.1);
+						FlxTween.tween(judgementCounter, {alpha:0}, 0.1);
+						FlxTween.tween(songinfoBar, {alpha:0}, 0.1);
+						FlxTween.tween(healthBar, {alpha:0}, 0.1);
+						FlxTween.tween(healthBarBG, {alpha:0}, 0.1);
+						FlxTween.tween(healthBarOverlay, {alpha:0}, 0.1);
+						FlxTween.tween(timeBarBG, {alpha:0}, 0.1);
+						FlxTween.tween(timeBar, {alpha:0}, 0.1);
+						FlxTween.tween(timeTxt, {alpha:0}, 0.1);
+						FlxTween.tween(iconP1, {alpha:0}, 0.1);
+						FlxTween.tween(iconP2, {alpha:0}, 0.1);
+					case 3:
+						restoreHUDElements();
+						FlxTween.tween(scoreTxt, {alpha:1}, 2);
+						FlxTween.tween(judgementCounter, {alpha:1}, 2);
+						FlxTween.tween(songinfoBar, {alpha:1}, 2);
+					case 16:
+						FlxTween.tween(healthBar, {alpha:1}, 2);
+						FlxTween.tween(healthBarBG, {alpha:1}, 2);
+						FlxTween.tween(healthBarOverlay, {alpha:1}, 2);
+						FlxTween.tween(timeBarBG, {alpha:1}, 2);
+						FlxTween.tween(timeBar, {alpha:1}, 2);
+						FlxTween.tween(timeTxt, {alpha:1}, 2);
+					case 32:
+						FlxTween.tween(iconP1, {alpha:1}, 2);
+					case 48:
+						FlxTween.tween(iconP2, {alpha:1}, 2);
+					case 64:
+						FlxTween.tween(redBG, {alpha:1}, 2);
+						FlxTween.tween(redTunnel, {alpha:1}, 2);
+						redTunnel.active = true;
+						redTunnel.visible = true;
+						redBG.visible = true;
+						redBG.active = true;
+					case 80:
+						FlxTween.tween(boyfriend, {alpha:1}, 2);
+					case 96:
+						FlxTween.tween(gf, {alpha:1}, 2);
+					case 112:
+						FlxTween.tween(dad, {alpha:1}, 2);
+					case 128:
+						strumLineNotes.visible = true;
+					case 1536:
+						FlxTween.tween(dad, {alpha:0}, 4);
+					case 1568:
+						FlxTween.tween(gf, {alpha:0}, 4);
+						FlxTween.tween(boyfriend, {alpha:0}, 4);
+					case 1600:
+						FlxTween.tween(redBG, {alpha:0}, 4);
+						FlxTween.tween(redTunnel, {alpha:0}, 4);
+					case 1632:
+						FlxTween.tween(camHUD, {alpha:0}, 6);
 				}
 			
 		}
