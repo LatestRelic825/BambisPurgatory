@@ -320,7 +320,7 @@ class PlayState extends MusicBeatState
 	private var singAnimations:Array<String> = ['singLEFT', 'singDOWN', 'singUP', 'singRIGHT'];
 
 	//goofy characters
-	var funnyFloatyBoys:Array<String> = ['dave-3d', 'bambi-3d', 'bambi-unfair', 'expunged', 'bambi-piss-3d', 'bambi-scaryooo', 'bambi-god', 'bambi-god2d', 'bambi-hell', 'bombu', 'bombu-expunged', 'badai', 'gary', 'bamburg', 'bamburg-player'];
+	var funnyFloatyBoys:Array<String> = ['dave-3d', 'bambi-3d', 'bambi-unfair', 'expunged', 'bambi-piss-3d', 'bambi-scaryooo', 'hell-1', 'hell-2', 'bambi-god2d', 'bambi-hell', 'bombu', 'bombu-expunged', 'badai', 'gary', 'bamburg', 'bamburg-player'];
 	var funnySideFloatyBoys:Array<String> = ['bombu', 'bombai'];
 	var canSlide:Bool = true;
 	var canFloat:Bool = true;
@@ -1650,7 +1650,7 @@ class PlayState extends MusicBeatState
 		}
 		switch(dad.curCharacter)
 		{
-			case 'bambi-god' | 'bambi-god2d' | 'expunged':
+			case 'hell-2' | 'bambi-god2d' | 'expunged':
 				scaryTrail = new FlxTrail(dad, null, 4, 12, 0.3, 0.069); //nice
 				addBehindDad(scaryTrail);
 		}

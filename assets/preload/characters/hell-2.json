@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-32,
+				-100
+			],
+			"loop": false,
+			"fps": 6,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Right"
+		},
+		{
+			"offsets": [
+				1,
+				-60
+			],
+			"loop": false,
+			"fps": 6,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Down"
+		},
+		{
+			"offsets": [
+				-58,
+				-20
+			],
+			"loop": false,
+			"fps": 6,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Up"
+		},
+		{
+			"offsets": [
+				-10,
+				10
+			],
+			"loop": false,
+			"fps": 6,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Left"
+		},
+		{
+			"offsets": [
+				-50,
+				-70
+			],
+			"indices": [],
+			"fps": 6,
+			"anim": "idle",
+			"loop": false,
+			"name": "Idle"
+		}
+	],
+	"no_antialiasing": true,
+	"image": "characters/hell_2",
+	"position": [
+		-540,
+		-550
+	],
+	"healthicon": "hell2",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		255,
+		255
+	],
+	"camera_position": [
+		80,
+		140
+	],
+	"sing_duration": 6.1,
+	"scale": 0.999999999999999
+}
