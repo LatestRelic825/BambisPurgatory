@@ -2,7 +2,51 @@
 	"animations": [
 		{
 			"offsets": [
-				-100,
+				-132,
+				-10
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "left"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "down"
+		},
+		{
+			"offsets": [
+				0,
+				-50
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "up"
+		},
+		{
+			"offsets": [
+				160,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "right"
+		},
+		{
+			"offsets": [
+				0,
 				0
 			],
 			"indices": [],
@@ -10,69 +54,25 @@
 			"anim": "idle",
 			"loop": false,
 			"name": "idle"
-		},
-		{
-			"offsets": [
-				-135,
-				20
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singDOWN",
-			"loop": false,
-			"name": "down0"
-		},
-		{
-			"offsets": [
-				-116,
-				24
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singUP",
-			"loop": false,
-			"name": "up0"
-		},
-		{
-			"offsets": [
-				-95,
-				12
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singLEFT",
-			"loop": false,
-			"name": "left0"
-		},
-		{
-			"offsets": [
-				-126,
-				2
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singRIGHT",
-			"loop": false,
-			"name": "right0"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/dave_sheet",
+	"image": "characters/Bombu-Sprites",
 	"position": [
-		-50,
-		140
+		-70,
+		-20
 	],
-	"healthicon": "dave",
+	"healthicon": "bombu",
 	"flip_x": false,
 	"healthbar_colors": [
-		15,
-		95,
-		255
+		0,
+		0,
+		55
 	],
 	"camera_position": [
-		80,
-		0
+		-230,
+		-140
 	],
 	"sing_duration": 6.1,
-	"scale": 1.1
+	"scale": 1.6
 }

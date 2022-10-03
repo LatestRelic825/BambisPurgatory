@@ -2,77 +2,77 @@
 	"animations": [
 		{
 			"offsets": [
-				-100,
-				0
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "idle",
-			"loop": false,
-			"name": "idle"
-		},
-		{
-			"offsets": [
-				-135,
-				20
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singDOWN",
-			"loop": false,
-			"name": "down0"
-		},
-		{
-			"offsets": [
-				-116,
-				24
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singUP",
-			"loop": false,
-			"name": "up0"
-		},
-		{
-			"offsets": [
-				-95,
-				12
+				-230,
+				-110
 			],
 			"indices": [],
 			"fps": 24,
 			"anim": "singLEFT",
 			"loop": false,
-			"name": "left0"
+			"name": "LEFT"
 		},
 		{
 			"offsets": [
-				-126,
-				2
+				-50,
+				-90
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "DOWN"
+		},
+		{
+			"offsets": [
+				0,
+				-70
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "UP"
+		},
+		{
+			"offsets": [
+				240,
+				-110
 			],
 			"indices": [],
 			"fps": 24,
 			"anim": "singRIGHT",
 			"loop": false,
-			"name": "right0"
+			"name": "RIGHT"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": true,
+			"name": "IDLE"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/dave_sheet",
+	"image": "characters/CrimsonBamburg",
 	"position": [
-		-50,
-		140
+		-390,
+		-300
 	],
-	"healthicon": "dave",
+	"healthicon": "baiburg",
 	"flip_x": false,
 	"healthbar_colors": [
-		15,
-		95,
-		255
+		119,
+		3,
+		7
 	],
 	"camera_position": [
-		80,
+		0,
 		0
 	],
 	"sing_duration": 6.1,
-	"scale": 1.1
+	"scale": 1
 }

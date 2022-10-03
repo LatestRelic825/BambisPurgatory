@@ -2,77 +2,77 @@
 	"animations": [
 		{
 			"offsets": [
-				-100,
-				0
+				-60,
+				-70
 			],
 			"indices": [],
-			"fps": 24,
+			"fps": 6,
 			"anim": "idle",
-			"loop": false,
-			"name": "idle"
+			"loop": true,
+			"name": "Idle"
 		},
 		{
 			"offsets": [
-				-135,
-				20
+				30,
+				-70
 			],
 			"indices": [],
-			"fps": 24,
-			"anim": "singDOWN",
-			"loop": false,
-			"name": "down0"
-		},
-		{
-			"offsets": [
-				-116,
-				24
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singUP",
-			"loop": false,
-			"name": "up0"
-		},
-		{
-			"offsets": [
-				-95,
-				12
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singLEFT",
-			"loop": false,
-			"name": "left0"
-		},
-		{
-			"offsets": [
-				-126,
-				2
-			],
-			"indices": [],
-			"fps": 24,
+			"fps": 6,
 			"anim": "singRIGHT",
 			"loop": false,
-			"name": "right0"
+			"name": "Right"
+		},
+		{
+			"offsets": [
+				-88,
+				-60
+			],
+			"indices": [],
+			"fps": 6,
+			"anim": "singUP",
+			"loop": false,
+			"name": "Up"
+		},
+		{
+			"offsets": [
+				-39,
+				10
+			],
+			"indices": [],
+			"fps": 6,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "Down"
+		},
+		{
+			"offsets": [
+				-90,
+				-40
+			],
+			"indices": [],
+			"fps": 6,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "Left"
 		}
 	],
-	"no_antialiasing": false,
-	"image": "characters/dave_sheet",
+	"no_antialiasing": true,
+	"image": "characters/Hell_2_Real_Final",
 	"position": [
-		-50,
-		140
+		-470,
+		-530
 	],
-	"healthicon": "dave",
+	"healthicon": "bambiGod-2",
 	"flip_x": false,
 	"healthbar_colors": [
-		15,
-		95,
+		255,
+		255,
 		255
 	],
 	"camera_position": [
-		80,
-		0
+		220,
+		240
 	],
 	"sing_duration": 6.1,
-	"scale": 1.1
+	"scale": 0.799999999999999
 }

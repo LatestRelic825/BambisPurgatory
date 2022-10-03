@@ -2,77 +2,77 @@
 	"animations": [
 		{
 			"offsets": [
-				-100,
-				0
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "idle",
-			"loop": false,
-			"name": "idle"
-		},
-		{
-			"offsets": [
-				-135,
-				20
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singDOWN",
-			"loop": false,
-			"name": "down0"
-		},
-		{
-			"offsets": [
-				-116,
-				24
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singUP",
-			"loop": false,
-			"name": "up0"
-		},
-		{
-			"offsets": [
-				-95,
-				12
+				290,
+				150
 			],
 			"indices": [],
 			"fps": 24,
 			"anim": "singLEFT",
 			"loop": false,
-			"name": "left0"
+			"name": "Left"
 		},
 		{
 			"offsets": [
-				-126,
-				2
+				160,
+				10
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "Down"
+		},
+		{
+			"offsets": [
+				40,
+				130
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "Up"
+		},
+		{
+			"offsets": [
+				80,
+				20
 			],
 			"indices": [],
 			"fps": 24,
 			"anim": "singRIGHT",
 			"loop": false,
-			"name": "right0"
+			"name": "Right"
+		},
+		{
+			"offsets": [
+				30,
+				120
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": true,
+			"name": "Idle"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/dave_sheet",
+	"image": "characters/Pooper",
 	"position": [
-		-50,
-		140
+		0,
+		0
 	],
-	"healthicon": "dave",
+	"healthicon": "minion",
 	"flip_x": false,
 	"healthbar_colors": [
-		15,
-		95,
-		255
+		162,
+		77,
+		251
 	],
 	"camera_position": [
-		80,
+		0,
 		0
 	],
 	"sing_duration": 6.1,
-	"scale": 1.1
+	"scale": 1
 }

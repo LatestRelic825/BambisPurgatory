@@ -2,76 +2,142 @@
 	"animations": [
 		{
 			"offsets": [
-				80,
-				-2
+				4,
+				24
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singLEFT",
 			"indices": [],
-			"name": "left"
+			"name": "a_bambi left"
 		},
 		{
 			"offsets": [
-				93,
-				-18
+				-75,
+				3
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singDOWN",
 			"indices": [],
-			"name": "down"
+			"name": "a_bambi down"
 		},
 		{
 			"offsets": [
-				39,
-				-7
+				-74,
+				33
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singRIGHT",
 			"indices": [],
-			"name": "right"
+			"name": "a_bambi right"
 		},
 		{
 			"offsets": [
-				53,
-				46
+				-75,
+				71
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singUP",
 			"indices": [],
-			"name": "up"
+			"name": "a_bambi up"
+		},
+		{
+			"offsets": [
+				-11,
+				105
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "phonebreak",
+			"indices": [],
+			"name": "a_bambi phone"
+		},
+		{
+			"offsets": [
+				49,
+				48
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "phonethrow",
+			"indices": [],
+			"name": "a_bambi throw"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-95,
+				31
+			],
+			"anim": "idiot",
+			"fps": 29,
+			"name": "bambi idiot",
+			"indices": []
 		},
 		{
 			"loop": true,
 			"offsets": [
-				0,
-				0
+				-10,
+				106
 			],
-			"anim": "idle",
+			"anim": "singRIGHT-alt",
 			"fps": 24,
-			"name": "idle",
+			"name": "a_bambi phone",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-11,
+				105
+			],
+			"anim": "singLEFT-alt",
+			"fps": 24,
+			"name": "a_bambi phone",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-11,
+				104
+			],
+			"anim": "singDOWN-alt",
+			"fps": 24,
+			"name": "a_bambi phone",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-11,
+				104
+			],
+			"anim": "singUP-alt",
+			"fps": 24,
+			"name": "a_bambi phone",
 			"indices": []
 		},
 		{
 			"offsets": [
-				52,
-				0
+				-80,
+				30
 			],
 			"indices": [],
 			"fps": 24,
-			"anim": "idiot",
+			"anim": "idle",
 			"loop": false,
-			"name": "fucking_idiot"
+			"name": "a_bambi idle"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/bambi-mad",
+	"image": "characters/Angry_Bambi",
 	"position": [
 		60,
-		390
+		450
 	],
 	"healthicon": "bambiMad",
 	"flip_x": false,
@@ -81,9 +147,9 @@
 		0
 	],
 	"camera_position": [
-		0,
-		-10
+		50,
+		80
 	],
 	"sing_duration": 4.00000000000001,
-	"scale": 0.9
+	"scale": 1
 }

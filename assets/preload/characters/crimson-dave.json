@@ -2,77 +2,77 @@
 	"animations": [
 		{
 			"offsets": [
-				-100,
-				0
+				500,
+				-10
 			],
 			"indices": [],
 			"fps": 24,
 			"anim": "idle",
 			"loop": false,
-			"name": "idle"
+			"name": "IDLE"
 		},
 		{
 			"offsets": [
-				-135,
-				20
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singDOWN",
-			"loop": false,
-			"name": "down0"
-		},
-		{
-			"offsets": [
-				-116,
-				24
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singUP",
-			"loop": false,
-			"name": "up0"
-		},
-		{
-			"offsets": [
-				-95,
-				12
+				356,
+				16
 			],
 			"indices": [],
 			"fps": 24,
 			"anim": "singLEFT",
 			"loop": false,
-			"name": "left0"
+			"name": "LEFT"
 		},
 		{
 			"offsets": [
-				-126,
-				2
+				260,
+				-50
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "DOWN"
+		},
+		{
+			"offsets": [
+				260,
+				250
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "UP"
+		},
+		{
+			"offsets": [
+				370,
+				30
 			],
 			"indices": [],
 			"fps": 24,
 			"anim": "singRIGHT",
 			"loop": false,
-			"name": "right0"
+			"name": "RIGHT"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/dave_sheet",
+	"image": "characters/Crimson_Dave",
 	"position": [
-		-50,
-		140
+		0,
+		0
 	],
-	"healthicon": "dave",
+	"healthicon": "crimsondave",
 	"flip_x": false,
 	"healthbar_colors": [
-		15,
-		95,
-		255
+		195,
+		0,
+		195
 	],
 	"camera_position": [
-		80,
+		0,
 		0
 	],
 	"sing_duration": 6.1,
-	"scale": 1.1
+	"scale": 1
 }
