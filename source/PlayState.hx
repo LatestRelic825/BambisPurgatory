@@ -1674,11 +1674,14 @@ class PlayState extends MusicBeatState
 				evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069); //nice
 				addBehindDad(evilTrail);
 		}
+
+		scaryTrail = new FlxTrail(dad, null, 4, 12, 0.3, 0.069); //nice
+		addBehindDad(scaryTrail);
+		scaryTrail.visible = false;
 		switch(dad.curCharacter)
 		{
 			case 'hell-2' | 'bambi-god2d' | 'expunged':
-				scaryTrail = new FlxTrail(dad, null, 4, 12, 0.3, 0.069); //nice
-				addBehindDad(scaryTrail);
+				scaryTrail.visible = true;
 		}
 
 		var file:String = Paths.json(songName + '/dialogue'); //Checks for json/Psych Engine dialogue
@@ -4396,8 +4399,8 @@ class PlayState extends MusicBeatState
 
 		if (camZooming)
 		{
-			FlxG.camera.zoom = FlxMath.lerp(defaultCamZoom, FlxG.camera.zoom, CoolUtil.boundTo(0.95 - (elapsed * 2.125), 0, 1));
-			camHUD.zoom = FlxMath.lerp(1, camHUD.zoom, CoolUtil.boundTo(0.95 - (elapsed * 2.125), 0, 1));
+			FlxG.camera.zoom = FlxMath.lerp(defaultCamZoom, FlxG.camera.zoom, CoolUtil.boundTo(0.95 - ((elapsed * 3.125 * camZoomingDecay)), 0, 1));
+			camHUD.zoom = FlxMath.lerp(1, camHUD.zoom, CoolUtil.boundTo(0.95 - ((elapsed * 3.125 * camZoomingDecay)), 0, 1));
 		}
 
 		FlxG.watch.addQuick("secShit", curSection);
@@ -4712,7 +4715,7 @@ class PlayState extends MusicBeatState
 						new FlxTimer().start(0.12, function(tmr:FlxTimer) {
 							dadbattleLight.alpha = 0.375;
 						});
-						dadbattleLight.setPosition(who.getGraphicMidpoint().x - dadbattleLight.width / 2, who.y + who.height - dadbattleLight.height + 50);
+						dadbattleLight.setPosition((who.getGraphicMidpoint().x + 40) - dadbattleLight.width / 2, who.y + who.height - dadbattleLight.height + 50);
 
 					default:
 						dadbattleBlack.visible = false;
@@ -5127,6 +5130,15 @@ class PlayState extends MusicBeatState
 						altStrums.forEach(function(spr:StrumNote){
 							FlxTween.tween(spr, {alpha: 1}, 1, {ease: FlxEase.circOut, startDelay: 0 + (0.1 * spr.ID)});
 						});
+				}
+			case 'Toggle Character Trail':
+				var poot:Int = Std.parseInt(value1);
+				switch (poot)
+				{
+                    case 0:
+						scaryTrail.visible = false;
+					case 1: 
+						scaryTrail.visible = true;
 				}
 			case 'Move Alt Strumlines':
 				var split:Array<String> = value1.split(',');

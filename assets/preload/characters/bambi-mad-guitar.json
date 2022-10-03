@@ -68,7 +68,7 @@
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/bambi-mad-guitarn",
+	"image": "characters/bambi-mad-guitar",
 	"position": [
 		60,
 		450
@@ -82,7 +82,7 @@
 	],
 	"camera_position": [
 		50,
-		80
+		0
 	],
 	"sing_duration": 4.00000000000001,
 	"scale": 1

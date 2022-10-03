@@ -99,6 +99,7 @@ class ChartingState extends MusicBeatState
 		['Hide or Show HUD elements', "(On Value 1: 0 to hide all of the hud elements\n| 1 to show only strums\n| 2 to show the hud elements if it was hidden previously)"],
 		['Hide or Show HUD elements with Fade', "(On Value 1: 0 to hide all of the hud elements with fade\n| 1 to show the hud elements if it was hidden\n with fade previously)"],
 		['Toggle Eyesores', "Toggle on or off the eyesores like on polygonized glitch and furiosity\n(On value 1: 0 = off | 1 = on)"],
+		['Toggle Character Trail', "Shows or hides the opponent's trail\n(On value 1: 0 = off | 1 = on)"],
 		['Show/Hide Alt Strumlines', "Shows or hides the alt strumlines\n(On value 1: 0 = off | 1 = on)"],
 		['Move Alt Strumlines', "Changes the position of the alt strumlines\nOn value 1: x, y (ex. 100,80)"],
 		['Thunderstorm type black screen', "adds a thunderstom from the shaggy mod type black screen\nValue 1: (0: Turn off, 1: turn on)"]
