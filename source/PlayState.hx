@@ -321,8 +321,10 @@ class PlayState extends MusicBeatState
 	//goofy characters
 	var funnyFloatyBoys:Array<String> = ['dave-3d', 'bambi-3d', 'crusti', 'baiburg', 'crusturn', 'minion', 'god-expunged-1', 'bambi-unfair', 'expunged', 'bambi-piss-3d', 'bambi-scaryooo', 'hell-1', 'hell-2', 'bambi-god2d', 'bambi-god-2-24fps', 'bambi-hell', 'bombureal', 'bombai', 'crimson-dave', 'crimson-bambi', 'gary', 'bamburg', 'bamburg-player'];
 	var funnySideFloatyBoys:Array<String> = ['bombureal', 'god-expunged-1', 'bombai'];
+	var funnyRotatorBoys:Array<String> = ['hell-2', 'god-expunged-1'];
 	var canSlide:Bool = true;
 	var canFloat:Bool = true;
+	var canRotate:Bool = true;
 	//var dontDarkenChar:Array<String> = ['golden-tristan'];
 	
 	public var inCutscene:Bool = false;
@@ -3859,6 +3861,10 @@ class PlayState extends MusicBeatState
 			boyfriend.x += (Math.sin(elapsedtime) * 0.6);
 			if(boyfriend.animation.curAnim.name.startsWith('idle') || boyfriend.animation.curAnim.name.endsWith('miss'))
 				camFollow.x += (Math.sin(elapsedtime) * 0.6);
+		}
+		if(funnyRotatorBoys.contains(dad.curCharacter.toLowerCase()) && canRotate && !laggingRSOD) {
+			dad.angle += (Math.sin(elapsedtime) * 0.015);
+			// FlxTween.angle(dad, -5, 5, Conductor.crochet / 300, {ease: FlxEase.sineInOut, type: PINGPONG});
 		}
 		if(canFloat && !funnyFloatyBoys.contains(boyfriend.curCharacter.toLowerCase())) {
 			switch (curStage) {
