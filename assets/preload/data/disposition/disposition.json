@@ -19,7 +19,7 @@
 					[
 						"Change Character",
 						"1",
-						"bambi-god-2-24fps"
+						"hell-2"
 					]
 				]
 			],
@@ -17363,7 +17363,7 @@
 				"mustHitSection": true
 			}
 		],
-		"player2": "bambi-god",
+		"player2": "hell-2",
 		"player3": null,
 		"song": "Disposition",
 		"sections": 0,

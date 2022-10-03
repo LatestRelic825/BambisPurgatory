@@ -392,9 +392,10 @@ class TitleState extends MusicBeatState
 		FlxTween.tween(logoBl, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG});
 		FlxTween.tween(logo, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.1});
 
-		FlxTween.tween(logoBl, {x: logoBl.x + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG});
-		FlxTween.tween(logo, {x: logoBl.x + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.1});
-
+		// FlxTween.tween(logoBl, {x: logoBl.x + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG});
+		// FlxTween.tween(logo, {x: logoBl.x + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.1});
+        // why the fuck are these here
+		
 		credGroup = new FlxGroup();
 		add(credGroup);
 		textGroup = new FlxGroup();
