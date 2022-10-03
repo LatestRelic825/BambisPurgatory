@@ -143,6 +143,7 @@ class FreeplayState extends MusicBeatState
 
 				case 'extra':
 					addWeek(['RSOD'], 2, ['bombuExpunged']);
+					addWeek(['crimson corridor'], 2, ['bombuExpunged']);
 			}
 		}
 
