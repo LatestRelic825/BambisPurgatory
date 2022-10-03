@@ -412,6 +412,7 @@ class PlayState extends MusicBeatState
 	// trails!!1 //
 	var evilTrail:FlxTrail;
 	var scaryTrail:FlxTrail;
+	var playerTrail:FlxTrail;
 
 	var precacheList:Map<String, String> = new Map<String, String>();
 
@@ -1682,6 +1683,15 @@ class PlayState extends MusicBeatState
 		{
 			case 'hell-2' | 'bambi-god2d' | 'expunged':
 				scaryTrail.visible = true;
+		}
+
+		playerTrail = new FlxTrail(boyfriend, null, 4, 12, 0.3, 0.069); //nice
+		addBehindBF(playerTrail);
+		playerTrail.visible = false;
+		switch(boyfriend.curCharacter)
+		{
+			case 'hell-2' | 'bambi-god2d' | 'expunged':
+				playerTrail.visible = true;
 		}
 
 		var file:String = Paths.json(songName + '/dialogue'); //Checks for json/Psych Engine dialogue
@@ -3847,12 +3857,12 @@ class PlayState extends MusicBeatState
 
 		if(funnyFloatyBoys.contains(dad.curCharacter.toLowerCase()) && canFloat && !laggingRSOD) {
 			dad.y += (Math.sin(elapsedtime) * 0.6);
-			if(dad.animation.curAnim.name.startsWith('idle') && cameraOnDad)
+			if(dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('idle') && cameraOnDad)
 				camFollow.y += (Math.sin(elapsedtime) * 0.6);
 		}
 		if(funnySideFloatyBoys.contains(dad.curCharacter.toLowerCase()) && canSlide && !laggingRSOD) {
 			dad.x += (Math.cos(elapsedtime) * 0.6);
-			if(dad.animation.curAnim.name.startsWith('idle') && cameraOnDad)
+			if(dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('idle') && cameraOnDad)
 				camFollow.x += (Math.sin(elapsedtime) * 0.6);
 		}
 		if(funnyFloatyBoys.contains(boyfriend.curCharacter.toLowerCase()) && canFloat && !laggingRSOD) {
@@ -3866,7 +3876,7 @@ class PlayState extends MusicBeatState
 				camFollow.x += (Math.sin(elapsedtime) * 0.6);
 		}
 		if(funnyRotatorBoys.contains(dad.curCharacter.toLowerCase()) && canRotate && !laggingRSOD) {
-			dad.angle += (Math.sin(elapsedtime) * 0.015);
+			dad.angle += (Math.cos(elapsedtime) * 0.015);
 			// FlxTween.angle(dad, -5, 5, Conductor.crochet / 300, {ease: FlxEase.sineInOut, type: PINGPONG});
 		}
 		if(canFloat && !funnyFloatyBoys.contains(boyfriend.curCharacter.toLowerCase())) {
@@ -5131,7 +5141,7 @@ class PlayState extends MusicBeatState
 							FlxTween.tween(spr, {alpha: 1}, 1, {ease: FlxEase.circOut, startDelay: 0 + (0.1 * spr.ID)});
 						});
 				}
-			case 'Toggle Character Trail':
+			case 'Toggle Opponent Trail':
 				var poot:Int = Std.parseInt(value1);
 				switch (poot)
 				{
@@ -5139,6 +5149,15 @@ class PlayState extends MusicBeatState
 						scaryTrail.visible = false;
 					case 1: 
 						scaryTrail.visible = true;
+				}
+			case 'Toggle Player Trail':
+				var is:Int = Std.parseInt(value1);
+				switch (is)
+				{
+                    case 0:
+						playerTrail.visible = false;
+					case 1: 
+						playerTrail.visible = true;
 				}
 			case 'Move Alt Strumlines':
 				var split:Array<String> = value1.split(',');
