@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-60,
+				-70
+			],
+			"indices": [],
+			"fps": 6,
+			"anim": "idle",
+			"loop": true,
+			"name": "Idle"
+		},
+		{
+			"offsets": [
+				30,
+				-70
+			],
+			"indices": [],
+			"fps": 6,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "Right"
+		},
+		{
+			"offsets": [
+				-88,
+				-60
+			],
+			"indices": [],
+			"fps": 6,
+			"anim": "singUP",
+			"loop": false,
+			"name": "Up"
+		},
+		{
+			"offsets": [
+				-39,
+				10
+			],
+			"indices": [],
+			"fps": 6,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "Down"
+		},
+		{
+			"offsets": [
+				-90,
+				-40
+			],
+			"indices": [],
+			"fps": 6,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "Left"
+		}
+	],
+	"no_antialiasing": true,
+	"image": "characters/Hell_2_Real_Final",
+	"position": [
+		-470,
+		-530
+	],
+	"healthicon": "bambiGod-2",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		255,
+		255
+	],
+	"camera_position": [
+		220,
+		240
+	],
+	"sing_duration": 6.1,
+	"scale": 0.799999999999999
+}

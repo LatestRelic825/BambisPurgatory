@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				500,
+				-10
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": false,
+			"name": "IDLE"
+		},
+		{
+			"offsets": [
+				356,
+				16
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "LEFT"
+		},
+		{
+			"offsets": [
+				260,
+				-50
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "DOWN"
+		},
+		{
+			"offsets": [
+				260,
+				250
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "UP"
+		},
+		{
+			"offsets": [
+				370,
+				30
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "RIGHT"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Crimson_Dave",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "crimsondave",
+	"flip_x": false,
+	"healthbar_colors": [
+		195,
+		0,
+		195
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

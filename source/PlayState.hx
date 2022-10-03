@@ -298,7 +298,6 @@ class PlayState extends MusicBeatState
 	var timeTxt:FlxText;
 	var tutorialTxt:FlxText;
 	var composersText:FlxText;
-	var judgementCounter:FlxText;
 
 	// ASS //
 	var scoreTxtTween:FlxTween;
@@ -320,8 +319,8 @@ class PlayState extends MusicBeatState
 	private var singAnimations:Array<String> = ['singLEFT', 'singDOWN', 'singUP', 'singRIGHT'];
 
 	//goofy characters
-	var funnyFloatyBoys:Array<String> = ['dave-3d', 'bambi-3d', 'bambi-unfair', 'expunged', 'bambi-piss-3d', 'bambi-scaryooo', 'hell-1', 'hell-2', 'bambi-god2d', 'bambi-hell', 'bombu', 'bombu-expunged', 'badai', 'gary', 'bamburg', 'bamburg-player'];
-	var funnySideFloatyBoys:Array<String> = ['bombu', 'bombai'];
+	var funnyFloatyBoys:Array<String> = ['dave-3d', 'bambi-3d', 'crusti', 'baiburg', 'crusturn', 'minion', 'god-expunged-1', 'bambi-unfair', 'expunged', 'bambi-piss-3d', 'bambi-scaryooo', 'hell-1', 'hell-2', 'bambi-god2d', 'bambi-god-2-24fps', 'bambi-hell', 'bombureal', 'bombai', 'crimson-dave', 'crimson-bambi', 'gary', 'bamburg', 'bamburg-player'];
+	var funnySideFloatyBoys:Array<String> = ['bombureal', 'god-expunged-1', 'bombai'];
 	var canSlide:Bool = true;
 	var canFloat:Bool = true;
 	//var dontDarkenChar:Array<String> = ['golden-tristan'];
@@ -393,6 +392,9 @@ class PlayState extends MusicBeatState
 	var gate:DepthSprite;
 	var grass:DepthSprite;
 	var farm:DepthSprite;
+	var pcworld:FlxSprite;
+	var burger:FlxSprite;
+	var ourple:FlxSprite;
 
 	var gridBG:FlxSprite;
 	var gridSine:Float = 0;
@@ -404,10 +406,6 @@ class PlayState extends MusicBeatState
 	var olddaveGrass:FlxSprite;
 	var olddaveGate:FlxSprite;
 	var olddaveHills:FlxSprite;
-
-	var poopBG:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dave/3dFucked'));
-	public var redTunnel:FlxSprite;
-	public var redBG:FlxSprite;
 
 	// trails!!1 //
 	var evilTrail:FlxTrail;
@@ -530,7 +528,7 @@ class PlayState extends MusicBeatState
 		// String that contains the mode defined here so it isn't necessary to call changePresence for each mode
 		if (isStoryMode)
 		{
-			detailsText = "Story Mode: " + WeekData.getCurrentWeek().weekName;
+			detailsText = "Freeplay";
 		}
 		else
 		{
@@ -968,6 +966,70 @@ class PlayState extends MusicBeatState
 					curbg = bgrsod;
 			//	}
 
+			case 'pcworld':
+				defaultCamZoom = 0.755;
+				curStage = 'pcworld';
+
+				pcworld = new FlxSprite(-600, -200).loadGraphic(Paths.image('bpASSets/bombu/pcworld'));
+			    pcworld.antialiasing = false;
+				pcworld.scrollFactor.set(0.6, 0.6);
+				pcworld.screenCenter(X);
+				pcworld.active = true;
+				pcworld.scale.set(1.75, 1.75);
+				add(pcworld);
+
+				//if(ClientPrefs.waving)
+			//	{
+			    	var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
+					testshader.waveAmplitude = 0.1;
+					testshader.waveFrequency = 5;
+					testshader.waveSpeed = 2;
+					pcworld.shader = testshader.shader;
+					curbg = pcworld;
+			//	}
+
+			case 'burger':
+				defaultCamZoom = 0.755;
+				curStage = 'burger';
+
+				burger = new FlxSprite(-600, -200).loadGraphic(Paths.image('bpASSets/bamburg/hamburger'));
+			    burger.antialiasing = false;
+				burger.scrollFactor.set(0.6, 0.6);
+				burger.screenCenter(X);
+				burger.active = true;
+				burger.scale.set(1.75, 1.75);
+				add(burger);
+
+				//if(ClientPrefs.waving)
+			//	{
+			    	var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
+					testshader.waveAmplitude = 0.1;
+					testshader.waveFrequency = 5;
+					testshader.waveSpeed = 2;
+					burger.shader = testshader.shader;
+					curbg = burger;
+
+
+				case 'ourple':
+						defaultCamZoom = 0.755;
+						curStage = 'ourple';
+		
+						ourple = new FlxSprite(-1500, -900).loadGraphic(Paths.image('bpASSets/poipman/urple'));
+						ourple.antialiasing = false;
+						ourple.scrollFactor.set(0.6, 0.6);
+						ourple.screenCenter(X);
+						ourple.active = true;
+						ourple.scale.set(1.75, 1.75);
+						add(ourple);
+		
+						//if(ClientPrefs.waving)
+					//	{
+							var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
+							testshader.waveAmplitude = 0.1;
+							testshader.waveFrequency = 5;
+							testshader.waveSpeed = 2;
+							ourple.shader = testshader.shader;
+							curbg = ourple;
 			case 'bambersHell':
 				{
 					defaultCamZoom = 0.7;
@@ -1103,44 +1165,6 @@ class PlayState extends MusicBeatState
 					testshader.waveSpeed = 2;
 					bg.shader = testshader.shader;
 					curbg = bg;
-					//}
-				}
-
-			case '3dFucked':
-				{
-					defaultCamZoom = 0.6;
-					curStage = '3dFucked';
-					poopBG.loadGraphic(Paths.image('dave/3dFucked'));
-					poopBG.antialiasing = true;
-					poopBG.setGraphicSize(Std.int(poopBG.width * 1.8));
-					poopBG.antialiasing = true;
-					poopBG.scrollFactor.set(0.4, 0.4);
-					poopBG.active = true;
-					add(poopBG);
-		
-					redBG = new FlxSprite(-1000, -700).loadGraphic(Paths.image('bambi/redTunnelBG'));
-					redBG.setGraphicSize(Std.int(redBG.width * 1.15));
-					redBG.updateHitbox();
-					redBG.active = false;
-					redBG.visible = false;
-					add(redBG);
-		
-					redTunnel = new FlxSprite(-1000, -700).loadGraphic(Paths.image('bambi/redTunnel'));
-					redTunnel.setGraphicSize(Std.int(redTunnel.width * 1.15));
-					redTunnel.updateHitbox();
-					redTunnel.active = false;
-					redTunnel.visible = false;
-					add(redTunnel);
-		
-					//if(ClientPrefs.waving)
-				//	{
-					// below code assumes shaders are always enabled which is bad
-					var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
-					testshader.waveAmplitude = 0.1;
-					testshader.waveFrequency = 5;
-					testshader.waveSpeed = 2;
-					poopBG.shader = testshader.shader;
-					curbg = poopBG;
 					//}
 				}
 			// ends here //
@@ -1889,23 +1913,6 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
-		judgementCounter = new FlxText(20, 0, 0, "", 20);
-		judgementCounter.setFormat(Paths.font("comic-sans.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		judgementCounter.borderSize = 2;
-		judgementCounter.borderQuality = 2;
-		judgementCounter.scrollFactor.set();
-		judgementCounter.cameras = [camHUD];
-		judgementCounter.screenCenter(Y);
-		if (ClientPrefs.judgementCounter == 'Advanced') {
-			judgementCounter.text = 'Combo: ${combo}\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nTotal Notes: ${totalNotesHit}\nMisses: ${songMisses}';
-		}
-		if (ClientPrefs.judgementCounter == 'Simple') {
-			judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}';
-		}
-		if (ClientPrefs.judgementCounter != 'Disabled') {
-			add(judgementCounter);
-		}
-
 		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "[BOTPLAY]", 32);
 		botplayTxt.setFormat(Paths.font("comic.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
@@ -1951,9 +1958,6 @@ class PlayState extends MusicBeatState
 			// add aadsta's songs here
 			case 'acquaintance':
 				composersWatermark = 'AadstaPinwheel';
-			// add cheemy's songs here
-			case 'crimson corridor':
-				composersWatermark = 'cheemy';
 			// shredboi high definition songs here
 			case 'rebound' | 'disposition' | 'roundabout' | 'rsod':
 				composersWatermark = 'ShredBoi';
@@ -2014,7 +2018,6 @@ class PlayState extends MusicBeatState
 		iconP1.cameras = [camHUD];
 		iconP2.cameras = [camHUD];
 		healthBarOverlay.cameras = [camHUD];
-		judgementCounter.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		botplayTxt.cameras = [camHUD];
 		timeBar.cameras = [camHUD];
@@ -2983,7 +2986,7 @@ class PlayState extends MusicBeatState
 
 			// add songs wich dont have the countdown here //
 			switch (curSong.toLowerCase()) {
-				case 'roundabout' | 'upheaval' | 'crimson corridor':
+				case 'roundabout' | 'upheaval':
 			    	skipCountdown = true;
 			}
 			// ass //
@@ -3873,11 +3876,6 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		if(redTunnel != null)
-		{
-			redTunnel.angle += elapsed * 3.5;
-		}
-
 		FlxG.camera.setFilters([new ShaderFilter(screenshader.shader)]); 
 		//    /\/\ this is very stupid but doesn't effect memory all that much so
 
@@ -3908,6 +3906,18 @@ class PlayState extends MusicBeatState
 				str.y = strumLine.y+(25*Math.sin((elapsedtime*2)+str.ID*2));
 			}
 		}
+
+		if(SONG.song.toLowerCase() == 'upheaval')
+			{
+				for(str in playerStrums) {
+					str.angle = 15*Math.cos((elapsedtime*2)+str.ID*2);
+					str.y = strumLine.y+(25*Math.sin((elapsedtime*2)+str.ID*2));
+				}
+				for(str in opponentStrums) {
+					str.angle = 15*Math.cos((elapsedtime*2)+str.ID*2);
+					str.y = strumLine.y+(25*Math.sin((elapsedtime*2)+str.ID*2));
+				}
+			}
 
 		// reverse iterate to remove oldest notes first and not invalidate the iteration
 		// stop iteration as soon as a note is not removed
@@ -3997,37 +4007,6 @@ class PlayState extends MusicBeatState
 						hideshit();
 					case 15:
 						showonlystrums();
-					case 1792:
-						FlxTween.tween(FlxG.camera, {zoom:1.30}, 10.82);
-						FlxTween.tween(scoreTxt, {alpha:0}, 1);
-						FlxTween.tween(timeBarBG, {alpha:0}, 1);
-						FlxTween.tween(timeBar, {alpha:0}, 1);
-						FlxTween.tween(timeTxt, {alpha:0}, 1);
-						FlxTween.tween(judgementCounter, {alpha:0}, 1);
-						FlxTween.tween(songinfoBar, {alpha:0}, 1);
-						FlxTween.tween(healthBar, {alpha:0}, 1);
-						FlxTween.tween(healthBarOverlay, {alpha:0}, 1);
-						FlxTween.tween(healthBarBG, {alpha:0}, 1);
-						FlxTween.tween(iconP1, {alpha:0}, 1);
-						FlxTween.tween(iconP2, {alpha:0}, 1);
-						FlxTween.tween(botplayTxt, {alpha:0}, 1);
-					case 1920:
-						defaultCamZoom = 1.30;
-						FlxTween.tween(FlxG.camera, {zoom:0.55}, 10.82);
-					case 2048:
-						defaultCamZoom = 0.55;
-						FlxTween.tween(scoreTxt, {alpha:1}, 1);
-						FlxTween.tween(timeBarBG, {alpha:1}, 1);
-						FlxTween.tween(timeBar, {alpha:1}, 1);
-						FlxTween.tween(timeTxt, {alpha:1}, 1);
-						FlxTween.tween(judgementCounter, {alpha:1}, 1);
-						FlxTween.tween(songinfoBar, {alpha:1}, 1);
-						FlxTween.tween(healthBar, {alpha:1}, 1);
-						FlxTween.tween(healthBarOverlay, {alpha:1}, 1);
-						FlxTween.tween(healthBarBG, {alpha:1}, 1);
-						FlxTween.tween(iconP1, {alpha:1}, 1);
-						FlxTween.tween(iconP2, {alpha:1}, 1);
-						FlxTween.tween(botplayTxt, {alpha:1}, 1);
 				}
 			case 'shattered':
 				switch (curStep)
@@ -4120,78 +4099,6 @@ class PlayState extends MusicBeatState
 						camZooming = true;
 					case 2628:
 						camZooming = false;
-				}
-			case 'crimson corridor':
-				switch (curStep)
-				{
-					case 0:
-						hideshit();
-						strumLineNotes.visible = false;
-						FlxTween.tween(redTunnel, {"scale.x": 1.15, "scale.y": 1.15}, 0.001, {ease: FlxEase.circInOut});
-						redTunnel.active = false;
-						redTunnel.visible = false;
-						redBG.visible = false;
-						redBG.active = false;
-						FlxTween.tween(redBG, {"scale.x": 9, "scale.y": 9}, 0.001, {ease: FlxEase.circInOut});
-						poopBG.visible = false;
-						boyfriend.alpha = 0;
-						gf.alpha = 0;
-						dad.alpha = 0;
-						redTunnel.alpha = 0;
-						redBG.alpha = 0;
-					case 1:
-						FlxTween.tween(scoreTxt, {alpha:0}, 0.1);
-						FlxTween.tween(judgementCounter, {alpha:0}, 0.1);
-						FlxTween.tween(songinfoBar, {alpha:0}, 0.1);
-						FlxTween.tween(healthBar, {alpha:0}, 0.1);
-						FlxTween.tween(healthBarBG, {alpha:0}, 0.1);
-						FlxTween.tween(healthBarOverlay, {alpha:0}, 0.1);
-						FlxTween.tween(timeBarBG, {alpha:0}, 0.1);
-						FlxTween.tween(timeBar, {alpha:0}, 0.1);
-						FlxTween.tween(timeTxt, {alpha:0}, 0.1);
-						FlxTween.tween(iconP1, {alpha:0}, 0.1);
-						FlxTween.tween(iconP2, {alpha:0}, 0.1);
-					case 3:
-						restoreHUDElements();
-						FlxTween.tween(scoreTxt, {alpha:1}, 2);
-						FlxTween.tween(judgementCounter, {alpha:1}, 2);
-						FlxTween.tween(songinfoBar, {alpha:1}, 2);
-					case 16:
-						FlxTween.tween(healthBar, {alpha:1}, 2);
-						FlxTween.tween(healthBarBG, {alpha:1}, 2);
-						FlxTween.tween(healthBarOverlay, {alpha:1}, 2);
-						FlxTween.tween(timeBarBG, {alpha:1}, 2);
-						FlxTween.tween(timeBar, {alpha:1}, 2);
-						FlxTween.tween(timeTxt, {alpha:1}, 2);
-					case 32:
-						FlxTween.tween(iconP1, {alpha:1}, 2);
-					case 48:
-						FlxTween.tween(iconP2, {alpha:1}, 2);
-					case 64:
-						FlxTween.tween(redBG, {alpha:1}, 2);
-						FlxTween.tween(redTunnel, {alpha:1}, 2);
-						redTunnel.active = true;
-						redTunnel.visible = true;
-						redBG.visible = true;
-						redBG.active = true;
-					case 80:
-						FlxTween.tween(boyfriend, {alpha:1}, 2);
-					case 96:
-						FlxTween.tween(gf, {alpha:1}, 2);
-					case 112:
-						FlxTween.tween(dad, {alpha:1}, 2);
-					case 128:
-						strumLineNotes.visible = true;
-					case 1536:
-						FlxTween.tween(dad, {alpha:0}, 4);
-					case 1568:
-						FlxTween.tween(gf, {alpha:0}, 4);
-						FlxTween.tween(boyfriend, {alpha:0}, 4);
-					case 1600:
-						FlxTween.tween(redBG, {alpha:0}, 4);
-						FlxTween.tween(redTunnel, {alpha:0}, 4);
-					case 1632:
-						FlxTween.tween(camHUD, {alpha:0}, 6);
 				}
 			
 		}
@@ -5372,12 +5279,11 @@ class PlayState extends MusicBeatState
 		deathCounter = 0;
 		seenCutscene = false;
 
-		#if ACHIEVEMENTS_ALLOWED
 		if(achievementObj != null) {
 			return;
 		} else {
 			var achieve:String = checkForAchievement(['week1_nomiss', 'week2_nomiss', 'week3_nomiss', 'week4_nomiss',
-				'week5_nomiss', 'week6_nomiss', 'week7_nomiss', 'ur_bad',
+				'week5_nomiss', 'week6_nomiss', 'ur_bad',
 				'ur_good', 'hype', 'two_keys', 'toastie', 'debugger']);
 
 			if(achieve != null) {
@@ -5385,7 +5291,6 @@ class PlayState extends MusicBeatState
 				return;
 			}
 		}
-		#end
 
 		var ret:Dynamic = callOnLuas('onEndSong', [], false);
 		if(ret != FunkinLua.Function_Stop && !transitioning) {
@@ -5491,7 +5396,6 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-	#if ACHIEVEMENTS_ALLOWED
 	var achievementObj:AchievementObject = null;
 	function startAchievement(achieve:String) {
 		achievementObj = new AchievementObject(achieve, camOther);
@@ -5506,7 +5410,6 @@ class PlayState extends MusicBeatState
 			endSong();
 		}
 	}
-	#end
 
 	public function KillNotes() {
 		while(notes.length > 0) {
@@ -5946,12 +5849,10 @@ class PlayState extends MusicBeatState
 			});
 
 			if (controlHoldArray.contains(true) && !endingSong) {
-				#if ACHIEVEMENTS_ALLOWED
 				var achieve:String = checkForAchievement(['oversinging']);
 				if (achieve != null) {
 					startAchievement(achieve);
 				}
-				#end
 			}
 			else if (boyfriend.animation.curAnim != null && boyfriend.holdTimer > Conductor.stepCrochet * 0.0011 * boyfriend.singDuration && boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.animation.curAnim.name.endsWith('miss'))
 			{
@@ -6353,8 +6254,7 @@ class PlayState extends MusicBeatState
 			iconP1.visible = false;
 			iconP2.visible = false;
 			scoreTxt.visible = false;
-		}
-		judgementCounter.visible = false; 
+		} 
 		strumLineNotes.visible = false;
 		grpNoteSplashes.visible = false;
 		notes.visible = false;
@@ -6376,7 +6276,6 @@ class PlayState extends MusicBeatState
 			iconP2.visible = true;
 			scoreTxt.visible = true;
 		} 
-		judgementCounter.visible = true;
 		strumLineNotes.visible = true;
 		grpNoteSplashes.visible = true;
 		notes.visible = true;
@@ -6398,7 +6297,6 @@ class PlayState extends MusicBeatState
 	    	iconP2.visible = false;
 			scoreTxt.visible = false;
 		}
-		judgementCounter.visible = true;
 		strumLineNotes.visible = true;
 		grpNoteSplashes.visible = true;
 		notes.visible = true;
@@ -6555,7 +6453,7 @@ class PlayState extends MusicBeatState
 				limoCorpseTwo.visible = false;
 				limoKillingState = 1;
 
-				#if ACHIEVEMENTS_ALLOWED
+
 				Achievements.henchmenDeath++;
 				FlxG.save.data.henchmenDeath = Achievements.henchmenDeath;
 				var achieve:String = checkForAchievement(['roadkill_enthusiast']);
@@ -6565,7 +6463,6 @@ class PlayState extends MusicBeatState
 					FlxG.save.flush();
 				}
 				FlxG.log.add('Deaths: ' + Achievements.henchmenDeath);
-				#end
 			}
 		}
 	}
@@ -6918,14 +6815,8 @@ class PlayState extends MusicBeatState
 		setOnLuas('rating', ratingPercent);
 		setOnLuas('ratingName', ratingName);
 		setOnLuas('ratingFC', ratingFC);
-		if (ClientPrefs.judgementCounter == 'Advanced') {
-			judgementCounter.text = 'Total Notes: ${totalPlayed}\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nCombo: ${combo}\nMisses: ${songMisses}';
-		} else if (ClientPrefs.judgementCounter == 'Simple') {
-			judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}';
-		}
 	}
 
-	#if ACHIEVEMENTS_ALLOWED
 	private function checkForAchievement(achievesToCheck:Array<String> = null):String
 	{
 		if(chartingMode) return null;
@@ -6937,8 +6828,8 @@ class PlayState extends MusicBeatState
 				var unlock:Bool = false;
 				switch(achievementName)
 				{
-					case 'week1_nomiss' | 'week2_nomiss' | 'week3_nomiss' | 'week4_nomiss' | 'week5_nomiss' | 'week6_nomiss' | 'week7_nomiss':
-						if(isStoryMode && campaignMisses + songMisses < 1 && CoolUtil.difficultyString() == 'HARD' && storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice)
+					case 'week1_nomiss' | 'week2_nomiss' | 'week3_nomiss' | 'week4_nomiss' | 'week5_nomiss' | 'week6_nomiss':
+						if(isStoryMode && CoolUtil.difficultyString() == 'HARD' && storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice)
 						{
 							var weekName:String = WeekData.getWeekFileName();
 							switch(weekName) //I know this is a lot of duplicated code, but it's easier readable and you can add weeks with different names than the achievement tag
@@ -7008,7 +6899,6 @@ class PlayState extends MusicBeatState
 		}
 		return null;
 	}
-	#end
 
 	var curLight:Int = -1;
 	var curLightEvent:Int = -1;

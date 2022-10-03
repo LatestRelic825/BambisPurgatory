@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Godly Goober 2.png">
+	<!-- Created with Adobe Animate version 22.0.3.179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Dead2 instance 10000" x="0" y="0" width="198" height="175" frameX="-5" frameY="-3" frameWidth="207" frameHeight="184"/>
+	<SubTexture name="Dead2 instance 10001" x="198" y="0" width="206" height="183" frameX="0" frameY="-1" frameWidth="207" frameHeight="184"/>
+	<SubTexture name="Dead2 instance 10002" x="0" y="0" width="198" height="175" frameX="-3" frameY="-3" frameWidth="207" frameHeight="184"/>
+	<SubTexture name="Dead2 instance 10003" x="404" y="0" width="207" height="184"/>
+	<SubTexture name="FatW2 instance 10000" x="611" y="0" width="205" height="180" frameX="-3" frameY="-1" frameWidth="208" frameHeight="183"/>
+	<SubTexture name="FatW2 instance 10001" x="611" y="0" width="205" height="180" frameX="-3" frameY="0" frameWidth="208" frameHeight="183"/>
+	<SubTexture name="FatW2 instance 10002" x="611" y="0" width="205" height="180" frameX="-3" frameY="-2" frameWidth="208" frameHeight="183"/>
+	<SubTexture name="FatW2 instance 10003" x="611" y="0" width="205" height="180" frameX="0" frameY="-3" frameWidth="208" frameHeight="183"/>
+	<SubTexture name="Normal2 instance 10000" x="816" y="0" width="205" height="180" frameX="-3" frameY="-2" frameWidth="210" frameHeight="183"/>
+	<SubTexture name="Normal2 instance 10001" x="0" y="184" width="205" height="180" frameX="-5" frameY="0" frameWidth="210" frameHeight="183"/>
+	<SubTexture name="Normal2 instance 10002" x="205" y="184" width="205" height="180" frameX="-1" frameY="-1" frameWidth="210" frameHeight="183"/>
+	<SubTexture name="Normal2 instance 10003" x="410" y="184" width="205" height="180" frameX="-4" frameY="-1" frameWidth="210" frameHeight="183"/>
+	<SubTexture name="Normal2 instance 10004" x="615" y="184" width="205" height="180" frameX="0" frameY="-3" frameWidth="210" frameHeight="183"/>
+	<SubTexture name="Normal2 instance 10005" x="0" y="364" width="205" height="180" frameX="-3" frameY="-2" frameWidth="210" frameHeight="183"/>
+	<SubTexture name="Normal2 instance 10006" x="0" y="364" width="205" height="180" frameX="-2" frameY="-3" frameWidth="210" frameHeight="183"/>
+	<SubTexture name="Normal2 instance 10007" x="0" y="364" width="205" height="180" frameX="0" frameY="-1" frameWidth="210" frameHeight="183"/>
+</TextureAtlas>

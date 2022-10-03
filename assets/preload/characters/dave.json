@@ -1,81 +1,65 @@
 {
 	"animations": [
 		{
-			"loop": true,
 			"offsets": [
-				0,
+				-100,
 				0
 			],
-			"anim": "idle-loop",
-			"fps": 12,
-			"name": "Dave Idle",
-			"indices": [
-				11,
-				12,
-				13,
-				14
-			]
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"loop": false,
+			"indices": [],
 			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "idleDance"
+			"loop": false,
+			"name": "idle"
 		},
 		{
 			"offsets": [
-				-3,
-				0
+				-135,
+				20
 			],
-			"loop": false,
+			"indices": [],
 			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "Down"
+			"loop": false,
+			"name": "down0"
 		},
 		{
 			"offsets": [
-				18,
-				13
+				-116,
+				24
 			],
-			"loop": false,
+			"indices": [],
 			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "Up"
+			"loop": false,
+			"name": "up0"
 		},
 		{
 			"offsets": [
-				26,
-				3
+				-95,
+				12
 			],
-			"loop": false,
+			"indices": [],
 			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "Left"
+			"loop": false,
+			"name": "left0"
 		},
 		{
 			"offsets": [
-				7,
-				-2
+				-126,
+				2
 			],
-			"loop": false,
+			"indices": [],
 			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "Right"
+			"loop": false,
+			"name": "right0"
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/dave_sheet",
 	"position": [
-		0,
+		-50,
 		140
 	],
 	"healthicon": "dave",
@@ -86,7 +70,7 @@
 		255
 	],
 	"camera_position": [
-		100,
+		80,
 		0
 	],
 	"sing_duration": 6.1,

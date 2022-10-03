@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-230,
+				-110
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "LEFT"
+		},
+		{
+			"offsets": [
+				-50,
+				-90
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "DOWN"
+		},
+		{
+			"offsets": [
+				0,
+				-70
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "UP"
+		},
+		{
+			"offsets": [
+				240,
+				-110
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "RIGHT"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": true,
+			"name": "IDLE"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/CrimsonBamburg",
+	"position": [
+		-390,
+		-300
+	],
+	"healthicon": "baiburg",
+	"flip_x": false,
+	"healthbar_colors": [
+		119,
+		3,
+		7
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

@@ -2,88 +2,99 @@
 	"animations": [
 		{
 			"offsets": [
-				80,
-				-2
+				30,
+				-45
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "a_bambi idle"
+		},
+		{
+			"offsets": [
+				126,
+				-52
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singLEFT",
 			"indices": [],
-			"name": "left"
+			"name": "a_bambi left"
 		},
 		{
 			"offsets": [
-				93,
-				-18
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singDOWN",
-			"indices": [],
-			"name": "down"
-		},
-		{
-			"offsets": [
-				39,
-				-7
+				42,
+				-40
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singRIGHT",
 			"indices": [],
-			"name": "right"
+			"name": "a_bambi right"
 		},
 		{
 			"offsets": [
-				53,
-				46
+				49,
+				-2
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singUP",
 			"indices": [],
-			"name": "up"
-		},
-		{
-			"loop": true,
-			"offsets": [
-				0,
-				0
-			],
-			"anim": "idle",
-			"fps": 24,
-			"name": "idle",
-			"indices": []
+			"name": "a_bambi up"
 		},
 		{
 			"offsets": [
-				52,
-				0
+				38,
+				-70
 			],
-			"indices": [],
-			"fps": 24,
-			"anim": "idiot",
 			"loop": false,
-			"name": "fucking_idiot"
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "a_bambi down"
+		},
+		{
+			"offsets": [
+				91,
+				-32
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "Idiot",
+			"indices": [],
+			"name": "fucking idiot"
+		},
+		{
+			"offsets": [
+				107,
+				39
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "BreakPhone",
+			"indices": [],
+			"name": "a_bambi phone"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/bambi-mad",
+	"image": "characters/Angry_Bambi",
 	"position": [
-		60,
-		390
+		170,
+		370
 	],
-	"healthicon": "bambiMad",
+	"healthicon": "bambi",
 	"flip_x": false,
 	"healthbar_colors": [
-		12,
-		181,
-		0
+		183,
+		216,
+		85
 	],
 	"camera_position": [
-		0,
-		-10
+		20,
+		120
 	],
-	"sing_duration": 4.00000000000001,
-	"scale": 0.9
+	"sing_duration": 4,
+	"scale": 1
 }

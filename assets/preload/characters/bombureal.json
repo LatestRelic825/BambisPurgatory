@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-132,
+				-10
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "left"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "down"
+		},
+		{
+			"offsets": [
+				0,
+				-50
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "up"
+		},
+		{
+			"offsets": [
+				160,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "right"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": false,
+			"name": "idle"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Bombu-Sprites",
+	"position": [
+		-70,
+		-20
+	],
+	"healthicon": "bombu",
+	"flip_x": false,
+	"healthbar_colors": [
+		0,
+		0,
+		55
+	],
+	"camera_position": [
+		-230,
+		-140
+	],
+	"sing_duration": 6.1,
+	"scale": 1.6
+}

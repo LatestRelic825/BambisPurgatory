@@ -1,5 +1,5 @@
 local shityourself = true
-Chromacrap = 0;
+local Chromacrap = 0;
 
 function boundTo(value, min, max)
     return math.max(min, math.min(max, value))
@@ -14,7 +14,7 @@ end
 
 function opponentNoteHit(id, noteData, noteType, isSustainNote)
     if shityourself then
-        Chromacrap = Chromacrap + 0.015 -- edit this
+        Chromacrap = Chromacrap + 0.030 -- edit this
     end
 end
 
@@ -40,7 +40,7 @@ function onUpdate(elapsed)
 
     if not shityourself then 
         if curBeat % 1 == 0 then
-            Chromacrap = 0.005 -- edit this
+            Chromacrap = 0.008 -- edit this
         end
     end
 
