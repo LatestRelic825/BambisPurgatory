@@ -8,116 +8,105 @@
 			],
 			"anim": "idle",
 			"fps": 24,
-			"name": "bambi idle",
+			"name": "a_bambi idle",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				28,
-				-342
-			],
-			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "bambi right",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				95,
-				-316
+				46,
+				-304
 			],
 			"anim": "singUP",
 			"fps": 24,
-			"name": "bambi up",
+			"name": "a_bambi up",
 			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				44,
+				-345
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "a_bambi right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				133,
+				-361
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "a_bambi left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				49,
+				-376
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "a_bambi down",
+			"indices": []
+		},
+		{
+			"offsets": [
+				102,
+				-338
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "Idiot",
+			"indices": [],
+			"name": "fucking idiot"
 		},
 		{
 			"loop": false,
 			"offsets": [
 				112,
-				-348
+				-267
 			],
-			"anim": "singLEFT",
-			"fps": 24,
-			"name": "bambi left",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				63,
-				-383
-			],
-			"anim": "singDOWN",
-			"fps": 24,
-			"name": "bambi down",
-			"indices": []
-		},
-		{
-			"offsets": [
-				136,
-				-271
-			],
-			"loop": false,
-			"fps": 24,
 			"anim": "hey",
-			"indices": [],
-			"name": "bambi phone"
-		},
-		{
-			"offsets": [
-				79,
-				-327
-			],
-			"loop": false,
 			"fps": 24,
-			"anim": "throw",
-			"indices": [],
-			"name": "bambi throw"
-		},
-		{
-			"offsets": [
-				42,
-				-341
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "look",
-			"indices": [],
-			"name": "bambi look"
-		},
-		{
-			"loop": false,
-			"offsets": [
-				67,
-				-345
-			],
-			"anim": "singLEFT-alt",
-			"fps": 24,
-			"name": "bambi alt left",
+			"name": "a_bambi phone",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				61,
-				-338
+				193,
+				-328
 			],
-			"anim": "singRIGHT-alt",
+			"anim": "throw",
 			"fps": 24,
-			"name": "bambi alt right",
+			"name": "a_bambi throw",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				60,
+				-317
+			],
+			"anim": "scream",
+			"fps": 24,
+			"name": "a_bambi scream",
 			"indices": []
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/bambiremake",
+	"image": "characters/Angry_Bambi",
 	"position": [
 		220,
 		60
 	],
-	"healthicon": "bambi",
+	"healthicon": "bambiMad",
 	"flip_x": false,
 	"healthbar_colors": [
 		12,
