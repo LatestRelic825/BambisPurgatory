@@ -32,6 +32,8 @@ class StoryMenuState extends MusicBeatState
 	var week1:FlxSprite;
 	var o:FlxSprite;
 	var lol:Bool = false;
+	var lol2:Bool = false;
+	var lol3:Bool = false;
 	var canExit:Bool = true;
 	var week1text:FlxText;
 	var week2text:FlxText;
@@ -137,33 +139,32 @@ class StoryMenuState extends MusicBeatState
 	  override public function update(elapsed:Float)
 	  {
 		var clicked = FlxG.mouse.overlaps(week1) && FlxG.mouse.justPressed && !lol;
+		var clicked2 = FlxG.mouse.overlaps(week2) && FlxG.mouse.justPressed && !lol2;
+		var clicked3 = FlxG.mouse.overlaps(week3) && FlxG.mouse.justPressed && !lol3;
 
 		if (clicked)
 		{
 			lol = true;
 			FlxG.mouse.visible = false;
 			FlxG.sound.play(Paths.sound('confirmMenu'));
-			startSong('shattered/shattered-hard', 'reality breaking-hard', 'rebound-hard');	
+			startSong('shattered/shattered-hard', 'reality breaking', 'rebound');	
 		}
 
-		var clicked = FlxG.mouse.overlaps(week2) && FlxG.mouse.justPressed && !lol;
-
-		if (clicked)
+		if (clicked2)
 		{
-			lol = true;
+			lol2 = true;
 			FlxG.mouse.visible = false;
 			FlxG.sound.play(Paths.sound('confirmMenu'));
-			startSong2('rebound/rebound-hard', 'disposition-hard', 'upheaval-hard');	
+			startSong2('rebound/rebound-hard', 'disposition', 'upheaval');	
 		}
 
-		var clicked = FlxG.mouse.overlaps(week3) && FlxG.mouse.justPressed && !lol;
 		
-		if (clicked)
+		if (clicked3)
 		{
-			lol = true;
+			lol3 = true;
 			FlxG.sound.play(Paths.sound('confirmMenu'));
 			FlxG.mouse.visible = false;
-			startSong3('roundabout/roundabout-hard', 'rascal-hard', 'triple threat-hard');	
+			startSong3('roundabout/roundabout-hard', 'rascal', 'triple threat');	
 		}
 		  
 		if(controls.BACK)
@@ -288,7 +289,9 @@ class Section2Substate extends MusicBeatSubstate
 	
 	var arrowshitSub:FlxSprite;
 	var menuItemsSub:FlxTypedGroup<FlxSprite>;
-	var lol:Bool = false;
+	var lol4:Bool = false;
+	var lol5:Bool = false;
+	var lol6:Bool = false;
 	var text:FlxText;
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	var week4:FlxSprite;
@@ -376,34 +379,34 @@ class Section2Substate extends MusicBeatSubstate
 	override function update(elapsed:Float)
 	{
 
-		var clicked = FlxG.mouse.overlaps(week4) && FlxG.mouse.justPressed && !lol;
+		var clicked4 = FlxG.mouse.overlaps(week4) && FlxG.mouse.justPressed && !lol4;
+		var clicked5 = FlxG.mouse.overlaps(week5) && FlxG.mouse.justPressed && !lol5;
+		var clicked6 = FlxG.mouse.overlaps(week6) && FlxG.mouse.justPressed && !lol6;
 		
-		if (clicked)
+		if (clicked4)
 		{
-			lol = true;
+			lol4 = true;
 			FlxG.sound.play(Paths.sound('confirmMenu'));
 			FlxG.mouse.visible = false;
-			startSong4('delivery/delivery-hard', 'acquaintance-hard', 'Double Act-hard');	
+			startSong4('delivery/delivery-hard', 'acquaintance', 'Double Act');	
 		}
 
-		var clicked = FlxG.mouse.overlaps(week5) && FlxG.mouse.justPressed && !lol;
 		
-		if (clicked)
+		if (clicked5)
 		{
-			lol = true;
+			lol5 = true;
 			FlxG.sound.play(Paths.sound('confirmMenu'));
 			FlxG.mouse.visible = false;
-			startSong5("beefin'/beefin-hard", 'technology-hard', 'devastation-hard');	
+			startSong5("beefin'/beefin-hard", 'technology', 'devastation');	
 		}
 		
-		var clicked = FlxG.mouse.overlaps(week6) && FlxG.mouse.justPressed && !lol;
 		
-		if (clicked)
+		if (clicked6)
 		{
-			lol = true;
+			lol6 = true;
 			FlxG.sound.play(Paths.sound('confirmMenu'));
 			FlxG.mouse.visible = false;
-			startSong6('Tyranny/Tyranny-hard', 'Cataclysmic-hard', 'Antagonism-hard');
+			startSong6('Tyranny/Tyranny-hard', 'Cataclysmic', 'Antagonism');
 		}
 
 		if (controls.UI_LEFT_P)

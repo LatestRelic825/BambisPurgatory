@@ -412,7 +412,6 @@ class PlayState extends MusicBeatState
 	// trails!!1 //
 	var evilTrail:FlxTrail;
 	var scaryTrail:FlxTrail;
-	var playerTrail:FlxTrail;
 
 	var precacheList:Map<String, String> = new Map<String, String>();
 
@@ -1675,23 +1674,11 @@ class PlayState extends MusicBeatState
 				evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069); //nice
 				addBehindDad(evilTrail);
 		}
-
-		scaryTrail = new FlxTrail(dad, null, 4, 12, 0.3, 0.069); //nice
-		addBehindDad(scaryTrail);
-		scaryTrail.visible = false;
 		switch(dad.curCharacter)
 		{
 			case 'hell-2' | 'bambi-god2d' | 'expunged':
-				scaryTrail.visible = true;
-		}
-
-		playerTrail = new FlxTrail(boyfriend, null, 4, 12, 0.3, 0.069); //nice
-		addBehindBF(playerTrail);
-		playerTrail.visible = false;
-		switch(boyfriend.curCharacter)
-		{
-			case 'hell-2' | 'bambi-god2d' | 'expunged':
-				playerTrail.visible = true;
+				scaryTrail = new FlxTrail(dad, null, 4, 12, 0.3, 0.069); //nice
+				addBehindDad(scaryTrail);
 		}
 
 		var file:String = Paths.json(songName + '/dialogue'); //Checks for json/Psych Engine dialogue
@@ -2292,23 +2279,10 @@ class PlayState extends MusicBeatState
 		});
 	}
 
-	function refreshTrail(the:Int) {
-		var trailVisible:Bool;
-		switch(the)
-		{
-			case 0:
-				trailVisible = playerTrail.visible;
-				remove(playerTrail);
-				playerTrail = new FlxTrail(boyfriend, null, 4, 12, 0.3, 0.069); //nice
-				playerTrail.visible = trailVisible;
-				addBehindDad(playerTrail);
-			default:
-				trailVisible = scaryTrail.visible;
-				remove(scaryTrail);
-				scaryTrail = new FlxTrail(dad, null, 4, 12, 0.3, 0.069); //nice
-				scaryTrail.visible = trailVisible;
-				addBehindDad(scaryTrail);
-		}
+	function refreshTrail() {
+		remove(scaryTrail);
+		scaryTrail = new FlxTrail(dad, null, 4, 12, 0.3, 0.069); //nice
+		addBehindDad(scaryTrail);
     }
 
 	function set_songSpeed(value:Float):Float
@@ -3870,12 +3844,12 @@ class PlayState extends MusicBeatState
 
 		if(funnyFloatyBoys.contains(dad.curCharacter.toLowerCase()) && canFloat && !laggingRSOD) {
 			dad.y += (Math.sin(elapsedtime) * 0.6);
-			if(dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('idle') && cameraOnDad)
+			if(dad.animation.curAnim.name.startsWith('idle') && cameraOnDad)
 				camFollow.y += (Math.sin(elapsedtime) * 0.6);
 		}
 		if(funnySideFloatyBoys.contains(dad.curCharacter.toLowerCase()) && canSlide && !laggingRSOD) {
 			dad.x += (Math.cos(elapsedtime) * 0.6);
-			if(dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('idle') && cameraOnDad)
+			if(dad.animation.curAnim.name.startsWith('idle') && cameraOnDad)
 				camFollow.x += (Math.sin(elapsedtime) * 0.6);
 		}
 		if(funnyFloatyBoys.contains(boyfriend.curCharacter.toLowerCase()) && canFloat && !laggingRSOD) {
@@ -3889,7 +3863,7 @@ class PlayState extends MusicBeatState
 				camFollow.x += (Math.sin(elapsedtime) * 0.6);
 		}
 		if(funnyRotatorBoys.contains(dad.curCharacter.toLowerCase()) && canRotate && !laggingRSOD) {
-			dad.angle += (Math.cos(elapsedtime) * 0.015);
+			dad.angle += (Math.sin(elapsedtime) * 0.015);
 			// FlxTween.angle(dad, -5, 5, Conductor.crochet / 300, {ease: FlxEase.sineInOut, type: PINGPONG});
 		}
 		if(canFloat && !funnyFloatyBoys.contains(boyfriend.curCharacter.toLowerCase())) {
@@ -4015,6 +3989,7 @@ class PlayState extends MusicBeatState
 					case 508:
 						//uphIntroTime = false; */
 					case 512:
+						refreshTrail();
 						gf.visible = false;
 						FlxG.camera.alpha = 1;
 						camOther.flash(FlxColor.WHITE, 3);
@@ -4026,6 +4001,7 @@ class PlayState extends MusicBeatState
 					//	FlxG.camera.angle = 0;
 					    camHUD.angle = 0;
 					case 767:
+						refreshTrail();
 						ogCamBopVAL = 0.05;
 						ogCamHUDBopVAL = 0.1;
 						camOther.flash(FlxColor.WHITE, 1.5);
@@ -4420,8 +4396,8 @@ class PlayState extends MusicBeatState
 
 		if (camZooming)
 		{
-			FlxG.camera.zoom = FlxMath.lerp(defaultCamZoom, FlxG.camera.zoom, CoolUtil.boundTo(0.95 - ((elapsed * 3.125 * camZoomingDecay)), 0, 1));
-			camHUD.zoom = FlxMath.lerp(1, camHUD.zoom, CoolUtil.boundTo(0.95 - ((elapsed * 3.125 * camZoomingDecay)), 0, 1));
+			FlxG.camera.zoom = FlxMath.lerp(defaultCamZoom, FlxG.camera.zoom, CoolUtil.boundTo(0.95 - (elapsed * 2.125), 0, 1));
+			camHUD.zoom = FlxMath.lerp(1, camHUD.zoom, CoolUtil.boundTo(0.95 - (elapsed * 2.125), 0, 1));
 		}
 
 		FlxG.watch.addQuick("secShit", curSection);
@@ -4736,7 +4712,7 @@ class PlayState extends MusicBeatState
 						new FlxTimer().start(0.12, function(tmr:FlxTimer) {
 							dadbattleLight.alpha = 0.375;
 						});
-						dadbattleLight.setPosition((who.getGraphicMidpoint().x + 40) - dadbattleLight.width / 2, who.y + who.height - dadbattleLight.height + 50);
+						dadbattleLight.setPosition(who.getGraphicMidpoint().x - dadbattleLight.width / 2, who.y + who.height - dadbattleLight.height + 50);
 
 					default:
 						dadbattleBlack.visible = false;
@@ -5014,7 +4990,7 @@ class PlayState extends MusicBeatState
 							iconP1.changeIcon(boyfriend.healthIcon);
 						}
 						setOnLuas('boyfriendName', boyfriend.curCharacter);
-						refreshTrail(0);
+
 					case 1:
 						if(dad.curCharacter != value2) {
 							if(!dadMap.exists(value2)) {
@@ -5036,7 +5012,7 @@ class PlayState extends MusicBeatState
 							iconP2.changeIcon(dad.healthIcon);
 						}
 						setOnLuas('dadName', dad.curCharacter);
-						refreshTrail(1);
+
 					case 2:
 						if(gf != null)
 						{
@@ -5151,24 +5127,6 @@ class PlayState extends MusicBeatState
 						altStrums.forEach(function(spr:StrumNote){
 							FlxTween.tween(spr, {alpha: 1}, 1, {ease: FlxEase.circOut, startDelay: 0 + (0.1 * spr.ID)});
 						});
-				}
-			case 'Toggle Opponent Trail':
-				var poot:Int = Std.parseInt(value1);
-				switch (poot)
-				{
-                    case 0:
-						scaryTrail.visible = false;
-					case 1: 
-						scaryTrail.visible = true;
-				}
-			case 'Toggle Player Trail':
-				var is:Int = Std.parseInt(value1);
-				switch (is)
-				{
-                    case 0:
-						playerTrail.visible = false;
-					case 1: 
-						playerTrail.visible = true;
 				}
 			case 'Move Alt Strumlines':
 				var split:Array<String> = value1.split(',');
