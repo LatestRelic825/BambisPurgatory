@@ -1,74 +1,74 @@
 {
 	"animations": [
 		{
-			"loop": true,
 			"offsets": [
 				-80,
 				30
 			],
-			"anim": "idle",
+			"loop": true,
 			"fps": 24,
-			"name": "shredder idle",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "shredder idle"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-47,
 				34
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "shredder left",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "shredder left"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-62,
 				0
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "shredder down",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "shredder down"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-160,
 				29
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "shredder right",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "shredder right"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-86,
 				53
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "shredder up",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "shredder up"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-47,
 				43
 			],
-			"indices": [],
-			"fps": 40,
 			"anim": "take out",
-			"loop": false,
-			"name": "shredder take out"
+			"fps": 40,
+			"name": "shredder take out",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/bambi-mad-guitar",
+	"image": "characters/bambi-mad-guitarn",
 	"position": [
 		60,
 		450
@@ -76,13 +76,13 @@
 	"healthicon": "bambiMad",
 	"flip_x": false,
 	"healthbar_colors": [
-		12,
+		0,
 		181,
 		0
 	],
 	"camera_position": [
 		50,
-		0
+		80
 	],
 	"sing_duration": 4.00000000000001,
 	"scale": 1

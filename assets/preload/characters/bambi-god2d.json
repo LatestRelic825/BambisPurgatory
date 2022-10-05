@@ -6,7 +6,7 @@
 				275
 			],
 			"loop": true,
-			"fps": 24,
+			"fps": 6,
 			"anim": "singLEFT",
 			"indices": [],
 			"name": "LEFT"
@@ -17,7 +17,7 @@
 				217
 			],
 			"loop": true,
-			"fps": 24,
+			"fps": 6,
 			"anim": "singDOWN",
 			"indices": [],
 			"name": "DOWN"
@@ -28,7 +28,7 @@
 				283
 			],
 			"loop": true,
-			"fps": 24,
+			"fps": 6,
 			"anim": "singUP",
 			"indices": [],
 			"name": "UP"
@@ -39,7 +39,7 @@
 				126
 			],
 			"loop": true,
-			"fps": 24,
+			"fps": 6,
 			"anim": "singRIGHT",
 			"indices": [],
 			"name": "RIGHT"
@@ -50,7 +50,7 @@
 				130
 			],
 			"loop": true,
-			"fps": 24,
+			"fps": 6,
 			"anim": "idle",
 			"indices": [],
 			"name": "IDLE"
