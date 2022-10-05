@@ -2292,10 +2292,23 @@ class PlayState extends MusicBeatState
 		});
 	}
 
-	function refreshTrail() {
-		remove(scaryTrail);
-		scaryTrail = new FlxTrail(dad, null, 4, 12, 0.3, 0.069); //nice
-		addBehindDad(scaryTrail);
+	function refreshTrail(the:Int) {
+		var trailVisible:Bool;
+		switch(the)
+		{
+			case 0:
+				trailVisible = playerTrail.visible;
+				remove(playerTrail);
+				playerTrail = new FlxTrail(boyfriend, null, 4, 12, 0.3, 0.069); //nice
+				playerTrail.visible = trailVisible;
+				addBehindDad(playerTrail);
+			default:
+				trailVisible = scaryTrail.visible;
+				remove(scaryTrail);
+				scaryTrail = new FlxTrail(dad, null, 4, 12, 0.3, 0.069); //nice
+				scaryTrail.visible = trailVisible;
+				addBehindDad(scaryTrail);
+		}
     }
 
 	function set_songSpeed(value:Float):Float
@@ -4002,7 +4015,6 @@ class PlayState extends MusicBeatState
 					case 508:
 						//uphIntroTime = false; */
 					case 512:
-						refreshTrail();
 						gf.visible = false;
 						FlxG.camera.alpha = 1;
 						camOther.flash(FlxColor.WHITE, 3);
@@ -4014,7 +4026,6 @@ class PlayState extends MusicBeatState
 					//	FlxG.camera.angle = 0;
 					    camHUD.angle = 0;
 					case 767:
-						refreshTrail();
 						ogCamBopVAL = 0.05;
 						ogCamHUDBopVAL = 0.1;
 						camOther.flash(FlxColor.WHITE, 1.5);
@@ -5003,7 +5014,7 @@ class PlayState extends MusicBeatState
 							iconP1.changeIcon(boyfriend.healthIcon);
 						}
 						setOnLuas('boyfriendName', boyfriend.curCharacter);
-
+						refreshTrail(0);
 					case 1:
 						if(dad.curCharacter != value2) {
 							if(!dadMap.exists(value2)) {
@@ -5025,7 +5036,7 @@ class PlayState extends MusicBeatState
 							iconP2.changeIcon(dad.healthIcon);
 						}
 						setOnLuas('dadName', dad.curCharacter);
-
+						refreshTrail(1);
 					case 2:
 						if(gf != null)
 						{

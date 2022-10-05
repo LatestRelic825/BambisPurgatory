@@ -90,24 +90,24 @@
 	<SubTexture name="a_bambi up0006" x="1429" y="1186" width="315" height="362"/>
 	<SubTexture name="a_bambi up0007" x="1429" y="1186" width="315" height="362"/>
 	<SubTexture name="a_bambi up0008" x="1429" y="1186" width="315" height="362"/>
-	<SubTexture name="fucking idiot0000" x="1749" y="1186" width="474" height="333"/>
-	<SubTexture name="fucking idiot0001" x="2228" y="1186" width="474" height="333"/>
-	<SubTexture name="fucking idiot0002" x="2228" y="1186" width="474" height="333"/>
-	<SubTexture name="fucking idiot0003" x="2707" y="1186" width="474" height="333"/>
-	<SubTexture name="fucking idiot0004" x="3186" y="1186" width="474" height="333"/>
-	<SubTexture name="fucking idiot0005" x="5" y="1553" width="474" height="333"/>
-	<SubTexture name="fucking idiot0006" x="5" y="1553" width="474" height="333"/>
-	<SubTexture name="fucking idiot0007" x="484" y="1553" width="474" height="333"/>
-	<SubTexture name="fucking idiot0008" x="484" y="1553" width="474" height="333"/>
-	<SubTexture name="fucking idiot0009" x="963" y="1553" width="474" height="333"/>
-	<SubTexture name="fucking idiot0010" x="1442" y="1553" width="474" height="333"/>
-	<SubTexture name="fucking idiot0011" x="1921" y="1553" width="474" height="333"/>
-	<SubTexture name="fucking idiot0012" x="1921" y="1553" width="474" height="333"/>
-	<SubTexture name="fucking idiot0013" x="2400" y="1553" width="474" height="333"/>
-	<SubTexture name="fucking idiot0014" x="2400" y="1553" width="474" height="333"/>
-	<SubTexture name="fucking idiot0015" x="2879" y="1553" width="474" height="333"/>
-	<SubTexture name="fucking idiot0016" x="2879" y="1553" width="474" height="333"/>
-	<SubTexture name="fucking idiot0017" x="2879" y="1553" width="474" height="333"/>
-	<SubTexture name="fucking idiot0018" x="3358" y="1553" width="474" height="333"/>
-	<SubTexture name="fucking idiot0019" x="5" y="1891" width="474" height="333"/>
+	<SubTexture name="fucking idiot0000" x="1749" y="1186" width="474" height="331"/>
+	<SubTexture name="fucking idiot0001" x="2228" y="1186" width="474" height="331"/>
+	<SubTexture name="fucking idiot0002" x="2228" y="1186" width="474" height="331"/>
+	<SubTexture name="fucking idiot0003" x="2707" y="1186" width="474" height="331"/>
+	<SubTexture name="fucking idiot0004" x="3186" y="1186" width="474" height="331"/>
+	<SubTexture name="fucking idiot0005" x="5" y="1553" width="474" height="331"/>
+	<SubTexture name="fucking idiot0006" x="5" y="1553" width="474" height="331"/>
+	<SubTexture name="fucking idiot0007" x="484" y="1553" width="474" height="331"/>
+	<SubTexture name="fucking idiot0008" x="484" y="1553" width="474" height="331"/>
+	<SubTexture name="fucking idiot0009" x="963" y="1553" width="474" height="331"/>
+	<SubTexture name="fucking idiot0010" x="1442" y="1553" width="474" height="331"/>
+	<SubTexture name="fucking idiot0011" x="1921" y="1553" width="474" height="331"/>
+	<SubTexture name="fucking idiot0012" x="1921" y="1553" width="474" height="331"/>
+	<SubTexture name="fucking idiot0013" x="2400" y="1553" width="474" height="331"/>
+	<SubTexture name="fucking idiot0014" x="2400" y="1553" width="474" height="331"/>
+	<SubTexture name="fucking idiot0015" x="2879" y="1553" width="474" height="331"/>
+	<SubTexture name="fucking idiot0016" x="3358" y="1553" width="474" height="331"/>
+	<SubTexture name="fucking idiot0017" x="3358" y="1553" width="474" height="331"/>
+	<SubTexture name="fucking idiot0018" x="5" y="1889" width="474" height="331"/>
+	<SubTexture name="fucking idiot0019" x="484" y="1889" width="474" height="331"/>
 </TextureAtlas>
