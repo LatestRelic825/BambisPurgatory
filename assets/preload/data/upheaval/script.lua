@@ -44,8 +44,6 @@ function onCreatePost()
     addLuaSprite('barRight', true)
 
     setProperty('camHUD.visible', false)
-    setProperty('dad.x', -2000)
-    setProperty('dad.visible', false)
     setProperty('gfSpeed', 2)
     setProperty('camGame.zoom', 1.25)
 end
@@ -70,6 +68,10 @@ function onStepHit()
         doTweenY("gfTweenY", "gf", getProperty('gf.y') - 400, 3.5, 'cubein')
         doTweenAngle("gfTweenAn", "gf", 10, 3.5, 'cubein')
         doTweenAlpha("gfTweenAlpha", "gf", 0, 3.5)
+
+        doTweenY("dadTweenY", "dad", getProperty('dad.y') - 400, 2, 'cubein')
+        doTweenAngle("dadTweenAn", "dad", 10, 2, 'cubein')
+        doTweenAlpha("dadTweenAlpha", "dad", 0, 2)
     end
     if curStep == 512 then
         darkenChar = true
