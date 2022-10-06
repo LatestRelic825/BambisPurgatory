@@ -40,6 +40,7 @@ class ClientPrefs {
 	public static var laneTransparency:Float = 0.5;
 	public static var judgementCounter:String = 'Disabled';
 	public static var noteCombo:Bool = true;
+	public static var fastZoom:Bool = true;
 	public static var ratingsinHUD:Bool = true;
 	// ENDS HERE
 	public static var gameplaySettings:Map<String, Dynamic> = [
@@ -146,6 +147,7 @@ class ClientPrefs {
 		FlxG.save.data.laneTransparency = laneTransparency;
 		FlxG.save.data.judgementCounter = judgementCounter;
 		FlxG.save.data.noteCombo = noteCombo;
+		FlxG.save.data.fastZoom = fastZoom;
 		FlxG.save.data.ratingsinHUD = ratingsinHUD;
 		//ENDS HERE
 	
@@ -281,6 +283,9 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.noteCombo != null) {
 			noteCombo = FlxG.save.data.noteCombo;
+		}
+		if(FlxG.save.data.fastZoom != null) {
+			fastZoom = FlxG.save.data.fastZoom;
 		}
 		if(FlxG.save.data.ratingsinHUD != null) {
 			ratingsinHUD = FlxG.save.data.ratingsinHUD;

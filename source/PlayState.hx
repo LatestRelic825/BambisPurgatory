@@ -368,7 +368,7 @@ class PlayState extends MusicBeatState
 
 	// for the regular camera zoom //
 	var ogCamBopVAL:Float = 0.015; //camGame
-	var ogCamHUDBopVAL:Float = 0.05; //camHUD
+	var ogCamHUDBopVAL:Float = 0.03; //camHUD
 
 	// shit that messes with the camera (mostly for like events like eyesores) //
 	private var shakeCam:Bool = false;
@@ -4446,8 +4446,16 @@ class PlayState extends MusicBeatState
 
 		if (camZooming)
 		{
-			FlxG.camera.zoom = FlxMath.lerp(defaultCamZoom, FlxG.camera.zoom, CoolUtil.boundTo(0.95 - (elapsed * 2.125), 0, 1));
-			camHUD.zoom = FlxMath.lerp(1, camHUD.zoom, CoolUtil.boundTo(0.95 - (elapsed * 2.125), 0, 1));
+			if (ClientPrefs.fastZoom)
+			{
+				FlxG.camera.zoom = FlxMath.lerp(defaultCamZoom, FlxG.camera.zoom, CoolUtil.boundTo(0.95 - (elapsed * 2.125 * camZoomingDecay), 0, 1));
+				camHUD.zoom = FlxMath.lerp(1, camHUD.zoom, CoolUtil.boundTo(0.95 - (elapsed * 2.125 * camZoomingDecay) , 0, 1));
+			} 
+			else
+			{
+				FlxG.camera.zoom = FlxMath.lerp(defaultCamZoom, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125 * camZoomingDecay), 0, 1));
+				camHUD.zoom = FlxMath.lerp(1, camHUD.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125 * camZoomingDecay), 0, 1));
+			}	
 		}
 
 		FlxG.watch.addQuick("secShit", curSection);
@@ -6642,9 +6650,17 @@ class PlayState extends MusicBeatState
 		}
 
 		if (camZooming && FlxG.camera.zoom < 1.35 && ClientPrefs.camZooms && camZoomSnap && !laggingRSOD)
-		{
-			FlxG.camera.zoom += camBopVAL * camZoomingMult;
-			camHUD.zoom += camHUDBopVAL * camZoomingMult;
+		{	
+			if (!ClientPrefs.fastZoom)
+			{
+				FlxG.camera.zoom += ogCamBopVAL * camZoomingMult;
+				camHUD.zoom += ogCamHUDBopVAL * camZoomingMult;
+			}
+			else
+			{
+				FlxG.camera.zoom += camBopVAL * camZoomingMult;
+				camHUD.zoom += camHUDBopVAL * camZoomingMult;
+			}
 		}
 
 		if(goofyZoom) {
@@ -6750,8 +6766,16 @@ class PlayState extends MusicBeatState
 
 			if (camZooming && FlxG.camera.zoom < 1.35 && ClientPrefs.camZooms && !camZoomSnap && !laggingRSOD)
 			{
-				FlxG.camera.zoom += ogCamBopVAL * camZoomingMult;
-				camHUD.zoom += ogCamHUDBopVAL * camZoomingMult;
+				if (!ClientPrefs.fastZoom)
+				{
+					FlxG.camera.zoom += ogCamBopVAL * camZoomingMult;
+					camHUD.zoom += ogCamHUDBopVAL * camZoomingMult;
+				}
+				else
+				{
+					FlxG.camera.zoom += camBopVAL * camZoomingMult;
+					camHUD.zoom += camHUDBopVAL * camZoomingMult;
+				}
 			}
 
 			if (SONG.notes[curSection].changeBPM)
