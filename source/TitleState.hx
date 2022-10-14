@@ -401,12 +401,14 @@ class TitleState extends MusicBeatState
 		textGroup = new FlxGroup();
 		
 		blackScreen = new FlxSprite().loadGraphic(Paths.image('bofa'));
+		blackScreen.scrollFactor.set(0, 0);
 		credGroup.add(blackScreen);
 
 		slider = new FlxBackdrop(Paths.image('hahaslider'),1,0,true,false);
 		slider.velocity.set(-14,0);
 		slider.x = -20;
 		slider.y = 350;
+		slider.scrollFactor.set(0.8, 0.8);
 		slider.setGraphicSize(Std.int(slider.width * 0.65));
 		credGroup.add(slider); // i borrowed this from tricky hhehehehehe
 
@@ -424,6 +426,9 @@ class TitleState extends MusicBeatState
 		ngSpr.updateHitbox();
 		ngSpr.screenCenter(X);
 		ngSpr.antialiasing = ClientPrefs.globalAntialiasing;
+
+		FlxG.camera.scroll.y = -720;
+		FlxTween.tween(FlxG.camera.scroll, {y: 0}, 2.9, {ease: FlxEase.quadOut});
 
 		FlxTween.tween(credTextShit, {y: credTextShit.y + 20}, 2.9, {ease: FlxEase.quadInOut, type: PINGPONG});
 
