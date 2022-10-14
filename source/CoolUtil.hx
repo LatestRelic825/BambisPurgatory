@@ -38,13 +38,13 @@ class CoolUtil
 		if(num == null) num = PlayState.storyDifficulty;
 
 		var fileSuffix:String = difficulties[num];
-		if(fileSuffix != defaultDifficulty)
+		if(fileSuffix != defaultDifficulty && fileSuffix != null)
 		{
 			fileSuffix = '-' + fileSuffix;
 		}
 		else
 		{
-			fileSuffix = '';
+			fileSuffix = '-hard';
 		}
 		return Paths.formatToSongPath(fileSuffix);
 	}
