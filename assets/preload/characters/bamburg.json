@@ -9,70 +9,70 @@
 			"fps": 24,
 			"anim": "idle",
 			"indices": [],
-			"name": "Idle"
+			"name": "IDLE"
 		},
 		{
 			"offsets": [
-				575,
-				234
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singLEFT",
-			"indices": [],
-			"name": "Left"
-		},
-		{
-			"offsets": [
-				280,
-				210
+				940,
+				380
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singDOWN",
 			"indices": [],
-			"name": "Down"
+			"name": "DOWN"
 		},
 		{
 			"offsets": [
-				191,
-				687
+				851,
+				277
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singUP",
 			"indices": [],
-			"name": "Up"
+			"name": "UP"
 		},
 		{
 			"offsets": [
-				901,
-				737
+				831,
+				297
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singRIGHT",
 			"indices": [],
-			"name": "Right"
+			"name": "RIGHT"
+		},
+		{
+			"offsets": [
+				829,
+				284
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "LEFT"
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/bamburg",
 	"position": [
-		-380,
-		-60
+		650,
+		180
 	],
-	"healthicon": "homo",
+	"healthicon": "bamburg",
 	"flip_x": false,
 	"healthbar_colors": [
 		237,
 		191,
-		16
+		36
 	],
 	"camera_position": [
-		20,
-		-140
+		-960,
+		-330
 	],
 	"sing_duration": 4,
-	"scale": 0.7
+	"scale": 1.1
 }

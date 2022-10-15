@@ -133,7 +133,7 @@ class FreeplayState extends MusicBeatState
 					addWeek(['Acquaintance'], 9, ['minion']);
 					addWeek(['Double Act'], 14, ['doubleee']);
 
-					addWeek(['Beefin'], 6, ['homo']);
+					addWeek(["Beefin'"], 6, ['bamburg']);
 					addWeek(['Technology'], 10, ['bombu']);
 					addWeek(['Devastation'], 4, ['dagang']); 
 

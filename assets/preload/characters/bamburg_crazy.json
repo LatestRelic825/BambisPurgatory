@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				855,
+				280
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "Idle"
+		},
+		{
+			"offsets": [
+				575,
+				234
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Left"
+		},
+		{
+			"offsets": [
+				280,
+				210
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Down"
+		},
+		{
+			"offsets": [
+				191,
+				687
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Up"
+		},
+		{
+			"offsets": [
+				901,
+				737
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Right"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/bamburg_crazy",
+	"position": [
+		-380,
+		-60
+	],
+	"healthicon": "bamburg_crazy",
+	"flip_x": false,
+	"healthbar_colors": [
+		237,
+		191,
+		16
+	],
+	"camera_position": [
+		20,
+		-140
+	],
+	"sing_duration": 4,
+	"scale": 0.7
+}
