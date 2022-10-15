@@ -427,15 +427,15 @@ class TitleState extends MusicBeatState
 		ngSpr.screenCenter(X);
 		ngSpr.antialiasing = ClientPrefs.globalAntialiasing;
 
-		FlxG.camera.scroll.y = -720;
-		FlxTween.tween(FlxG.camera.scroll, {y: 0}, 2.9, {ease: FlxEase.quadOut});
-
 		FlxTween.tween(credTextShit, {y: credTextShit.y + 20}, 2.9, {ease: FlxEase.quadInOut, type: PINGPONG});
 
 		if (initialized)
 			skipIntro();
-		else
+		else {
 			initialized = true;
+			FlxG.camera.scroll.y = -720;
+			FlxTween.tween(FlxG.camera.scroll, {y: 0}, 2.9, {ease: FlxEase.quadOut});
+		}
 
 		// credGroup.add(credTextShit);
 	}

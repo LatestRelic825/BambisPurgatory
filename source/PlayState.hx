@@ -150,6 +150,7 @@ class PlayState extends MusicBeatState
 
 	public var curbg:FlxSprite;
 	public var screenshader:Shaders.PulseEffect = new PulseEffect();
+	public var glitchShader:Shaders.BlockedGlitchEffect = new BlockedGlitchEffect();
 
 	public var elapsedtime:Float = 0;
 	public var spawnTime:Float = 2000;
@@ -372,6 +373,7 @@ class PlayState extends MusicBeatState
 
 	// shit that messes with the camera (mostly for like events like eyesores) //
 	private var shakeCam:Bool = false;
+	private var glitchCam:Bool = false;
 	private var camZoomSnap:Bool = false;
 	var goofyZoom:Bool = false;
 
@@ -1587,6 +1589,8 @@ class PlayState extends MusicBeatState
         screenshader.waveFrequency = 2;
         screenshader.waveSpeed = 1;
         screenshader.shader.uTime.value[0] = new flixel.math.FlxRandom().float(-100000, 100000);
+
+        camHUD.setFilters([new ShaderFilter(glitchShader.shader)]); 
 
 		var gfVersion:String = SONG.gfVersion;
 		if(gfVersion == null || gfVersion.length < 1)
@@ -3946,6 +3950,9 @@ class PlayState extends MusicBeatState
 		}
 		screenshader.Enabled = shakeCam && eyesoreson;
 
+		glitchShader.update(elapsed);
+		glitchShader.set_Enabled(glitchCam);
+
 		if(SONG.song.toLowerCase() == 'rebound')
 		{
 			for(str in playerStrums) {
@@ -5198,6 +5205,19 @@ class PlayState extends MusicBeatState
 						shakeCam = false;
 					case 1: 
 						shakeCam = true;
+				}
+			case 'Toggle Blocked Glitch':
+				var newvariable:Int = Std.parseInt(value1);
+				switch (newvariable)
+				{
+                    case 0:
+						glitchCam = false;
+						defaultCamZoom -= 0.1;
+						FlxTween.tween(blackScreendeez, {alpha: 0}, Conductor.stepCrochet / 500);
+					case 1: 
+						glitchCam = true;
+						defaultCamZoom += 0.1;
+						FlxTween.tween(blackScreendeez, {alpha: 0.35}, Conductor.stepCrochet / 500);
 				}
 			case 'Toggle Opponent Trail':
 				var poot:Int = Std.parseInt(value1);

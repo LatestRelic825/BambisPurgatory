@@ -161,6 +161,60 @@ class InvertColorsEffect
 
 }
 
+class BlockedGlitchEffect
+{
+    public var shader(default, null):BlockedGlitchShader = new BlockedGlitchShader();
+
+    public var time(default, set):Float = 0;
+    public var resolution(default, set):Float = 0;
+    public var colorMultiplier(default, set):Float = 0;
+    public var hasColorTransform(default, set):Bool = false;
+
+    public var Enabled(default, set):Bool = false;
+
+    public function new():Void
+    {
+        set_time(0);
+        set_resolution(0);
+        set_colorMultiplier(0);
+        set_hasColorTransform(false);
+    }
+    public function update(elapsed:Float):Void
+    {
+        shader.time.value[0] += elapsed;
+    }
+    public function set_resolution(v:Float):Float
+    {
+        resolution = v;
+        shader.screenSize.value = [resolution];
+        return this.resolution;
+    }
+    function set_hasColorTransform(value:Bool):Bool {
+        this.hasColorTransform = value;
+        shader.hasColorTransform.value = [hasColorTransform];
+        return hasColorTransform;
+    }
+
+    function set_colorMultiplier(value:Float):Float {
+        this.colorMultiplier = value;
+        shader.colorMultiplier.value = [value];
+        return this.colorMultiplier;
+    }
+
+    function set_time(value:Float):Float {
+        this.time = value;
+        shader.time.value = [value];
+        return this.time;
+    }
+
+    public function set_Enabled(v:Bool):Bool
+    {
+        Enabled = v;
+        shader.enabled.value = [Enabled];
+        return v;
+    }
+}
+
 class GlitchShader extends FlxShader
 {
     @:glFragmentSource('
@@ -341,5 +395,48 @@ class PulseShader extends FlxShader
     public function new()
     {
        super();
+    }
+}
+
+class BlockedGlitchShader extends FlxShader
+{
+    // https://www.shadertoy.com/view/MlVSD3
+    @:glFragmentSource('
+    #pragma header
+
+    // ---- gllock required fields -----------------------------------------------------------------------------------------
+    #define RATE 0.75
+    
+    uniform float time;
+    uniform float end;
+    uniform bool enabled;
+    uniform sampler2D imageData;
+    uniform vec2 screenSize;
+    // ---------------------------------------------------------------------------------------------------------------------
+    
+    float rand(vec2 co){
+      return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453) * 2.0 - 1.0;
+    }
+    
+    float offset(float blocks, vec2 uv) {
+      float shaderTime = time*RATE;
+      return rand(vec2(shaderTime, floor(uv.y * blocks)));
+    }
+    
+    void main(void) {
+        vec2 uv = openfl_TextureCoordv;
+        gl_FragColor = texture(bitmap, uv);
+        if (enabled)
+        {
+          gl_FragColor.r = texture(bitmap, uv + vec2(offset(64.0, uv) * 0.03, 0.0)).r;
+          gl_FragColor.g = texture(bitmap, uv + vec2(offset(64.0, uv) * 0.03 * 0.16666666, 0.0)).g;
+          gl_FragColor.b = texture(bitmap, uv + vec2(offset(64.0, uv) * 0.03, 0.0)).b;
+        }
+    }
+    ')
+
+    public function new()
+    {
+        super();
     }
 }
