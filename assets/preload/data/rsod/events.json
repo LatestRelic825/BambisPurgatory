@@ -2,6 +2,16 @@
 	"song": {
 		"events": [
 			[
+				1066.66666666667,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
 				1600,
 				[
 					[
@@ -42,81 +52,41 @@
 				]
 			],
 			[
-				24533.3333333333,
+				2133.33333333333,
 				[
 					[
-						"Change Window Title",
-						"",
+						"Toggle Blocked Glitch",
+						"0",
 						""
 					]
 				]
 			],
 			[
-				24533.3333333333,
+				16000,
 				[
 					[
-						"Change Window Title",
-						"",
+						"Toggle Blocked Glitch",
+						"1",
 						""
 					]
 				]
 			],
 			[
-				24533.3333333333,
+				17066.6666666667,
 				[
 					[
-						"Change Window Title",
-						"",
+						"Toggle Blocked Glitch",
+						"0",
 						""
 					]
 				]
 			],
 			[
-				24533.3333333333,
+				23466.6666666667,
 				[
 					[
-						"Change Window Title",
-						"",
-						""
-					]
-				]
-			],
-			[
-				24533.3333333333,
-				[
-					[
-						"Change Window Title",
-						"",
-						""
-					]
-				]
-			],
-			[
-				24533.3333333333,
-				[
-					[
-						"Change Window Title",
-						"",
-						""
-					]
-				]
-			],
-			[
-				24533.3333333333,
-				[
-					[
-						"Change Window Title",
-						"Friday Night Funkin': Technological Gastronomy (Not Responding)",
-						""
-					]
-				]
-			],
-			[
-				24566.6666666667,
-				[
-					[
-						"Change Window Title",
-						"Friday Night Funkin': Technological Gastronomy (Not Responding)",
+						"Toggle Blocked Glitch",
+						"1",
 						""
 					]
 				]
@@ -125,148 +95,68 @@
 				27733.3333333333,
 				[
 					[
-						"Change Window Title",
-						"Friday Night Funkin': Technological Gastronomy (Not Responding)",
+						"Toggle Blocked Glitch",
+						"0",
 						""
 					]
 				]
 			],
 			[
-				27733.3333333333,
+				50133.3333333333,
 				[
 					[
-						"Change Window Title",
-						"Friday Night Funkin': Technological Gastronomy (Not Responding)",
+						"Toggle Blocked Glitch",
+						"1",
 						""
 					]
 				]
 			],
 			[
-				27733.3333333333,
+				51200,
 				[
 					[
-						"Reset Window Title",
-						"",
+						"Toggle Blocked Glitch",
+						"0",
 						""
 					]
 				]
 			],
 			[
-				27755.5555555555,
+				69333.3333333333,
 				[
 					[
-						"Reset Window Title",
-						"",
+						"Toggle Blocked Glitch",
+						"1",
 						""
 					]
 				]
 			],
 			[
-				77866.6666666666,
+				70400,
 				[
 					[
-						"Change Window Title",
-						"",
+						"Toggle Blocked Glitch",
+						"0",
 						""
 					]
 				]
 			],
 			[
-				77866.6666666666,
+				76800,
 				[
 					[
-						"Change Window Title",
-						"",
+						"Toggle Blocked Glitch",
+						"1",
 						""
 					]
 				]
 			],
 			[
-				77866.6666666666,
+				81066.6666666667,
 				[
 					[
-						"Change Window Title",
-						"",
-						""
-					]
-				]
-			],
-			[
-				77866.6666666666,
-				[
-					[
-						"Change Window Title",
-						"",
-						""
-					]
-				]
-			],
-			[
-				77866.6666666666,
-				[
-					[
-						"Change Window Title",
-						"",
-						""
-					]
-				]
-			],
-			[
-				77866.6666666666,
-				[
-					[
-						"Change Window Title",
-						"",
-						""
-					]
-				]
-			],
-			[
-				77866.6666666666,
-				[
-					[
-						"Change Window Title",
-						"Friday Night Funkin': Technological Gastronomy (Not Responding)",
-						""
-					]
-				]
-			],
-			[
-				77900,
-				[
-					[
-						"Change Window Title",
-						"Friday Night Funkin': Technological Gastronomy (Not Responding)",
-						""
-					]
-				]
-			],
-			[
-				81066.6666666666,
-				[
-					[
-						"Change Window Title",
-						"Friday Night Funkin': Technological Gastronomy (Not Responding)",
-						""
-					]
-				]
-			],
-			[
-				81066.6666666666,
-				[
-					[
-						"Change Window Title",
-						"Friday Night Funkin': Technological Gastronomy (Not Responding)",
-						""
-					]
-				]
-			],
-			[
-				81066.6666666666,
-				[
-					[
-						"Reset Window Title",
-						"",
+						"Toggle Blocked Glitch",
+						"0",
 						""
 					]
 				]
@@ -288,6 +178,11 @@
 						"Add Camera Zoom",
 						"",
 						""
+					],
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
 					]
 				]
 			],
@@ -297,6 +192,36 @@
 					[
 						"Add Camera Zoom",
 						"",
+						""
+					]
+				]
+			],
+			[
+				99200.0000000001,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				101066.666666667,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				101333.333333333,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"0",
 						""
 					]
 				]
@@ -342,81 +267,51 @@
 				]
 			],
 			[
-				146133.333333333,
+				106666.666666667,
 				[
 					[
-						"Change Window Title",
-						"",
+						"Toggle Blocked Glitch",
+						"1",
 						""
 					]
 				]
 			],
 			[
-				146133.333333333,
+				115200,
 				[
 					[
-						"Change Window Title",
-						"",
+						"Toggle Blocked Glitch",
+						"0",
 						""
 					]
 				]
 			],
 			[
-				146133.333333333,
+				137600,
 				[
 					[
-						"Change Window Title",
-						"",
+						"Toggle Blocked Glitch",
+						"1",
 						""
 					]
 				]
 			],
 			[
-				146133.333333333,
+				138666.666666667,
 				[
 					[
-						"Change Window Title",
-						"",
+						"Toggle Blocked Glitch",
+						"0",
 						""
 					]
 				]
 			],
 			[
-				146133.333333333,
+				145066.666666667,
 				[
 					[
-						"Change Window Title",
-						"",
-						""
-					]
-				]
-			],
-			[
-				146133.333333333,
-				[
-					[
-						"Change Window Title",
-						"",
-						""
-					]
-				]
-			],
-			[
-				146133.333333333,
-				[
-					[
-						"Change Window Title",
-						"Friday Night Funkin': Technological Gastronomy (Not Responding)",
-						""
-					]
-				]
-			],
-			[
-				146166.666666667,
-				[
-					[
-						"Change Window Title",
-						"Friday Night Funkin': Technological Gastronomy (Not Responding)",
+						"Toggle Blocked Glitch",
+						"1",
 						""
 					]
 				]
@@ -425,38 +320,8 @@
 				149333.333333333,
 				[
 					[
-						"Change Window Title",
-						"Friday Night Funkin': Technological Gastronomy (Not Responding)",
-						""
-					]
-				]
-			],
-			[
-				149333.333333333,
-				[
-					[
-						"Change Window Title",
-						"Friday Night Funkin': Technological Gastronomy (Not Responding)",
-						""
-					]
-				]
-			],
-			[
-				149333.333333333,
-				[
-					[
-						"Reset Window Title",
-						"",
-						""
-					]
-				]
-			],
-			[
-				149355.555555556,
-				[
-					[
-						"Reset Window Title",
-						"",
+						"Toggle Blocked Glitch",
+						"0",
 						""
 					]
 				]

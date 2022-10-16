@@ -7728,10 +7728,8 @@
 		"sections": 1,
 		"needsVoices": true,
 		"validScore": true,
-		"arrowSkin": "polynote",
 		"stage": "ourple",
 		"speed": 2.9,
-		"bpm": 125,
-		"isSkinSep": true
+		"bpm": 125
 	}
 }
