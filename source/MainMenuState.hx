@@ -20,6 +20,7 @@ import lime.app.Application;
 import Achievements;
 import editors.MasterEditorMenu;
 import flixel.input.keyboard.FlxKey;
+import flixel.addons.display.FlxBackdrop;
 
 using StringTools;
 
@@ -86,8 +87,25 @@ class MainMenuState extends MusicBeatState
 		bg.updateHitbox();
 		bg.screenCenter();
 		bg.antialiasing = true;
-		bg.color = 0xFFFDE871;
+		bg.color = 0xFF202020;
 		add(bg);
+
+		var slider2:FlxBackdrop;
+		slider2 = new FlxBackdrop(Paths.image('hahaslider'),1,0,true,false);
+		slider2.velocity.set(-14,0);
+		slider2.x = -20;
+		slider2.y = 350;
+		slider2.setGraphicSize(Std.int(slider2.width * 0.65));
+		add(slider2); // i borrowed this from tricky hhehehehehe
+
+		var fuck:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('funny'));
+		fuck.scrollFactor.set();
+		fuck.setGraphicSize(Std.int(fuck.width * 1.1));
+		fuck.updateHitbox();
+		fuck.screenCenter();
+		fuck.antialiasing = true;
+		fuck.color = 0xFF808080;
+		add(fuck);
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 		camFollowPos = new FlxObject(0, 0, 1, 1);
@@ -99,10 +117,12 @@ class MainMenuState extends MusicBeatState
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
-		var scale:Float = 1;
+		var scale:Float = 0.7;
 		/*if(optionShit.length > 6) {
 			scale = 6 / optionShit.length;
 		}*/
+
+		var curoffset:Float = 100;
 
 		for (i in 0...optionShit.length)
 		{
@@ -116,7 +136,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
 			menuItem.screenCenter(X);
-			menuItem.x += 270;
+			menuItem.x += 450;
 			menuItems.add(menuItem);
 			var scr:Float = (optionShit.length - 4) * 0.135;
 			if(optionShit.length < 6) scr = 0;
