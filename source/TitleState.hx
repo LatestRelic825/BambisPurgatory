@@ -7,6 +7,7 @@ import sys.thread.Thread;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
+import flixel.FlxCamera;
 import flixel.input.keyboard.FlxKey;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.addons.transition.FlxTransitionSprite.GraphicTransTileDiamond;
@@ -60,7 +61,7 @@ class TitleState extends MusicBeatState
 
 	public static var initialized:Bool = false;
 
-	var blackScreen:FlxSprite;
+	var bg:FlxSprite;
 	var slider:FlxBackdrop;
 	var credGroup:FlxGroup;
 	var credTextShit:Alphabet;
@@ -270,23 +271,25 @@ class TitleState extends MusicBeatState
 		Conductor.changeBPM(titleJSON.bpm);
 		persistentUpdate = true;
 
-		var bg:FlxSprite = new FlxSprite();
+		// var bg:FlxSprite = new FlxSprite();
+		bg = new FlxSprite();
 		
 		if (titleJSON.backgroundSprite != null && titleJSON.backgroundSprite.length > 0 && titleJSON.backgroundSprite != "none"){
 			bg.loadGraphic(Paths.image(titleJSON.backgroundSprite));
 		}else{
 			bg.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		}
-
+		bg.scrollFactor.set();
 		add(bg);
 
-		var slider2:FlxBackdrop;
-		slider2 = new FlxBackdrop(Paths.image('hahaslider'),1,0,true,false);
-		slider2.velocity.set(-14,0);
-		slider2.x = -20;
-		slider2.y = 350;
-		slider2.setGraphicSize(Std.int(slider2.width * 0.65));
-		add(slider2); // i borrowed this from tricky hhehehehehe
+		// var slider:FlxBackdrop;
+		slider = new FlxBackdrop(Paths.image('hahaslider'),1,0,true,false);
+		slider.velocity.set(-14,0);
+		slider.x = -20;
+		slider.y = 350;
+		slider.scrollFactor.set(0.8, 0.8);
+		slider.setGraphicSize(Std.int(slider.width * 0.65));
+		add(slider); // i borrowed this from tricky hhehehehehe
 
 		logoBl = new FlxSprite(titleJSON.titlex, titleJSON.titley);
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
@@ -296,6 +299,7 @@ class TitleState extends MusicBeatState
 		logoBl.animation.play('bump');
 		logoBl.updateHitbox();
 	    logoBl.screenCenter(X);
+	    logoBl.visible = false;
 		// logoBl.color = FlxColor.BLACK;
 
 		swagShader = new ColorSwap();
@@ -381,6 +385,7 @@ class TitleState extends MusicBeatState
 		titleText.antialiasing = ClientPrefs.globalAntialiasing;
 		titleText.animation.play('idle');
 		titleText.updateHitbox();
+		titleText.visible = false;
 		// titleText.screenCenter(X);
 		add(titleText);
 
@@ -400,7 +405,7 @@ class TitleState extends MusicBeatState
 		add(credGroup);
 		textGroup = new FlxGroup();
 		
-		blackScreen = new FlxSprite().loadGraphic(Paths.image('bofa'));
+		/* blackScreen = new FlxSprite().loadGraphic(Paths.image('bofa'));
 		blackScreen.scrollFactor.set(0, 0);
 		credGroup.add(blackScreen);
 
@@ -410,7 +415,7 @@ class TitleState extends MusicBeatState
 		slider.y = 350;
 		slider.scrollFactor.set(0.8, 0.8);
 		slider.setGraphicSize(Std.int(slider.width * 0.65));
-		credGroup.add(slider); // i borrowed this from tricky hhehehehehe
+		credGroup.add(slider); // i borrowed this from tricky hhehehehehe */
 
 		credTextShit = new Alphabet(0, 0, "", true);
 		credTextShit.screenCenter();
@@ -433,8 +438,10 @@ class TitleState extends MusicBeatState
 			skipIntro();
 		else {
 			initialized = true;
-			FlxG.camera.scroll.y = -720;
+			FlxG.camera.zoom = 1.5;
+			FlxG.camera.scroll.y = -250;
 			FlxTween.tween(FlxG.camera.scroll, {y: 0}, 2.9, {ease: FlxEase.quadOut});
+			FlxTween.tween(FlxG.camera, {zoom: 1}, 2.25, {ease: FlxEase.quadOut});
 		}
 
 		// credGroup.add(credTextShit);
@@ -466,6 +473,19 @@ class TitleState extends MusicBeatState
 		if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;
 		// FlxG.watch.addQuick('amp', FlxG.sound.music.amplitude);
+
+		// sprite depth thing
+		// i have to do it this way because of flxbackground shit
+		var cam:FlxCamera = FlxG.camera;
+		if (bg != null) {
+			var toScale:Float = 1 / ((cam.zoom - 1) * 0.3 +1);
+			bg.scale.set(toScale, toScale);
+		}
+		if (slider != null) {
+			var toScale:Float = 1 / ((cam.zoom - 1) * 0.1 +1);
+			toScale = toScale * 0.65;
+			slider.scale.set(toScale, toScale);
+		}
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER || controls.ACCEPT;
 
@@ -754,6 +774,8 @@ class TitleState extends MusicBeatState
 					default: //Go back to normal ugly ass boring GF
 						remove(ngSpr);
 						remove(credGroup);
+						logoBl.visible = true;
+						titleText.visible = true;
 						FlxG.camera.flash(FlxColor.WHITE, 2);
 						skippedIntro = true;
 						playJingle = false;
@@ -770,6 +792,8 @@ class TitleState extends MusicBeatState
 					{
 						remove(ngSpr);
 						remove(credGroup);
+						logoBl.visible = true;
+						titleText.visible = true;
 						FlxG.camera.flash(FlxColor.WHITE, 0.6);
 						transitioning = false;
 					});
@@ -778,6 +802,8 @@ class TitleState extends MusicBeatState
 				{
 					remove(ngSpr);
 					remove(credGroup);
+					logoBl.visible = true;
+					titleText.visible = true;
 					FlxG.camera.flash(FlxColor.WHITE, 3);
 					sound.onComplete = function() {
 						FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
@@ -791,6 +817,8 @@ class TitleState extends MusicBeatState
 			{
 				remove(ngSpr);
 				remove(credGroup);
+				logoBl.visible = true;
+				titleText.visible = true;
 				FlxG.camera.flash(FlxColor.WHITE, 4);
 
 				var easteregg:String = FlxG.save.data.psychDevsEasterEgg;

@@ -97,18 +97,6 @@ class FreeplayState extends MusicBeatState
 
 		add(CurrentSongIcon);
 
-		var textBG:FlxSprite = new FlxSprite(0, FlxG.height - 26).makeGraphic(FlxG.width, 26, 0xFF000000);
-		textBG.alpha = 0.6;
-		add(textBG);
-		#if PRELOAD_ALL
-		var leText:String = "Press SPACE to listen to this Song / Press RESET to Reset your Score and Accuracy.";
-		#else
-		var leText:String = "Press RESET to Reset your Score and Accuracy.";
-		#end
-		var text:FlxText = new FlxText(textBG.x + -10, textBG.y + 3, FlxG.width, leText, 21);
-		text.setFormat(Paths.font("comic.ttf"), 18, FlxColor.WHITE, LEFT);
-		text.scrollFactor.set();
-		add(text);
 		super.create();
 	}
 
@@ -145,6 +133,7 @@ class FreeplayState extends MusicBeatState
 					addWeek(['RSOD'], 2, ['bombuExpunged']);
 					addWeek(['crimson corridor'], 2, ['bombuExpunged']);
 					addWeek(['disappointment'], 1, ['gary']);
+					addWeek(['number 15'], 6, ['bamburg']);
 			}
 		}
 
@@ -184,6 +173,19 @@ class FreeplayState extends MusicBeatState
 		diffText.y = 40;
 
 		add(scoreText);
+
+		var textBG:FlxSprite = new FlxSprite(0, FlxG.height - 32).makeGraphic(FlxG.width, 32, 0xFF000000);
+		textBG.alpha = 0.6;
+		add(textBG);
+		#if PRELOAD_ALL
+		var leText:String = "Press SPACE to listen to this Song / Press RESET to Reset your Score and Accuracy.";
+		#else
+		var leText:String = "Press RESET to Reset your Score and Accuracy.";
+		#end
+		var text:FlxText = new FlxText(textBG.x + 10, textBG.y + 2, FlxG.width, leText, 21);
+		text.setFormat(Paths.font("comic.ttf"), 18, FlxColor.WHITE, LEFT);
+		text.scrollFactor.set();
+		add(text);
 
 		changeSelection();
 		changeDiff();
