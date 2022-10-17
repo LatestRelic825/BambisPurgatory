@@ -546,7 +546,7 @@
 				[
 					[
 						"Toggle Blocked Glitch",
-						"0",
+						"1",
 						""
 					]
 				]
@@ -566,7 +566,17 @@
 				[
 					[
 						"Toggle Blocked Glitch",
-						"1",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				165649.509803921,
+				[
+					[
+						"Hide or Show HUD elements with Fade",
+						"0",
 						""
 					]
 				]
