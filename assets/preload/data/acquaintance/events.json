@@ -1,0 +1,945 @@
+{
+	"song": {
+		"speed": 2.9,
+		"stage": "3dPhone",
+		"player1": "bf",
+		"player2": "bambi",
+		"player3": null,
+		"events": [
+			[
+				0,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"1.25",
+						"0.01"
+					]
+				]
+			],
+			[
+				20,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.7",
+						"13"
+					]
+				]
+			],
+			[
+				23040,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						"7"
+					]
+				]
+			],
+			[
+				28800,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"1",
+						"1.1"
+					]
+				]
+			],
+			[
+				30960,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"1.1",
+						""
+					]
+				]
+			],
+			[
+				31200,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					],
+					[
+						"Flash effect",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				32160,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.85",
+						""
+					]
+				]
+			],
+			[
+				32400,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				33360,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.85",
+						""
+					]
+				]
+			],
+			[
+				33600,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				34320,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.9",
+						""
+					]
+				]
+			],
+			[
+				34800,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				35040,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.85",
+						""
+					]
+				]
+			],
+			[
+				35760,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				36000,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.85",
+						""
+					]
+				]
+			],
+			[
+				36480,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				37440,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.9",
+						""
+					]
+				]
+			],
+			[
+				38160,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.7",
+						""
+					]
+				]
+			],
+			[
+				38640,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				39840,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.85",
+						""
+					]
+				]
+			],
+			[
+				40080,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				41040,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.85",
+						""
+					]
+				]
+			],
+			[
+				41280,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				42000,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.9",
+						""
+					]
+				]
+			],
+			[
+				42480,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				43440,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.7",
+						""
+					]
+				]
+			],
+			[
+				43680,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				44160,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.85",
+						""
+					]
+				]
+			],
+			[
+				44640,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				45120,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.75",
+						""
+					]
+				]
+			],
+			[
+				45600,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				46080,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.9",
+						"1.9"
+					]
+				]
+			],
+			[
+				48000,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.7",
+						"1.9"
+					]
+				]
+			],
+			[
+				48960,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.9",
+						""
+					]
+				]
+			],
+			[
+				49920,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				50880,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.85",
+						""
+					]
+				]
+			],
+			[
+				51840,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				52680,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.9",
+						""
+					]
+				]
+			],
+			[
+				53280,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.85",
+						""
+					]
+				]
+			],
+			[
+				53760,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				54720,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.85",
+						""
+					]
+				]
+			],
+			[
+				55680,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.9",
+						""
+					]
+				]
+			],
+			[
+				56640,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				56880,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.75",
+						""
+					]
+				]
+			],
+			[
+				57120,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				57360,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.85",
+						""
+					]
+				]
+			],
+			[
+				57600,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				58560,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.9",
+						""
+					]
+				]
+			],
+			[
+				59520,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				60480,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.9",
+						""
+					]
+				]
+			],
+			[
+				60960,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				61440,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.7",
+						""
+					]
+				]
+			],
+			[
+				62400,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.9",
+						""
+					]
+				]
+			],
+			[
+				62640,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				62760,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.9",
+						""
+					]
+				]
+			],
+			[
+				63000,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				63120,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.9",
+						""
+					]
+				]
+			],
+			[
+				63480,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.7",
+						""
+					]
+				]
+			],
+			[
+				64320,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				64560,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.6",
+						"0.5"
+					]
+				]
+			],
+			[
+				64800,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.9",
+						""
+					]
+				]
+			],
+			[
+				65040,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				65280,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.85",
+						""
+					]
+				]
+			],
+			[
+				65400,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				65640,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.85",
+						""
+					]
+				]
+			],
+			[
+				65760,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				66240,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.9",
+						""
+					]
+				]
+			],
+			[
+				66720,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				67200,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.7",
+						""
+					]
+				]
+			],
+			[
+				68400,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.9",
+						""
+					]
+				]
+			],
+			[
+				68640,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.7",
+						""
+					]
+				]
+			],
+			[
+				68880,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				69120,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.7",
+						""
+					]
+				]
+			],
+			[
+				70080,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.9",
+						""
+					]
+				]
+			],
+			[
+				70320,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				70440,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.9",
+						""
+					]
+				]
+			],
+			[
+				70680,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				70800,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.9",
+						""
+					]
+				]
+			],
+			[
+				71160,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.7",
+						""
+					]
+				]
+			],
+			[
+				72000,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				72240,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.6",
+						"0.5"
+					]
+				]
+			],
+			[
+				72480,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.9",
+						""
+					]
+				]
+			],
+			[
+				72720,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				72960,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.85",
+						""
+					]
+				]
+			],
+			[
+				73320,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.9",
+						""
+					]
+				]
+			],
+			[
+				73680,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			],
+			[
+				73920,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.9",
+						""
+					]
+				]
+			],
+			[
+				74400,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				74880,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.7",
+						""
+					]
+				]
+			],
+			[
+				76080,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.9",
+						""
+					]
+				]
+			],
+			[
+				76320,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.7",
+						""
+					]
+				]
+			],
+			[
+				76560,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.8",
+						""
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "gf",
+		"bpm": 125,
+		"arrowSkin": "polynote",
+		"needsVoices": true,
+		"isSkinSep": true,
+		"song": "Acquaintance"
+	}
+}

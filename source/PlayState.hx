@@ -314,6 +314,7 @@ class PlayState extends MusicBeatState
 	public static var deathCounter:Int = 0;
 
 	public var defaultCamZoom:Float = 1.05;
+	public var autoZoom:Bool = true;
 	var prevDFCZ:Float = 1;
 
 	// how big to stretch the pixel art assets
@@ -3939,7 +3940,7 @@ class PlayState extends MusicBeatState
 				camFollow.y += (Math.sin(elapsedtime) * 0.6);
 		}
 		if(funnySideFloatyBoys.contains(dad.curCharacter.toLowerCase()) && canSlide && !laggingRSOD) {
-			dad.x += (Math.sin(elapsedtime) * 0.6);
+			dad.x += (Math.cos(elapsedtime) * 0.6);
 			if(dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('idle') && cameraOnDad)
 				camFollow.x += (Math.sin(elapsedtime) * 0.6);
 		}
@@ -3949,7 +3950,7 @@ class PlayState extends MusicBeatState
 				if (cameraOnBF) camFollow.y += (Math.sin(elapsedtime) * 0.6);
 		}
 		if(funnySideFloatyBoys.contains(boyfriend.curCharacter.toLowerCase()) && canFloat && !laggingRSOD) {
-			boyfriend.x += (Math.sin(elapsedtime) * 0.6);
+			boyfriend.x += (Math.cos(elapsedtime) * 0.6);
 			if(boyfriend.animation.curAnim.name.startsWith('idle') || boyfriend.animation.curAnim.name.endsWith('miss'))
 				camFollow.x += (Math.sin(elapsedtime) * 0.6);
 		}
@@ -4172,6 +4173,9 @@ class PlayState extends MusicBeatState
 						remove(tutorialTxt);
 					case 368 | 1167 | 2192:
 						FlxTween.tween(notResponding, {alpha: 0.5}, 0.5);
+						boyfriend.animation.stop();
+						dad.animation.stop();
+						gf.animation.stop();
 						laggingRSOD = true;		
 						camZooming = false;
 						bgrsod.active = false;
@@ -4365,7 +4369,8 @@ class PlayState extends MusicBeatState
 
 		if(!inCutscene) {
 			var lerpVal:Float = CoolUtil.boundTo(elapsed * 2.4 * cameraSpeed, 0, 1);
-			camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
+			if (!laggingRSOD)
+				camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
 			if(!startingSong && !endingSong && boyfriend.animation.curAnim != null && boyfriend.animation.curAnim.name.startsWith('idle')) {
 				boyfriendIdleTime += elapsed;
 				if(boyfriendIdleTime >= 0.15) { // Kind of a mercy thing for making the achievement easier to get as it's apparently frustrating to some playerss
@@ -4380,6 +4385,9 @@ class PlayState extends MusicBeatState
 
 		setOnLuas('curDecStep', curDecStep);
 		setOnLuas('curDecBeat', curDecBeat);
+
+		if (generatedMusic && !endingSong && !isCameraOnForcedPos && !laggingRSOD)
+			moveCameraSection();
 
 		if(!uphIntroTime)
 			updateScore();
@@ -4567,7 +4575,8 @@ class PlayState extends MusicBeatState
 				if(!cpuControlled) {
 					keyShit();
 				} else if(boyfriend.animation.curAnim != null && boyfriend.holdTimer > Conductor.stepCrochet * 0.0011 * boyfriend.singDuration && boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.animation.curAnim.name.endsWith('miss')) {
-					boyfriend.dance();
+					if(!laggingRSOD)
+						boyfriend.dance();
 					//boyfriend.animation.curAnim.finish();
 				}
 			}
@@ -5348,11 +5357,14 @@ class PlayState extends MusicBeatState
 			cameraOnDad = true;
 			cameraOnBF = false;
 
+			if (autoZoom && !laggingRSOD)
+			{
 			if (SONG.song.toLowerCase() == 'rebound' || SONG.song.toLowerCase() == 'disposition' || SONG.song.toLowerCase() == 'upheaval')
 				defaultCamZoom = 0.55;
 
 			if(SONG.song.toLowerCase() == 'rsod' && camZooming)
 				defaultCamZoom = 0.475;
+			}
 
 			tweenCamIn();
 		}
@@ -5375,11 +5387,14 @@ class PlayState extends MusicBeatState
 				});
 			}
 
-			if (SONG.song.toLowerCase() == 'rebound' || SONG.song.toLowerCase() == 'disposition' || SONG.song.toLowerCase() == 'upheaval')
-				defaultCamZoom = 0.7;
+			if (autoZoom && !laggingRSOD)
+			{
+				if (SONG.song.toLowerCase() == 'rebound' || SONG.song.toLowerCase() == 'disposition' || SONG.song.toLowerCase() == 'upheaval')
+					defaultCamZoom = 0.7;
 
-			if(SONG.song.toLowerCase() == 'rsod' && camZooming)
-				defaultCamZoom = 0.755;
+				if(SONG.song.toLowerCase() == 'rsod' && camZooming)
+					defaultCamZoom = 0.755;
+			}
 		}
 	}
 
@@ -6026,7 +6041,8 @@ class PlayState extends MusicBeatState
 			}
 			else if (boyfriend.animation.curAnim != null && boyfriend.holdTimer > Conductor.stepCrochet * 0.0011 * boyfriend.singDuration && boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.animation.curAnim.name.endsWith('miss'))
 			{
-				boyfriend.dance();
+				if(!laggingRSOD)
+					boyfriend.dance();
 				//boyfriend.animation.curAnim.finish();
 			}
 		}
@@ -6300,13 +6316,15 @@ class PlayState extends MusicBeatState
 				{
 					if(gf != null)
 					{
-						gf.playAnim(animToPlay + note.animSuffix, true);
+						if(!laggingRSOD)
+							gf.playAnim(animToPlay + note.animSuffix, true);
 						gf.holdTimer = 0;
 					}
 				}
 				else
 				{
-					boyfriend.playAnim(animToPlay + note.animSuffix, true);
+					if(!laggingRSOD)
+						boyfriend.playAnim(animToPlay + note.animSuffix, true);
 					boyfriend.holdTimer = 0;
 				}
 
@@ -6778,7 +6796,8 @@ class PlayState extends MusicBeatState
 
 		if (gf != null && curBeat % Math.round(gfSpeed * gf.danceEveryNumBeats) == 0 && gf.animation.curAnim != null && !gf.animation.curAnim.name.startsWith("sing") && !gf.stunned)
 		{
-			gf.dance();
+			if(!laggingRSOD)
+				gf.dance();
 		}
 		if(curBeat % 2 == 0 && !laggingRSOD) {
 			if (!uphIntroTime) {
@@ -6788,13 +6807,15 @@ class PlayState extends MusicBeatState
 
 			if (curBeat % boyfriend.danceEveryNumBeats == 0 && boyfriend.animation.curAnim != null && !boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.stunned)
 			{
-				boyfriend.dance();
+				if(!laggingRSOD)
+					boyfriend.dance();
 			//	boyfriend.playAnim('idle', true);
 			//  nope, we're setting the dance function to ,true for better compatibility lol
 			}
 			if (curBeat % dad.danceEveryNumBeats == 0 && dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('sing') && !dad.stunned)
 			{
-				dad.dance();
+				if(!laggingRSOD)
+					dad.dance();
 			//	dad.playAnim('idle', true);
 			}
 		}
@@ -6865,10 +6886,10 @@ class PlayState extends MusicBeatState
 
 		if (SONG.notes[curSection] != null)
 		{
-			if (generatedMusic && !endingSong && !isCameraOnForcedPos)
+			/* if (generatedMusic && !endingSong && !isCameraOnForcedPos)
 			{
 				moveCameraSection();
-			}
+			} */
 
 			if (camZooming && FlxG.camera.zoom < 1.35 && ClientPrefs.camZooms && !camZoomSnap && !laggingRSOD)
 			{
