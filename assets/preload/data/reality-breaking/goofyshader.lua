@@ -29,8 +29,8 @@ function onCreatePost()
     addHaxeLibrary("ShaderFilter", "openfl.filters")
     runHaxeCode([[
         trace(ShaderFilter);
-        game.camGame.setFilters([[new ShaderFilter(game.screenshader.shader), new ShaderFilter(game.getLuaObject("temporaryShader").shader)]);
-        game.camHUD.setFilters([[new ShaderFilter(game.glitchShader.shader), new ShaderFilter(game.getLuaObject("temporaryShader").shader)]);
+        game.camGame.setFilters([new ShaderFilter(game.screenshader.shader), new ShaderFilter(game.getLuaObject("temporaryShader").shader)]);
+        game.camHUD.setFilters([new ShaderFilter(game.glitchShader.shader), new ShaderFilter(game.getLuaObject("temporaryShader").shader)]);
     ]])
 end
 
