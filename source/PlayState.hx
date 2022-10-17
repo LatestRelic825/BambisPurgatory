@@ -396,6 +396,8 @@ class PlayState extends MusicBeatState
 	var hills:DepthSprite;
 	var gate:DepthSprite;
 	var grass:DepthSprite;
+	var house:DepthSprite;
+	var grill:DepthSprite;
 	var farm:DepthSprite;
 	var pcworld:FlxSprite;
 	var burger:FlxSprite;
@@ -713,6 +715,46 @@ class PlayState extends MusicBeatState
 			hills.color = 0xFF878787;
 			gate.color = 0xFF878787;
 			grass.color = 0xFF878787;
+
+		case 'backyard': //Dave's Rematch Week
+		    bg = new DepthSprite('dave/sky', -600, -200, 0.2, 0.2);
+		    bg.depth = 0.2;
+		    add(bg);
+
+		    hills = new DepthSprite('bpASSets/dave/hills', -225, -125, 0.6, 0.6);
+		    hills.depth = 0.5;
+		    hills.defaultScale = 1;
+		    hills.setGraphicSize(Std.int(hills.width * 1.25));
+		    hills.updateHitbox();
+	    	add(hills);
+
+		    grass = new DepthSprite('bpASSets/dave/supergrass', -1200, 175, 1, 1); // negative means left
+		    grass.depth = 1;
+		    grass.defaultScale = 1;
+		    grass.setGraphicSize(Std.int(grass.width * 1.2));
+		    grass.updateHitbox();
+		    add(grass);
+
+			gate = new DepthSprite('bpASSets/dave/gates', -275, -50, 1, 1);
+	    	gate.depth = 1;
+		    gate.defaultScale = 1;
+		    gate.setGraphicSize(Std.int(gate.width * 1.2));
+		    gate.updateHitbox();
+		    add(gate);
+
+			house = new DepthSprite('bpASSets/dave/house', -900, -85, 1, 1); // negative means up
+		    house.depth = 1;
+		    house.defaultScale = 1;
+		    house.setGraphicSize(Std.int(house.width * 0.8));
+		    house.updateHitbox();
+		    add(house);
+
+		    grill = new DepthSprite('bpASSets/dave/grill', -500, 650, 1, 1);
+		    grill.depth = 1;
+		    grill.defaultScale = 1;
+		    grill.setGraphicSize(Std.int(grill.width * 0.8));
+		    grill.updateHitbox();
+		    add(grill);
 
 		case '3dGreen':
 			{
