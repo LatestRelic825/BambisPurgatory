@@ -375,9 +375,11 @@ class PlayState extends MusicBeatState
 	// shit that messes with the camera (mostly for like events like eyesores) //
 	private var shakeCam:Bool = false;
 	private var glitchCam:Bool = false;
-	private var camZoomSnap:Bool = false;
+	var camZoomSnap:Bool = false;
 	var camTilt:Bool = false;
 	var goofyZoom:Bool = false;
+
+	var camZoomTween:FlxTween;
 
 	// some stuff for icons //
 	var dnbBounce:Bool = true;
@@ -4177,6 +4179,10 @@ class PlayState extends MusicBeatState
 					case 1280:
 						camZoomSnap = true;
 						camTilt = true;
+					case 1792:
+						camZoomSnap = false;
+						camTilt = false;
+						FlxTween.tween(camHUD, {angle: 0}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
 				}
 			case 'rsod': // i should probably organize this one jesus
 				switch (curStep)
@@ -5033,9 +5039,18 @@ class PlayState extends MusicBeatState
 				}
 			case 'Change the Default Camera Zoom': // not to be confused with the one above!
 					var mZoom:Float = Std.parseFloat(value1);
+					var duration:Float = Std.parseFloat(value2);
 					if(Math.isNaN(mZoom)) mZoom = 0.09;
 
 					defaultCamZoom = mZoom;
+					if (camZoomTween != null) camZoomTween.cancel();
+					camZoomTween = null;
+					if (duration > 0) {
+						camZoomTween = FlxTween.tween(FlxG.camera, {zoom: mZoom}, duration, {ease: FlxEase.quadInOut,
+							onComplete: function(twn:FlxTween) {
+								camZoomTween = null;
+						}});
+					}
 			case 'Trigger BG Ghouls':
 				if(curStage == 'schoolEvil' && !ClientPrefs.lowQuality) {
 					bgGhouls.dance(true);
@@ -6812,9 +6827,9 @@ class PlayState extends MusicBeatState
 
 		if(camTilt) {
 			if(curBeat % 8 == 0)
-				FlxTween.tween(camHUD, {angle: -3}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
+				FlxTween.tween(camHUD, {angle: -2}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
 			if(curBeat % 8 == 4)
-				FlxTween.tween(camHUD, {angle: 3}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
+				FlxTween.tween(camHUD, {angle: 2}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
 		}
 
 		if (gf != null && curBeat % Math.round(gfSpeed * gf.danceEveryNumBeats) == 0 && gf.animation.curAnim != null && !gf.animation.curAnim.name.startsWith("sing") && !gf.stunned)
