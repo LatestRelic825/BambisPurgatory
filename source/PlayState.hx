@@ -1608,9 +1608,8 @@ class PlayState extends MusicBeatState
 				add(halloweenWhite);
 			case 'tank':
 				add(foregroundSprites);
-			case 'houseSunset' | 'farmSunset':
-				add(colorFilter);
 		}
+		if (colorFilter != null) add(colorFilter);
 
 		#if LUA_ALLOWED
 		luaDebugGroup = new FlxTypedGroup<DebugLuaText>();
@@ -3952,7 +3951,7 @@ class PlayState extends MusicBeatState
 
 		switch (SONG.stage) {
 			// some stuff //
-			case '3dRed' | '3dScary' | '3dFucked' | 'houseNight' | 'houseroof' | 'farmNight': // Dark character thing
+			case '3dRed' | '3dScary' | '3dFucked' | 'houseroof' | 'farmNight': // Dark character thing
 			    if (SONG.player2 != 'bambi-god2d') dad.color = 0xFF878787;
                 gf.color = 0xFF878787;
                 if(!boyfriend.curCharacter.startsWith('golden-tristan')) boyfriend.color = 0xFF878787;
