@@ -418,6 +418,8 @@ public static function destroyFreeplayVocals() {
 
 	function changeSelection(change:Int = 0)
 	{
+		FlxG.sound.play(Paths.sound('scrollMenu'));
+		
 		curSelected += change;
 
 		if (curSelected < 0)
