@@ -376,6 +376,7 @@ class PlayState extends MusicBeatState
 	private var shakeCam:Bool = false;
 	private var glitchCam:Bool = false;
 	private var camZoomSnap:Bool = false;
+	var camTilt:Bool = false;
 	var goofyZoom:Bool = false;
 
 	// some stuff for icons //
@@ -4162,6 +4163,21 @@ class PlayState extends MusicBeatState
 					case 1792:
 						redGlow.visible = true;
 				}
+			case 'acquaintance':
+				switch (curStep)
+				{
+					case 0:
+						camZoomSnap = true;
+					case 512:
+						camTilt = true;
+					case 1024:
+						camZoomSnap = false;
+						camTilt = false;
+						FlxTween.tween(camHUD, {angle: 0}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
+					case 1280:
+						camZoomSnap = true;
+						camTilt = true;
+				}
 			case 'rsod': // i should probably organize this one jesus
 				switch (curStep)
 				{
@@ -6792,6 +6808,13 @@ class PlayState extends MusicBeatState
 				defaultCamZoom = defaultCamZoom - 0.25;
 			if(curBeat % 4 == 2)
 				defaultCamZoom = defaultCamZoom + 0.25;
+		}
+
+		if(camTilt) {
+			if(curBeat % 8 == 0)
+				FlxTween.tween(camHUD, {angle: -3}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
+			if(curBeat % 8 == 4)
+				FlxTween.tween(camHUD, {angle: 3}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
 		}
 
 		if (gf != null && curBeat % Math.round(gfSpeed * gf.danceEveryNumBeats) == 0 && gf.animation.curAnim != null && !gf.animation.curAnim.name.startsWith("sing") && !gf.stunned)
