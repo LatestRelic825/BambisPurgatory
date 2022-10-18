@@ -29,7 +29,7 @@ class CreditsState extends MusicBeatState
 	private var iconArray:Array<AttachedSprite> = [];
 	private var creditsStuff:Array<Array<String>> = [];
 
-	var bg:FlxSprite;
+	var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('backgrounds/darlyboxman'));
 	var descText:FlxText;
 	var intendedColor:Int;
 	var colorTween:FlxTween;
@@ -45,7 +45,7 @@ class CreditsState extends MusicBeatState
 		#end
 
 		persistentUpdate = true;
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		bg.loadGraphic(MainMenuState.randomizeBG());
 		add(bg);
 		bg.screenCenter();
 		
