@@ -47,7 +47,7 @@ class HealthIcon extends FlxSprite
 		}
 		if(this.char == 'god-expunged-1') {
 			//fuckin offsets
-			offset.x -= 40;
+			offset.x -= 20;
 
 			offset.x += FlxG.random.int(-2, 2);
 			offset.y += FlxG.random.int(-2, 2);
