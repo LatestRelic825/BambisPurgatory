@@ -160,6 +160,7 @@ class PlayState extends MusicBeatState
 	public var dad:Character = null;
 	public var gf:Character = null;
 	public var boyfriend:Boyfriend = null;
+	public var player3:Character = null;
 
 	public var notes:FlxTypedGroup<Note>;
 	public var unspawnNotes:Array<Note> = [];
@@ -322,7 +323,7 @@ class PlayState extends MusicBeatState
 	private var singAnimations:Array<String> = ['singLEFT', 'singDOWN', 'singUP', 'singRIGHT'];
 
 	//goofy characters
-	var funnyFloatyBoys:Array<String> = ['dave-3d', 'bambi-3d', 'crusti', 'baiburg', 'crusturn', 'minion', 'god-expunged-1', 'bambi-unfair', 'expunged', 'bambi-piss-3d', 'bambi-scaryooo', 'hell-1', 'hell-2', 'bambi-god2d', 'bambi-god-2-24fps', 'bambi-hell', 'bombureal', 'bombai', 'crimson-dave', 'crimson-bambi', 'gary', 'bamburg', 'bamburg-player'];
+	var funnyFloatyBoys:Array<String> = ['dave-3d', 'bambi-3d', 'baiburg', 'crusturn', 'god-expunged-1', 'bambi-unfair', 'expunged', 'bambi-piss-3d', 'bambi-scaryooo', 'hell-1', 'hell-2', 'bambi-god2d', 'bambi-god-2-24fps', 'bambi-hell', 'bombureal', 'bombai', 'crimson-dave', 'crimson-bambi', 'gary', 'bamburg', 'bamburg-player'];
 	var funnySideFloatyBoys:Array<String> = ['bombureal', 'god-expunged-1', 'bombai'];
 	var funnyRotatorBoys:Array<String> = ['hell-2', 'god-expunged-1'];
 	var canSlide:Bool = true;
@@ -1733,6 +1734,13 @@ class PlayState extends MusicBeatState
 		dadGroup.add(dad);
 		startCharacterLua(dad.curCharacter);
 
+		player3 = new Character(0, 0, SONG.player3);
+		if (SONG.player3 == null) player3.visible = false;
+		startCharacterPos(player3, true);
+		dadGroup.add(player3);
+		player3.x -= 280;
+		startCharacterLua(player3.curCharacter);
+
 		boyfriend = new Boyfriend(0, 0, SONG.player1);
 		startCharacterPos(boyfriend);
 		boyfriendGroup.add(boyfriend);
@@ -1851,7 +1859,7 @@ class PlayState extends MusicBeatState
 			add(fakenotes);
 		fakenotes.cameras = [camHUD];*/
 
-		altStrumLine = new FlxSprite(0, -100);
+		altStrumLine = new FlxSprite(-120, 40);
 
 		strumLineNotes = new FlxTypedGroup<StrumNote>();
 		add(strumLineNotes);
@@ -3154,6 +3162,10 @@ class PlayState extends MusicBeatState
 				{
 					dad.dance();
 				}
+				if (tmr.loopsLeft % player3.danceEveryNumBeats == 0 && player3.animation.curAnim != null && !player3.animation.curAnim.name.startsWith('sing') && !player3.stunned)
+				{
+					player3.dance();
+				}
 
 				var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
 				introAssets.set('default', ['ready', 'set', 'go']);
@@ -3742,7 +3754,7 @@ class PlayState extends MusicBeatState
 				babyArrow = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player);
 			else {
 				babyArrow = new StrumNote(altStrumLine.x, altStrumLine.y, i, 0);
-				babyArrow.scrollFactor.set(1,1);
+				babyArrow.scrollFactor.set(1.05,1.05);
 				babyArrow.alpha = 0;
 			}
 
@@ -3975,17 +3987,25 @@ class PlayState extends MusicBeatState
 			// ends //
 		}
 
-		if(funnyFloatyBoys.contains(dad.curCharacter.toLowerCase()) && canFloat && !laggingRSOD) {
-			dad.y += (Math.sin(elapsedtime) * 0.6);
-			if(dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('idle') && cameraOnDad)
-				camFollow.y += (Math.sin(elapsedtime) * 0.6);
+		var floatyChars:Array<Character> = [dad, gf, boyfriend, player3];
+		for (who in floatyChars) {
+			var cammy:Bool = (who == boyfriend) ? cameraOnBF : cameraOnDad;
+			if(funnyFloatyBoys.contains(who.curCharacter.toLowerCase()) && canFloat && !laggingRSOD) {
+				who.y += (Math.sin(elapsedtime) * 0.6);
+				if(who.animation.curAnim != null && !who.animation.curAnim.name.startsWith('idle') && cammy)
+					camFollow.y += (Math.sin(elapsedtime) * 0.6);
+			}
+			if(funnySideFloatyBoys.contains(who.curCharacter.toLowerCase()) && canSlide && !laggingRSOD) {
+				who.x += (Math.cos(elapsedtime) * 0.6);
+				if(who.animation.curAnim != null && !who.animation.curAnim.name.startsWith('idle') && cammy)
+					camFollow.x += (Math.sin(elapsedtime) * 0.6);
+			}
+			if(funnyRotatorBoys.contains(who.curCharacter.toLowerCase()) && canRotate && !laggingRSOD) {
+				who.angle += (Math.sin(elapsedtime) * 0.015);
+				// FlxTween.angle(dad, -5, 5, Conductor.crochet / 300, {ease: FlxEase.sineInOut, type: PINGPONG});
+			}
 		}
-		if(funnySideFloatyBoys.contains(dad.curCharacter.toLowerCase()) && canSlide && !laggingRSOD) {
-			dad.x += (Math.cos(elapsedtime) * 0.6);
-			if(dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('idle') && cameraOnDad)
-				camFollow.x += (Math.sin(elapsedtime) * 0.6);
-		}
-		if(funnyFloatyBoys.contains(boyfriend.curCharacter.toLowerCase()) && canFloat && !laggingRSOD) {
+		/* if(funnyFloatyBoys.contains(boyfriend.curCharacter.toLowerCase()) && canFloat && !laggingRSOD) {
 			boyfriend.y += (Math.sin(elapsedtime) * 0.6);
 			if(boyfriend.animation.curAnim.name.startsWith('idle') || boyfriend.animation.curAnim.name.endsWith('miss'))
 				if (cameraOnBF) camFollow.y += (Math.sin(elapsedtime) * 0.6);
@@ -3994,11 +4014,7 @@ class PlayState extends MusicBeatState
 			boyfriend.x += (Math.cos(elapsedtime) * 0.6);
 			if(boyfriend.animation.curAnim.name.startsWith('idle') || boyfriend.animation.curAnim.name.endsWith('miss'))
 				camFollow.x += (Math.sin(elapsedtime) * 0.6);
-		}
-		if(funnyRotatorBoys.contains(dad.curCharacter.toLowerCase()) && canRotate && !laggingRSOD) {
-			dad.angle += (Math.sin(elapsedtime) * 0.015);
-			// FlxTween.angle(dad, -5, 5, Conductor.crochet / 300, {ease: FlxEase.sineInOut, type: PINGPONG});
-		}
+		} */
 		if(canFloat && !funnyFloatyBoys.contains(boyfriend.curCharacter.toLowerCase())) {
 			switch (curStage) {
 				case '3dTunnel': {
@@ -6268,6 +6284,9 @@ class PlayState extends MusicBeatState
 			if(note.gfNote) {
 				char = gf;
 			}
+			if(note.altStrum) {
+				char = player3;
+			}
 
 			if(char != null)
 			{
@@ -6892,6 +6911,12 @@ class PlayState extends MusicBeatState
 			{
 				if(!laggingRSOD)
 					dad.dance();
+			//	dad.playAnim('idle', true);
+			}
+			if (curBeat % player3.danceEveryNumBeats == 0 && player3.animation.curAnim != null && !player3.animation.curAnim.name.startsWith('sing') && !player3.stunned)
+			{
+				if(!laggingRSOD)
+					player3.dance();
 			//	dad.playAnim('idle', true);
 			}
 		}

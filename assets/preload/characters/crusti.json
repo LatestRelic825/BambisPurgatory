@@ -1,66 +1,66 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "idle",
-			"loop": false,
-			"name": "IDLE"
+			"fps": 24,
+			"name": "IDLE",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				9,
 				20
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singLEFT",
-			"loop": false,
-			"name": "LEFT"
+			"fps": 24,
+			"name": "LEFT",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-30,
 				-10
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singDOWN",
-			"loop": false,
-			"name": "DOWN"
+			"fps": 24,
+			"name": "DOWN",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-1,
 				-10
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singUP",
-			"loop": false,
-			"name": "UP"
+			"fps": 24,
+			"name": "UP",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-40,
 				0
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singRIGHT",
-			"loop": false,
-			"name": "RIGHT"
+			"fps": 24,
+			"name": "RIGHT",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/Crusti_sprites",
 	"position": [
 		0,
-		0
+		95
 	],
 	"healthicon": "crusti",
 	"flip_x": false,

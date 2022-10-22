@@ -1,48 +1,48 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
-				290,
+				307,
 				150
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singLEFT",
-			"loop": false,
-			"name": "Left"
+			"fps": 24,
+			"name": "Left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
-				160,
-				10
+				104,
+				36
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singDOWN",
-			"loop": false,
-			"name": "Down"
+			"fps": 24,
+			"name": "Down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
-				40,
-				130
+				24,
+				135
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singUP",
-			"loop": false,
-			"name": "Up"
+			"fps": 24,
+			"name": "Up",
+			"indices": []
 		},
 		{
-			"offsets": [
-				80,
-				20
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singRIGHT",
 			"loop": false,
-			"name": "Right"
+			"offsets": [
+				7,
+				50
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Right",
+			"indices": []
 		},
 		{
 			"offsets": [
@@ -60,7 +60,7 @@
 	"image": "characters/Pooper",
 	"position": [
 		0,
-		0
+		130
 	],
 	"healthicon": "minion",
 	"flip_x": false,
@@ -71,8 +71,8 @@
 	],
 	"camera_position": [
 		0,
-		0
+		40
 	],
 	"sing_duration": 6.1,
-	"scale": 1
+	"scale": 0.8
 }
