@@ -197,7 +197,9 @@ class PlayState extends MusicBeatState
 	var songPercent:Float = 0;
 
 	private var timeBarBG:AttachedSprite;
+	private var evilBarBG:AttachedSprite; // Antagonism
 	public var timeBar:FlxBar;
+	public var evilBar:FlxBar;
 	var showTime:Bool = (ClientPrefs.timeBarType != 'Disabled');
 
 	public var ratingsData:Array<Rating> = [];
@@ -297,6 +299,7 @@ class PlayState extends MusicBeatState
 	public var scoreTxt:FlxText;
 	var songinfoBar:FlxText;
 	var timeTxt:FlxText;
+	var evilTxt:FlxText; // antagonism
 	var tutorialTxt:FlxText;
 	var composersText:FlxText;
 	var judgementCounter:FlxText;
@@ -1799,6 +1802,45 @@ class PlayState extends MusicBeatState
 		add(timeTxt);
 		timeBarBG.sprTracker = timeBar;
 
+		if(SONG.song.toLowerCase() == "antagonism") 
+			remove(timeBarBG);
+		    remove(timeTxt);
+            remove(timeBar);
+			
+			evilTxt = new FlxText(STRUM_X + (FlxG.width / 2) - 248, 19, 400, "", 32);
+			evilTxt.setFormat(Paths.font("comic.ttf"), 17, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			evilTxt.scrollFactor.set();
+			evilTxt.alpha = 0;
+			evilTxt.borderSize = 1.25;
+			evilTxt.screenCenter(X);
+			evilTxt.visible = showTime;
+			if(ClientPrefs.downScroll) evilTxt.y = FlxG.height - 44;
+			updateTime = showTime;
+
+			evilBarBG = new AttachedSprite('healthBarEvil');
+		    evilBarBG.x = evilTxt.x - 5;
+		    evilBarBG.y = evilTxt.y + (evilTxt.height / 4);
+		    evilBarBG.screenCenter(X);
+		    evilBarBG.scrollFactor.set();
+		    evilBarBG.alpha = 0;
+		    evilBarBG.visible = showTime;
+		    evilBarBG.color = FlxColor.BLACK;
+		    evilBarBG.xAdd = -255;
+		    evilBarBG.yAdd = -25;
+			add(evilBarBG);
+
+			evilBar = new FlxBar(evilBarBG.x + 4, evilBarBG.y + -14, LEFT_TO_RIGHT, Std.int(evilBarBG.width - 8), Std.int(evilBarBG.height - 10), this,
+			'songPercent', 0, 1);
+		    evilBar.scrollFactor.set();
+	    //	timeBar.createFilledBar(0xFF000000, 0xFFFFFFFF);
+		    evilBar.numDivisions = 800; //How much lag this causes?? Should i tone it down to idk, 400 or 200?
+		    evilBar.alpha = 0;
+		    evilBar.visible = showTime;
+		    evilBar.screenCenter(X);
+		    insert(members.indexOf(evilBarBG), evilBar);
+	    	add(evilTxt);
+	    	evilBarBG.sprTracker = timeBar;
+
 		rsod = new FlxSprite(0, 0).loadGraphic(Paths.image('bpASSets/ui/rsod'));
 		if(SONG.song.toLowerCase() == "rsod") 
 			add(rsod);
@@ -2104,6 +2146,9 @@ class PlayState extends MusicBeatState
 		timeBar.cameras = [camHUD];
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
+		evilBar.cameras = [camHUD];
+		evilBarBG.cameras = [camHUD];
+		evilTxt.cameras = [camHUD];
 		redGlow.cameras = [camHUD];
 		doof.cameras = [camHUD];
 
@@ -2414,13 +2459,16 @@ class PlayState extends MusicBeatState
 		}
 	
 		timeBar.createFilledBar(0xFF121212, FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArray[1], dad.healthColorArray[2]));
-	
+		evilBar.createFilledBar(0xFF121212, FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArray[1], dad.healthColorArray[2]));
+
 		healthBar.updateBar();
 		timeBar.updateBar();
+		evilBar.updateBar();
 	}
 
 	function setFontComicSans() {
 		timeTxt.font = Paths.font("comic.ttf");
+		evilTxt.font = Paths.font("comic.ttf");
 		scoreTxt.font = Paths.font("comic.ttf");
 		songinfoBar.font = Paths.font("comic.ttf");
 	    botplayTxt.font = Paths.font("comic.ttf");
@@ -2433,6 +2481,7 @@ class PlayState extends MusicBeatState
 		//ratingjdtxt.font = Paths.font("comic.ttf");
 
 		timeTxt.borderSize = 2;
+		evilTxt.borderSize = 2;
 		scoreTxt.borderSize = 1.25;
 		botplayTxt.borderSize = 1.25;
 		songinfoBar.borderSize = 1.25;
@@ -2447,6 +2496,7 @@ class PlayState extends MusicBeatState
 
 	function setFontVCR() {
 		timeTxt.font = Paths.font("vcr.ttf");
+		evilTxt.font = Paths.font("vcr.ttf");
 		scoreTxt.font = Paths.font("vcr.ttf");
 		songinfoBar.font = Paths.font("vcr.ttf");
 	    botplayTxt.font = Paths.font("vcr.ttf");
@@ -2459,6 +2509,7 @@ class PlayState extends MusicBeatState
 		//ratingjdtxt.font = Paths.font("vcr.ttf");
 
 		timeTxt.borderSize = 1;
+		evilTxt.borderSize = 1;
 		scoreTxt.borderSize = 1;
 		botplayTxt.borderSize = 1;
 		songinfoBar.borderSize = 1;
@@ -3357,6 +3408,8 @@ class PlayState extends MusicBeatState
 		songLength = FlxG.sound.music.length;
 		FlxTween.tween(timeBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 		FlxTween.tween(timeTxt, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
+		FlxTween.tween(evilBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
+		FlxTween.tween(evilTxt, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 
 		// for the credits //
 		for (dicknballs in [composersText, composersBG]) {
@@ -4519,6 +4572,7 @@ class PlayState extends MusicBeatState
 
 					if(ClientPrefs.timeBarType != 'Song Name')
 						timeTxt.text = SONG.song + ' (' + FlxStringUtil.formatTime(secondsTotal, false) + " / " +  FlxStringUtil.formatTime(sexLol, false) + ')';
+					    evilTxt.text = SONG.song + '      ' + FlxStringUtil.formatTime(secondsTotal, false) + " / " +  FlxStringUtil.formatTime(sexLol, false) + '';
 				}
 			}
 
@@ -5454,7 +5508,10 @@ class PlayState extends MusicBeatState
 
 		timeBarBG.visible = false;
 		timeBar.visible = false;
+		evilBarBG.visible = false;
+		evilBar.visible = false;
 		timeTxt.visible = false;
+		evilTxt.visible = false;
 		canPause = false;
 		endingSong = true;
 		camZooming = false;
@@ -6450,7 +6507,10 @@ class PlayState extends MusicBeatState
 		if(showTime) {
 	    	timeBar.visible = false;
 	    	timeBarBG.visible = false;
-		    timeTxt.visible = false;
+			timeTxt.visible = false;
+			evilBar.visible = false;
+	    	evilBarBG.visible = false;
+			evilTxt.visible = false;
 		}
 	}
 	
@@ -6473,6 +6533,9 @@ class PlayState extends MusicBeatState
 	    	timeBar.visible = true;
 	    	timeBarBG.visible = true;
 		    timeTxt.visible = true; 
+			evilBar.visible = true;
+	    	evilBarBG.visible = true;
+			evilTxt.visible = true;
 		}
 	}
 	
@@ -6495,6 +6558,9 @@ class PlayState extends MusicBeatState
 	     	timeBar.visible = true;
 	     	timeBarBG.visible = true;
 	     	timeTxt.visible = true;
+			evilBar.visible = true;
+			evilBarBG.visible = true;
+			evilTxt.visible = true;
 		}
 	}
 
@@ -6513,6 +6579,9 @@ class PlayState extends MusicBeatState
 			timeBar.visible = false;
 			timeBarBG.visible = false;
 			timeTxt.visible = false;
+			evilBar.visible = false;
+	    	evilBarBG.visible = false;
+			evilTxt.visible = false;
 	    }
 		showCombo = false;
 		showComboNum = false;
@@ -6527,6 +6596,9 @@ class PlayState extends MusicBeatState
 			timeBar.visible = true;
 			timeBarBG.visible = true;
 			timeTxt.visible = true;
+			evilBar.visible = true;
+			evilBarBG.visible = true;
+			evilTxt.visible = true;
 	    }
 		showCombo = true;
 		showComboNum = true;
