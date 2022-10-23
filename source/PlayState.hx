@@ -1738,7 +1738,7 @@ class PlayState extends MusicBeatState
 		if (SONG.player3 == null || SONG.player3 == '') player3.visible = false;
 		startCharacterPos(player3, true);
 		dadGroup.add(player3);
-		player3.x -= 280;
+		player3.x -= 180;
 		startCharacterLua(player3.curCharacter);
 
 		boyfriend = new Boyfriend(0, 0, SONG.player1);
@@ -6894,7 +6894,7 @@ class PlayState extends MusicBeatState
 			if(!laggingRSOD)
 				gf.dance();
 		}
-		if(curBeat % 2 == 0 && !laggingRSOD) {
+		if(!laggingRSOD) {
 			if (!uphIntroTime) {
 				FlxTween.angle(iconP1, -15, 0, Conductor.crochet / 1300 * gfSpeed, {ease: FlxEase.quadOut});
 				FlxTween.angle(iconP2, 15, 0, Conductor.crochet / 1300 * gfSpeed, {ease: FlxEase.quadOut});
