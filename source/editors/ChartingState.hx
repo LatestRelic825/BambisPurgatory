@@ -510,7 +510,7 @@ class ChartingState extends MusicBeatState
 		#end
 
 		var tempMap:Map<String, Bool> = new Map<String, Bool>();
-		var characters:Array<String> = CoolUtil.coolTextFile(Paths.txt('characterList'));
+		var characters:Array<String> = [''].concat(CoolUtil.coolTextFile(Paths.txt('characterList')));
 		for (i in 0...characters.length) {
 			tempMap.set(characters[i], true);
 		}

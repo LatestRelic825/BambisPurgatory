@@ -1735,7 +1735,7 @@ class PlayState extends MusicBeatState
 		startCharacterLua(dad.curCharacter);
 
 		player3 = new Character(0, 0, SONG.player3);
-		if (SONG.player3 == null) player3.visible = false;
+		if (SONG.player3 == null || SONG.player3 == '') player3.visible = false;
 		startCharacterPos(player3, true);
 		dadGroup.add(player3);
 		player3.x -= 280;
@@ -1859,7 +1859,7 @@ class PlayState extends MusicBeatState
 			add(fakenotes);
 		fakenotes.cameras = [camHUD];*/
 
-		altStrumLine = new FlxSprite(-120, 40);
+		altStrumLine = new FlxSprite(0, 0);
 
 		strumLineNotes = new FlxTypedGroup<StrumNote>();
 		add(strumLineNotes);
@@ -3754,7 +3754,7 @@ class PlayState extends MusicBeatState
 				babyArrow = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player);
 			else {
 				babyArrow = new StrumNote(altStrumLine.x, altStrumLine.y, i, 0);
-				babyArrow.scrollFactor.set(1.05,1.05);
+				babyArrow.scrollFactor.set(1.1,1.1);
 				babyArrow.alpha = 0;
 			}
 
