@@ -2,51 +2,11 @@
 	"song": {
 		"events": [
 			[
-				1066.66666666667,
+				0,
 				[
 					[
 						"Toggle Blocked Glitch",
 						"1",
-						""
-					]
-				]
-			],
-			[
-				1600,
-				[
-					[
-						"Add Camera Zoom",
-						"",
-						""
-					]
-				]
-			],
-			[
-				1733.33333333333,
-				[
-					[
-						"Add Camera Zoom",
-						"",
-						""
-					]
-				]
-			],
-			[
-				1866.66666666667,
-				[
-					[
-						"Add Camera Zoom",
-						"",
-						""
-					]
-				]
-			],
-			[
-				2028.33333333333,
-				[
-					[
-						"Add Camera Zoom",
-						"",
 						""
 					]
 				]
@@ -62,7 +22,17 @@
 				]
 			],
 			[
-				16000,
+				24533.3333333333,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.15"
+					]
+				]
+			],
+			[
+				24533.3333333333,
 				[
 					[
 						"Toggle Blocked Glitch",
@@ -72,22 +42,32 @@
 				]
 			],
 			[
-				17066.6666666667,
+				24800,
 				[
 					[
-						"Toggle Blocked Glitch",
-						"0",
-						""
+						"Freeze Chart",
+						"true",
+						"0.15"
 					]
 				]
 			],
 			[
-				23466.6666666667,
+				25066.6666666668,
 				[
 					[
-						"Toggle Blocked Glitch",
-						"1",
-						""
+						"Freeze Chart",
+						"true",
+						"0.075"
+					]
+				]
+			],
+			[
+				25333.3333333334,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.05"
 					]
 				]
 			],
@@ -102,7 +82,7 @@
 				]
 			],
 			[
-				50133.3333333333,
+				53333.3333333333,
 				[
 					[
 						"Toggle Blocked Glitch",
@@ -112,7 +92,7 @@
 				]
 			],
 			[
-				51200,
+				55466.6666666666,
 				[
 					[
 						"Toggle Blocked Glitch",
@@ -122,11 +102,61 @@
 				]
 			],
 			[
-				69333.3333333333,
+				59733.3333333333,
 				[
 					[
 						"Toggle Blocked Glitch",
 						"1",
+						""
+					]
+				]
+			],
+			[
+				62933.3333333333,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				63999.9999999999,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				66133.3333333333,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				67199.9999999999,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				68266.6666666666,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"0",
 						""
 					]
 				]
@@ -136,18 +166,68 @@
 				[
 					[
 						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				71466.6666666666,
+				[
+					[
+						"Toggle Blocked Glitch",
 						"0",
 						""
 					]
 				]
 			],
 			[
-				76800,
+				77866.6666666666,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.15"
+					]
+				]
+			],
+			[
+				77866.6666666667,
 				[
 					[
 						"Toggle Blocked Glitch",
-						"1",
+						"1 ",
 						""
+					]
+				]
+			],
+			[
+				78133.3333333333,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.15"
+					]
+				]
+			],
+			[
+				78400.0000000001,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.075"
+					]
+				]
+			],
+			[
+				78666.6666666667,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.05"
 					]
 				]
 			],
@@ -162,12 +242,22 @@
 				]
 			],
 			[
-				89600,
+				83200,
 				[
 					[
-						"Add Camera Zoom",
-						"0.85",
-						"0.055"
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				85333.3333333334,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"0",
+						""
 					]
 				]
 			],
@@ -175,39 +265,14 @@
 				98933.3333333334,
 				[
 					[
-						"Add Camera Zoom",
-						"",
-						""
-					],
-					[
-						"Toggle Blocked Glitch",
-						"1",
-						""
+						"Freeze Chart",
+						"true",
+						"0.75"
 					]
 				]
 			],
 			[
-				99066.6666666667,
-				[
-					[
-						"Add Camera Zoom",
-						"",
-						""
-					]
-				]
-			],
-			[
-				99200.0000000001,
-				[
-					[
-						"Toggle Blocked Glitch",
-						"0",
-						""
-					]
-				]
-			],
-			[
-				101066.666666667,
+				98937.5000000001,
 				[
 					[
 						"Toggle Blocked Glitch",
@@ -217,7 +282,7 @@
 				]
 			],
 			[
-				101333.333333333,
+				99191.6666666667,
 				[
 					[
 						"Toggle Blocked Glitch",
@@ -227,47 +292,107 @@
 				]
 			],
 			[
-				103733.333333333,
+				100000,
 				[
 					[
-						"Add Camera Zoom",
-						"",
+						"Toggle Blocked Glitch",
+						"1",
 						""
 					]
 				]
 			],
 			[
-				104266.666666667,
+				100266.666666667,
 				[
 					[
-						"Add Camera Zoom",
-						"",
+						"Toggle Blocked Glitch",
+						"0",
 						""
 					]
 				]
 			],
 			[
-				105866.666666667,
+				106933.333333333,
 				[
 					[
-						"Add Camera Zoom",
-						"",
+						"Freeze Chart",
+						"true",
+						"0.025"
+					]
+				]
+			],
+			[
+				107000,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
 						""
 					]
 				]
 			],
 			[
-				106400,
+				107733.333333333,
 				[
 					[
-						"Add Camera Zoom",
-						"",
+						"Freeze Chart",
+						"true",
+						"0.25"
+					]
+				]
+			],
+			[
+				107733.333333333,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
 						""
 					]
 				]
 			],
 			[
-				106666.666666667,
+				109866.666666667,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				110933.333333333,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.25"
+					]
+				]
+			],
+			[
+				110933.333333333,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				112000,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.25"
+					]
+				]
+			],
+			[
+				112000,
 				[
 					[
 						"Toggle Blocked Glitch",
@@ -284,10 +409,42 @@
 						"0",
 						""
 					]
+				],
+				null,
+				"Restart PC Note"
+			],
+			[
+				123723.333333334,
+				[
+					[
+						"Add Camera Zoom",
+						"0.03",
+						"0.05"
+					]
 				]
 			],
 			[
-				137600,
+				123733.333333334,
+				[
+					[
+						"Quick note spin",
+						"",
+						""
+					]
+				]
+			],
+			[
+				146133.333333333,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.15"
+					]
+				]
+			],
+			[
+				146133.333333333,
 				[
 					[
 						"Toggle Blocked Glitch",
@@ -297,22 +454,32 @@
 				]
 			],
 			[
-				138666.666666667,
+				146400,
 				[
 					[
-						"Toggle Blocked Glitch",
-						"0",
-						""
+						"Freeze Chart",
+						"true",
+						"0.15"
 					]
 				]
 			],
 			[
-				145066.666666667,
+				146666.666666667,
 				[
 					[
-						"Toggle Blocked Glitch",
-						"1",
-						""
+						"Freeze Chart",
+						"true",
+						"0.075"
+					]
+				]
+			],
+			[
+				146933.333333333,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.05"
 					]
 				]
 			],
@@ -330,9 +497,199 @@
 				157866.666666667,
 				[
 					[
+						"Toggle Opponent Trail",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				162133.333333333,
+				[
+					[
+						"Toggle Opponent Trail",
+						"0",
+						""
+					],
+					[
+						"Toggle Player Trail",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				166400,
+				[
+					[
+						"Toggle Player Trail",
+						"0",
+						""
+					],
+					[
+						"Toggle Opponent Trail",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				170666.666666667,
+				[
+					[
+						"Toggle Opponent Trail",
+						"0",
+						""
+					],
+					[
+						"Toggle Player Trail",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				174933.333333333,
+				[
+					[
+						"Toggle Player Trail",
+						"0",
+						""
+					],
+					[
+						"Toggle Opponent Trail",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				179200,
+				[
+					[
+						"Toggle Opponent Trail",
+						"0",
+						""
+					],
+					[
+						"Toggle Player Trail",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				183466.666666666,
+				[
+					[
+						"Toggle Player Trail",
+						"0",
+						""
+					],
+					[
+						"Toggle Opponent Trail",
+						"1",
+						""
+					],
+					[
 						"Add Camera Zoom",
-						"0.095",
-						"0.085"
+						"1",
+						""
+					]
+				]
+			],
+			[
+				186666.666666666,
+				[
+					[
+						"Opponent Fade",
+						"2",
+						"0"
+					]
+				]
+			],
+			[
+				187733.333333333,
+				[
+					[
+						"Toggle Opponent Trail",
+						"0",
+						""
+					],
+					[
+						"Toggle Player Trail",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				190800,
+				[
+					[
+						"Add Camera Zoom",
+						"2",
+						""
+					]
+				]
+			],
+			[
+				190933.333333333,
+				[
+					[
+						"BF Fade",
+						"2",
+						"0"
+					],
+					[
+						"Toggle Player Trail",
+						"0",
+						""
+					],
+					[
+						"",
+						"",
+						""
+					]
+				]
+			],
+			[
+				191066.666666666,
+				[
+					[
+						"Add Camera Zoom",
+						"2",
+						""
+					]
+				]
+			],
+			[
+				191333.333333333,
+				[
+					[
+						"Add Camera Zoom",
+						"2",
+						""
+					]
+				]
+			],
+			[
+				191600,
+				[
+					[
+						"Add Camera Zoom",
+						"2",
+						""
+					]
+				]
+			],
+			[
+				191800,
+				[
+					[
+						"Add Camera Zoom",
+						"2",
+						""
 					]
 				]
 			]

@@ -494,6 +494,8 @@ class TitleState extends MusicBeatState
 		{
 			if (touch.justPressed)
 			{
+				FlxTween.tween(camera, {zoom: 2}, 5, {ease: FlxEase.backInOut, type: ONESHOT, onComplete: function(twn:FlxTween) {
+				}});
 				pressedEnter = true;
 			}
 		}
@@ -505,10 +507,14 @@ class TitleState extends MusicBeatState
 		{
 			if (gamepad.justPressed.START)
 				pressedEnter = true;
+			FlxTween.tween(camera, {zoom: 2}, 5, {ease: FlxEase.backInOut, type: ONESHOT, onComplete: function(twn:FlxTween) {
+			}});
 
 			#if switch
 			if (gamepad.justPressed.B)
 				pressedEnter = true;
+			FlxTween.tween(camera, {zoom: 2}, 5, {ease: FlxEase.backInOut, type: ONESHOT, onComplete: function(twn:FlxTween) {
+			}});
 			#end
 		}
 		
@@ -540,8 +546,11 @@ class TitleState extends MusicBeatState
 				
 				if(titleText != null) titleText.animation.play('press');
 
-				FlxG.camera.flash(ClientPrefs.flashing ? FlxColor.WHITE : 0x4CFFFFFF, 1);
+				
 				FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
+
+				FlxTween.tween(titleText, {alpha: 0}, 0.5, {ease: FlxEase.backInOut, type: ONESHOT, onComplete: function(twn:FlxTween) {
+				}});
 
 				transitioning = true;
 				// FlxG.sound.music.stop();

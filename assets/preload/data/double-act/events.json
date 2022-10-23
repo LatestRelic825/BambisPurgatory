@@ -1,0 +1,21 @@
+{
+	"song": {
+		"events": [
+			[
+				103384.615384615,
+				[
+					[
+						"Show/Hide Alt Strumlines",
+						"1",
+						""
+					],
+					[
+						"Move Alt Strumlines",
+						"-20,200",
+						""
+					]
+				]
+			]
+		]
+	}
+}

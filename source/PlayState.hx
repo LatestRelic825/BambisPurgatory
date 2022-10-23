@@ -160,6 +160,7 @@ class PlayState extends MusicBeatState
 	public var dad:Character = null;
 	public var gf:Character = null;
 	public var boyfriend:Boyfriend = null;
+	public var player3:Character = null;
 
 	public var notes:FlxTypedGroup<Note>;
 	public var unspawnNotes:Array<Note> = [];
@@ -193,7 +194,7 @@ class PlayState extends MusicBeatState
 
 	private var healthBarBG:AttachedSprite;
 	public var healthBar:FlxBar;
-	public var healthBarOverlay:FlxSprite;
+	public var healthBarOverlay:AttachedSprite;
 	var songPercent:Float = 0;
 
 	private var timeBarBG:AttachedSprite;
@@ -325,7 +326,7 @@ class PlayState extends MusicBeatState
 	private var singAnimations:Array<String> = ['singLEFT', 'singDOWN', 'singUP', 'singRIGHT'];
 
 	//goofy characters
-	var funnyFloatyBoys:Array<String> = ['dave-3d', 'bambi-3d', 'crusti', 'baiburg', 'crusturn', 'minion', 'god-expunged-1', 'bambi-unfair', 'expunged', 'bambi-piss-3d', 'bambi-scaryooo', 'hell-1', 'hell-2', 'bambi-god2d', 'bambi-god-2-24fps', 'bambi-hell', 'bombureal', 'bombai', 'crimson-dave', 'crimson-bambi', 'gary', 'bamburg', 'bamburg-player'];
+	var funnyFloatyBoys:Array<String> = ['dave-3d', 'bambi-3d', 'baiburg', 'crusturn', 'god-expunged-1', 'bambi-unfair', 'expunged', 'bambi-piss-3d', 'bambi-scaryooo', 'hell-1', 'hell-2', 'bambi-god2d', 'bambi-god-2-24fps', 'bambi-hell', 'bombureal', 'bombai', 'crimson-dave', 'crimson-bambi', 'gary', 'bamburg', 'bamburg-player'];
 	var funnySideFloatyBoys:Array<String> = ['bombureal', 'god-expunged-1', 'bombai'];
 	var funnyRotatorBoys:Array<String> = ['hell-2', 'god-expunged-1'];
 	var canSlide:Bool = true;
@@ -378,8 +379,11 @@ class PlayState extends MusicBeatState
 	// shit that messes with the camera (mostly for like events like eyesores) //
 	private var shakeCam:Bool = false;
 	private var glitchCam:Bool = false;
-	private var camZoomSnap:Bool = false;
+	var camZoomSnap:Bool = false;
+	var camTilt:Bool = false;
 	var goofyZoom:Bool = false;
+
+	var camZoomTween:FlxTween;
 
 	// some stuff for icons //
 	var dnbBounce:Bool = true;
@@ -661,26 +665,40 @@ class PlayState extends MusicBeatState
 			bg.depth = 0.2;
 			add(bg);
 
-			hills = new DepthSprite('dave/hills', -225, -125, 0.5, 0.5);
-			hills.depth = 0.5;
-			hills.defaultScale = 1.3;
-			hills.setGraphicSize(Std.int(hills.width * 1.25));
-			hills.updateHitbox();
-			add(hills);
+			hills = new DepthSprite('bpASSets/dave/hills', -225, -125, 0.6, 0.6);
+		    hills.depth = 0.5;
+		    hills.defaultScale = 1;
+		    hills.setGraphicSize(Std.int(hills.width * 1.25));
+		    hills.updateHitbox();
+	    	add(hills);
 
-			gate = new DepthSprite('dave/gate', -226, -125, 0.9, 0.9);
-			gate.depth = 1;
-			gate.defaultScale = 1.3;
-			gate.setGraphicSize(Std.int(gate.width * 1.2));
-			gate.updateHitbox();
-			add(gate);
+			grass = new DepthSprite('bpASSets/dave/supergrass', -1200, 175, 1, 1); // negative means left
+		    grass.depth = 1;
+		    grass.defaultScale = 1;
+		    grass.setGraphicSize(Std.int(grass.width * 1.2));
+		    grass.updateHitbox();
+		    add(grass);
 
-			grass = new DepthSprite('dave/grass', -225, -125, 0.9, 0.9);
-			grass.depth = 1;
-			grass.defaultScale = 1.3;
-			grass.setGraphicSize(Std.int(grass.width * 1.2));
-			grass.updateHitbox();
-			add(grass);
+			gate = new DepthSprite('bpASSets/dave/gates', -275, -50, 1, 1);
+	    	gate.depth = 1;
+		    gate.defaultScale = 1;
+		    gate.setGraphicSize(Std.int(gate.width * 1.2));
+		    gate.updateHitbox();
+		    add(gate);
+
+			house = new DepthSprite('bpASSets/dave/house', -900, -85, 1, 1); // negative means up
+		    house.depth = 1;
+		    house.defaultScale = 1;
+		    house.setGraphicSize(Std.int(house.width * 0.8));
+		    house.updateHitbox();
+		    add(house);
+
+		    grill = new DepthSprite('bpASSets/dave/grill', -500, 650, 1, 1);
+		    grill.depth = 1;
+		    grill.defaultScale = 1;
+		    grill.setGraphicSize(Std.int(grill.width * 0.8));
+		    grill.updateHitbox();
+		    add(grill);
 
 			colorFilter = new BGSprite(null, -800, -400, 0, 0);
 			colorFilter.makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), 0xFFFF8FB2);
@@ -689,36 +707,58 @@ class PlayState extends MusicBeatState
 			//hills.color = 0xFFFF8FB2;
 			//gate.color = 0xFFFF8FB2;
 			//grass.color = 0xFFFF8FB2;
+			//house.color = 0xFFFF8FB2;
 
 		case 'houseNight': //Dave Week
 			bg = new DepthSprite('dave/sky_night', -600, -200, 0.2, 0.2);
 			bg.depth = 0.2;
 			add(bg);
 
-			hills = new DepthSprite('dave/hills', -225, -125, 0.5, 0.5);
-			hills.depth = 0.5;
-			hills.defaultScale = 1.3;
-			hills.setGraphicSize(Std.int(hills.width * 1.25));
-			hills.updateHitbox();
-			add(hills);
+			hills = new DepthSprite('bpASSets/dave/hills', -225, -125, 0.6, 0.6);
+		    hills.depth = 0.5;
+		    hills.defaultScale = 1;
+		    hills.setGraphicSize(Std.int(hills.width * 1.25));
+		    hills.updateHitbox();
+	    	add(hills);
 
-			gate = new DepthSprite('dave/gate', -226, -125, 0.9, 0.9);
-			gate.depth = 1;
-			gate.defaultScale = 1.3;
-			gate.setGraphicSize(Std.int(gate.width * 1.2));
-			gate.updateHitbox();
-			add(gate);
+			grass = new DepthSprite('bpASSets/dave/supergrass', -1200, 175, 1, 1); // negative means left
+		    grass.depth = 1;
+		    grass.defaultScale = 1;
+		    grass.setGraphicSize(Std.int(grass.width * 1.2));
+		    grass.updateHitbox();
+		    add(grass);
 
-			grass = new DepthSprite('dave/grass', -225, -125, 0.9, 0.9);
-			grass.depth = 1;
-			grass.defaultScale = 1.3;
-			grass.setGraphicSize(Std.int(grass.width * 1.2));
-			grass.updateHitbox();
-			add(grass);
+			gate = new DepthSprite('bpASSets/dave/gates', -275, -50, 1, 1);
+	    	gate.depth = 1;
+		    gate.defaultScale = 1;
+		    gate.setGraphicSize(Std.int(gate.width * 1.2));
+		    gate.updateHitbox();
+		    add(gate);
 
-			hills.color = 0xFF878787;
-			gate.color = 0xFF878787;
-			grass.color = 0xFF878787;
+			house = new DepthSprite('bpASSets/dave/house', -900, -85, 1, 1); // negative means up
+		    house.depth = 1;
+		    house.defaultScale = 1;
+		    house.setGraphicSize(Std.int(house.width * 0.8));
+		    house.updateHitbox();
+		    add(house);
+
+		    grill = new DepthSprite('bpASSets/dave/grill', -500, 650, 1, 1);
+		    grill.depth = 1;
+		    grill.defaultScale = 1;
+		    grill.setGraphicSize(Std.int(grill.width * 0.8));
+		    grill.updateHitbox();
+		    add(grill);
+
+			
+			colorFilter = new BGSprite(null, -800, -400, 0, 0);
+			colorFilter.makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), 0xFF878787);
+			colorFilter.blend = MULTIPLY;
+
+			//hills.color = 0xFF878787;
+			//gate.color = 0xFF878787;
+			//grill.color = 0xFF878787;
+			//grass.color = 0xFF878787;
+			//house.color = 0xFF878787;
 
 		case 'backyard': //Dave's Rematch Week
 		    bg = new DepthSprite('dave/sky', -600, -200, 0.2, 0.2);
@@ -1572,9 +1612,8 @@ class PlayState extends MusicBeatState
 				add(halloweenWhite);
 			case 'tank':
 				add(foregroundSprites);
-			case 'houseSunset' | 'farmSunset':
-				add(colorFilter);
 		}
+		if (colorFilter != null) add(colorFilter);
 
 		#if LUA_ALLOWED
 		luaDebugGroup = new FlxTypedGroup<DebugLuaText>();
@@ -1697,6 +1736,13 @@ class PlayState extends MusicBeatState
 		startCharacterPos(dad, true);
 		dadGroup.add(dad);
 		startCharacterLua(dad.curCharacter);
+
+		player3 = new Character(0, 0, SONG.player3);
+		if (SONG.player3 == null || SONG.player3 == '') player3.visible = false;
+		startCharacterPos(player3, true);
+		dadGroup.add(player3);
+		player3.x -= 180;
+		startCharacterLua(player3.curCharacter);
 
 		boyfriend = new Boyfriend(0, 0, SONG.player1);
 		startCharacterPos(boyfriend);
@@ -1855,7 +1901,7 @@ class PlayState extends MusicBeatState
 			add(fakenotes);
 		fakenotes.cameras = [camHUD];*/
 
-		altStrumLine = new FlxSprite(0, -100);
+		altStrumLine = new FlxSprite(0, 0);
 
 		strumLineNotes = new FlxTypedGroup<StrumNote>();
 		add(strumLineNotes);
@@ -1978,17 +2024,17 @@ class PlayState extends MusicBeatState
 		insert(members.indexOf(healthBarBG), healthBar);
 		healthBarBG.sprTracker = healthBar;
 
-		healthBarOverlay = new FlxSprite().loadGraphic(Paths.image('healthBarOverlay'));
+		healthBarOverlay = new AttachedSprite('healthBarOverlay');
 		healthBarOverlay.y = FlxG.height * 0.89;
 		healthBarOverlay.screenCenter(X);
 		healthBarOverlay.scrollFactor.set();
 		healthBarOverlay.visible = !ClientPrefs.hideHud;
         healthBarOverlay.color = FlxColor.BLACK;
 		healthBarOverlay.blend = MULTIPLY;
-		healthBarOverlay.x = healthBarBG.x-1.9;
-	    healthBarOverlay.alpha = ClientPrefs.healthBarAlpha;
-		healthBarOverlay.antialiasing = ClientPrefs.globalAntialiasing;
-		add(healthBarOverlay); healthBarOverlay.alpha = ClientPrefs.healthBarAlpha; if(ClientPrefs.downScroll) healthBarOverlay.y = 50;
+		healthBarOverlay.xAdd = -4;
+		healthBarOverlay.yAdd = -4;
+		add(healthBarOverlay);
+		healthBarOverlay.sprTracker = healthBar;
 
 		iconP1 = new HealthIcon(boyfriend.healthIcon, true);
 		iconP1.y = healthBar.y - 75;
@@ -2077,6 +2123,9 @@ class PlayState extends MusicBeatState
 			// add randomness songs here
 			case 'shattered' | 'triple-threat':
 				composersWatermark = 'Epicrandomness11';
+			// add randomness & bas songs here
+			case 'fallowed':
+				composersWatermark = 'Epicrandomness11 & Bas';
 			// add aadsta's songs here
 			case 'acquaintance':
 				composersWatermark = 'AadstaPinwheel';
@@ -3164,6 +3213,10 @@ class PlayState extends MusicBeatState
 				{
 					dad.dance();
 				}
+				if (tmr.loopsLeft % player3.danceEveryNumBeats == 0 && player3.animation.curAnim != null && !player3.animation.curAnim.name.startsWith('sing') && !player3.stunned)
+				{
+					player3.dance();
+				}
 
 				var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
 				introAssets.set('default', ['ready', 'set', 'go']);
@@ -3754,7 +3807,7 @@ class PlayState extends MusicBeatState
 				babyArrow = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player);
 			else {
 				babyArrow = new StrumNote(altStrumLine.x, altStrumLine.y, i, 0);
-				babyArrow.scrollFactor.set(1,1);
+				babyArrow.scrollFactor.set(1.1,1.1);
 				babyArrow.alpha = 0;
 			}
 
@@ -3966,7 +4019,7 @@ class PlayState extends MusicBeatState
 
 		switch (SONG.stage) {
 			// some stuff //
-			case '3dRed' | '3dScary' | '3dFucked' | 'houseNight' | 'houseroof' | 'farmNight': // Dark character thing
+			case '3dRed' | '3dScary' | '3dFucked' | 'houseroof' | 'farmNight': // Dark character thing
 			    if (SONG.player2 != 'bambi-god2d') dad.color = 0xFF878787;
                 gf.color = 0xFF878787;
                 if(!boyfriend.curCharacter.startsWith('golden-tristan')) boyfriend.color = 0xFF878787;
@@ -3987,17 +4040,25 @@ class PlayState extends MusicBeatState
 			// ends //
 		}
 
-		if(funnyFloatyBoys.contains(dad.curCharacter.toLowerCase()) && canFloat && !laggingRSOD) {
-			dad.y += (Math.sin(elapsedtime) * 0.6);
-			if(dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('idle') && cameraOnDad)
-				camFollow.y += (Math.sin(elapsedtime) * 0.6);
+		var floatyChars:Array<Character> = [dad, gf, boyfriend, player3];
+		for (who in floatyChars) {
+			var cammy:Bool = (who == boyfriend) ? cameraOnBF : cameraOnDad;
+			if(funnyFloatyBoys.contains(who.curCharacter.toLowerCase()) && canFloat && !laggingRSOD) {
+				who.y += (Math.sin(elapsedtime) * 0.6);
+				if(who.animation.curAnim != null && !who.animation.curAnim.name.startsWith('idle') && cammy)
+					camFollow.y += (Math.sin(elapsedtime) * 0.6);
+			}
+			if(funnySideFloatyBoys.contains(who.curCharacter.toLowerCase()) && canSlide && !laggingRSOD) {
+				who.x += (Math.cos(elapsedtime) * 0.6);
+				if(who.animation.curAnim != null && !who.animation.curAnim.name.startsWith('idle') && cammy)
+					camFollow.x += (Math.sin(elapsedtime) * 0.6);
+			}
+			if(funnyRotatorBoys.contains(who.curCharacter.toLowerCase()) && canRotate && !laggingRSOD) {
+				who.angle += (Math.sin(elapsedtime) * 0.015);
+				// FlxTween.angle(dad, -5, 5, Conductor.crochet / 300, {ease: FlxEase.sineInOut, type: PINGPONG});
+			}
 		}
-		if(funnySideFloatyBoys.contains(dad.curCharacter.toLowerCase()) && canSlide && !laggingRSOD) {
-			dad.x += (Math.cos(elapsedtime) * 0.6);
-			if(dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('idle') && cameraOnDad)
-				camFollow.x += (Math.sin(elapsedtime) * 0.6);
-		}
-		if(funnyFloatyBoys.contains(boyfriend.curCharacter.toLowerCase()) && canFloat && !laggingRSOD) {
+		/* if(funnyFloatyBoys.contains(boyfriend.curCharacter.toLowerCase()) && canFloat && !laggingRSOD) {
 			boyfriend.y += (Math.sin(elapsedtime) * 0.6);
 			if(boyfriend.animation.curAnim.name.startsWith('idle') || boyfriend.animation.curAnim.name.endsWith('miss'))
 				if (cameraOnBF) camFollow.y += (Math.sin(elapsedtime) * 0.6);
@@ -4006,11 +4067,7 @@ class PlayState extends MusicBeatState
 			boyfriend.x += (Math.cos(elapsedtime) * 0.6);
 			if(boyfriend.animation.curAnim.name.startsWith('idle') || boyfriend.animation.curAnim.name.endsWith('miss'))
 				camFollow.x += (Math.sin(elapsedtime) * 0.6);
-		}
-		if(funnyRotatorBoys.contains(dad.curCharacter.toLowerCase()) && canRotate && !laggingRSOD) {
-			dad.angle += (Math.sin(elapsedtime) * 0.015);
-			// FlxTween.angle(dad, -5, 5, Conductor.crochet / 300, {ease: FlxEase.sineInOut, type: PINGPONG});
-		}
+		} */
 		if(canFloat && !funnyFloatyBoys.contains(boyfriend.curCharacter.toLowerCase())) {
 			switch (curStage) {
 				case '3dTunnel': {
@@ -4214,6 +4271,25 @@ class PlayState extends MusicBeatState
 						boyfriend.playAnim('hurt', true);
 					case 1792:
 						redGlow.visible = true;
+				}
+			case 'acquaintance':
+				switch (curStep)
+				{
+					case 0:
+						camZoomSnap = true;
+					case 512:
+						camTilt = true;
+					case 1024:
+						camZoomSnap = false;
+						camTilt = false;
+						FlxTween.tween(camHUD, {angle: 0}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
+					case 1280:
+						camZoomSnap = true;
+						camTilt = true;
+					case 1792:
+						camZoomSnap = false;
+						camTilt = false;
+						FlxTween.tween(camHUD, {angle: 0}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
 				}
 			case 'rsod': // i should probably organize this one jesus
 				switch (curStep)
@@ -5071,9 +5147,18 @@ class PlayState extends MusicBeatState
 				}
 			case 'Change the Default Camera Zoom': // not to be confused with the one above!
 					var mZoom:Float = Std.parseFloat(value1);
+					var duration:Float = Std.parseFloat(value2);
 					if(Math.isNaN(mZoom)) mZoom = 0.09;
 
 					defaultCamZoom = mZoom;
+					if (camZoomTween != null) camZoomTween.cancel();
+					camZoomTween = null;
+					if (duration > 0) {
+						camZoomTween = FlxTween.tween(FlxG.camera, {zoom: mZoom}, duration, {ease: FlxEase.quadInOut,
+							onComplete: function(twn:FlxTween) {
+								camZoomTween = null;
+						}});
+					}
 			case 'Trigger BG Ghouls':
 				if(curStage == 'schoolEvil' && !ClientPrefs.lowQuality) {
 					bgGhouls.dance(true);
@@ -6256,6 +6341,9 @@ class PlayState extends MusicBeatState
 			if(note.gfNote) {
 				char = gf;
 			}
+			if(note.altStrum) {
+				char = player3;
+			}
 
 			if(char != null)
 			{
@@ -6866,12 +6954,19 @@ class PlayState extends MusicBeatState
 				defaultCamZoom = defaultCamZoom + 0.25;
 		}
 
+		if(camTilt) {
+			if(curBeat % 8 == 0)
+				FlxTween.tween(camHUD, {angle: -2}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
+			if(curBeat % 8 == 4)
+				FlxTween.tween(camHUD, {angle: 2}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
+		}
+
 		if (gf != null && curBeat % Math.round(gfSpeed * gf.danceEveryNumBeats) == 0 && gf.animation.curAnim != null && !gf.animation.curAnim.name.startsWith("sing") && !gf.stunned)
 		{
 			if(!laggingRSOD)
 				gf.dance();
 		}
-		if(curBeat % 2 == 0 && !laggingRSOD) {
+		if(!laggingRSOD) {
 			if (!uphIntroTime) {
 				FlxTween.angle(iconP1, -15, 0, Conductor.crochet / 1300 * gfSpeed, {ease: FlxEase.quadOut});
 				FlxTween.angle(iconP2, 15, 0, Conductor.crochet / 1300 * gfSpeed, {ease: FlxEase.quadOut});
@@ -6888,6 +6983,12 @@ class PlayState extends MusicBeatState
 			{
 				if(!laggingRSOD)
 					dad.dance();
+			//	dad.playAnim('idle', true);
+			}
+			if (curBeat % player3.danceEveryNumBeats == 0 && player3.animation.curAnim != null && !player3.animation.curAnim.name.startsWith('sing') && !player3.stunned)
+			{
+				if(!laggingRSOD)
+					player3.dance();
 			//	dad.playAnim('idle', true);
 			}
 		}

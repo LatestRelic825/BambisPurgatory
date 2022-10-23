@@ -232,6 +232,7 @@ class ChartingState extends MusicBeatState
 				splashSkin: 'noteSplashes',//idk it would crash if i didn't
 				player1: 'bf',
 				player2: 'dad',
+				player3: null,
 				gfVersion: 'gf',
 				speed: 1,
 				stage: 'stage',
@@ -509,7 +510,7 @@ class ChartingState extends MusicBeatState
 		#end
 
 		var tempMap:Map<String, Bool> = new Map<String, Bool>();
-		var characters:Array<String> = CoolUtil.coolTextFile(Paths.txt('characterList'));
+		var characters:Array<String> = [''].concat(CoolUtil.coolTextFile(Paths.txt('characterList')));
 		for (i in 0...characters.length) {
 			tempMap.set(characters[i], true);
 		}
@@ -555,6 +556,14 @@ class ChartingState extends MusicBeatState
 		});
 		player2DropDown.selectedLabel = _song.player2;
 		blockPressWhileScrolling.push(player2DropDown);
+
+		var player3DropDown = new FlxUIDropDownMenuCustom(player1DropDown.x + 140, player2DropDown.y, FlxUIDropDownMenuCustom.makeStrIdLabelArray(characters, true), function(character:String)
+		{
+			_song.player3 = characters[Std.parseInt(character)];
+			updateHeads();
+		});
+		player3DropDown.selectedLabel = _song.player3;
+		blockPressWhileScrolling.push(player3DropDown);
 
 		#if MODS_ALLOWED
 		var directories:Array<String> = [Paths.mods('stages/'), Paths.mods(Paths.currentModDirectory + '/stages/'), Paths.getPreloadPath('stages/')];
@@ -638,10 +647,12 @@ class ChartingState extends MusicBeatState
 		tab_group_song.add(new FlxText(player2DropDown.x, player2DropDown.y - 15, 0, 'Opponent:'));
 		tab_group_song.add(new FlxText(gfVersionDropDown.x, gfVersionDropDown.y - 15, 0, 'Girlfriend:'));
 		tab_group_song.add(new FlxText(player1DropDown.x, player1DropDown.y - 15, 0, 'Boyfriend:'));
+		tab_group_song.add(new FlxText(player3DropDown.x, player3DropDown.y - 15, 0, 'Alt Opponent:'));
 		tab_group_song.add(new FlxText(stageDropDown.x, stageDropDown.y - 15, 0, 'Stage:'));
 		tab_group_song.add(new FlxText(noteSkinInputText.x, noteSkinInputText.y - 15, 0, 'Note Texture:'));
 		tab_group_song.add(new FlxText(noteSplashesInputText.x, noteSplashesInputText.y - 15, 0, 'Note Splashes Texture:'));
 		tab_group_song.add(player2DropDown);
+		tab_group_song.add(player3DropDown);
 		tab_group_song.add(gfVersionDropDown);
 		tab_group_song.add(player1DropDown);
 		tab_group_song.add(stageDropDown);

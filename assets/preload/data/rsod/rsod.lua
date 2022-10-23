@@ -182,7 +182,7 @@ function onStepHit()
         doTweenX('byo4','extravars2',0,stepCrochet*0.004,'linear')
     end
     if floorStep == 2368 then
-        setProperty('extravars.alpha',0.90)
+        setProperty('extravars.alpha',0.70)
         for i = 0,3 do
             setProperty('notes' .. i .. '.x',-660)
         end

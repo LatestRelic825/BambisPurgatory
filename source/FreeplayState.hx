@@ -84,7 +84,7 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		bg.loadGraphic(MainMenuState.randomizeBG());
-		bg.color = 0xFFFFFFFF;
+		bg.color = 0xFF202020;
 		add(bg);
 
 		CurrentSongIcon = new FlxSprite(0,0).loadGraphic(Paths.image('week_icons_' + (AllPossibleSongs[CurrentPack].toLowerCase())));
@@ -418,6 +418,8 @@ public static function destroyFreeplayVocals() {
 
 	function changeSelection(change:Int = 0)
 	{
+		FlxG.sound.play(Paths.sound('scrollMenu'));
+		
 		curSelected += change;
 
 		if (curSelected < 0)

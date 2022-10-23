@@ -14,7 +14,7 @@ end
 
 function opponentNoteHit(id, noteData, noteType, isSustainNote)
     if shityourself then
-        Chromacrap = Chromacrap + 0.030 -- edit this
+        Chromacrap = Chromacrap + 0.008 -- edit this
     end
 end
 
@@ -27,20 +27,15 @@ function onCreatePost()
     setSpriteShader("temporaryShader", "vcr")
     
     addHaxeLibrary("ShaderFilter", "openfl.filters")
-    runHaxeCode([[
-        trace(ShaderFilter);
-        game.camGame.setFilters([[new ShaderFilter(game.screenshader.shader), new ShaderFilter(game.getLuaObject("temporaryShader").shader)]);
-        game.camHUD.setFilters([[new ShaderFilter(game.glitchShader.shader), new ShaderFilter(game.getLuaObject("temporaryShader").shader)]);
-    ]])
 end
 
-function onUpdate(elapsed)
+function onUpdatePost(elapsed)
     Chromacrap = math.lerp(Chromacrap, 0, boundTo(elapsed * 20, 0, 1))
     setChrome(Chromacrap)
 
     if not shityourself then 
         if curBeat % 1 == 0 then
-            Chromacrap = 0.008 -- edit this
+            Chromacrap = 0.020 -- edit this
         end
     end
 
@@ -48,4 +43,10 @@ function onUpdate(elapsed)
     if curStep == 1536 then shityourself = true end
     if curStep == 2048 then shityourself = false end
     if curStep == 2815 then shityourself = true end
+
+    runHaxeCode([[
+        // trace(ShaderFilter);
+        game.camGame.setFilters([new ShaderFilter(game.getLuaObject("temporaryShader").shader), new ShaderFilter(game.screenshader.shader)]);
+        game.camHUD.setFilters([new ShaderFilter(game.getLuaObject("temporaryShader").shader), new ShaderFilter(game.glitchShader.shader)]);
+    ]])
 end
