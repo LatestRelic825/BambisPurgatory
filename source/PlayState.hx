@@ -2198,10 +2198,11 @@ class PlayState extends MusicBeatState
 		timeTxt.cameras = [camHUD];
 		redGlow.cameras = [camHUD];
 		doof.cameras = [camHUD];
-		if(SONG.song.toLowerCase() == "antagonism") 
+		if(SONG.song.toLowerCase() == "antagonism") {
 		    evilBar.cameras = [camHUD];
 		    evilBarBG.cameras = [camHUD];
 		    evilTxt.cameras = [camHUD];
+		}
 
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
@@ -3466,8 +3467,10 @@ class PlayState extends MusicBeatState
 		FlxTween.tween(timeBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 		FlxTween.tween(timeTxt, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 
-		FlxTween.tween(evilBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
-		FlxTween.tween(evilTxt, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
+		if(SONG.song.toLowerCase() == "antagonism") {
+			FlxTween.tween(evilBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
+			FlxTween.tween(evilTxt, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
+		}
 
 		// for the credits //
 		for (dicknballs in [composersText, composersBG]) {
@@ -4653,7 +4656,7 @@ class PlayState extends MusicBeatState
 
 					if(ClientPrefs.timeBarType != 'Song Name')
 						timeTxt.text = SONG.song + ' (' + FlxStringUtil.formatTime(secondsTotal, false) + " / " +  FlxStringUtil.formatTime(sexLol, false) + ')';
-					    evilTxt.text = SONG.song + '      ' + FlxStringUtil.formatTime(secondsTotal, false) + " / " +  FlxStringUtil.formatTime(sexLol, false) + '';
+					    if(SONG.song.toLowerCase() == "antagonism") evilTxt.text = SONG.song + '      ' + FlxStringUtil.formatTime(secondsTotal, false) + " / " +  FlxStringUtil.formatTime(sexLol, false) + '';
 				}
 			}
 
@@ -6627,10 +6630,11 @@ class PlayState extends MusicBeatState
 	    	timeBar.visible = true;
 	    	timeBarBG.visible = true;
 		    timeTxt.visible = true; 
-			if(SONG.song.toLowerCase() == "antagonism") 
+			if(SONG.song.toLowerCase() == "antagonism") {
 			    evilBar.visible = true;
 	    	    evilBarBG.visible = true;
 			    evilTxt.visible = true;
+			}
 		}
 	}
 	
@@ -6653,10 +6657,11 @@ class PlayState extends MusicBeatState
 	     	timeBar.visible = true;
 	     	timeBarBG.visible = true;
 	     	timeTxt.visible = true;
-			if(SONG.song.toLowerCase() == "antagonism") 
+			if(SONG.song.toLowerCase() == "antagonism") {
 			    evilBar.visible = true;
 			    evilBarBG.visible = true;
 			    evilTxt.visible = true;
+			}
 		}
 	}
 
@@ -6692,10 +6697,11 @@ class PlayState extends MusicBeatState
 			timeBar.visible = true;
 			timeBarBG.visible = true;
 			timeTxt.visible = true;
-			if(SONG.song.toLowerCase() == "antagonism") 
+			if(SONG.song.toLowerCase() == "antagonism")  {
 				evilBar.visible = true;
 		    	evilBarBG.visible = true;
 		    	evilTxt.visible = true;
+		    }
 	    }
 		showCombo = true;
 		showComboNum = true;
