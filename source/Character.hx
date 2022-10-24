@@ -390,7 +390,7 @@ class Character extends FlxSprite
 	public function recalculateDanceIdle() {
 		var lastDanceIdle:Bool = danceIdle;
 		danceIdle = (animation.getByName('danceLeft' + idleSuffix) != null && animation.getByName('danceRight' + idleSuffix) != null);
-		trace(curCharacter + ', ' + danceIdle);
+		// trace(curCharacter + ', ' + danceIdle);
 
 		if(settingCharacterUp)
 		{
