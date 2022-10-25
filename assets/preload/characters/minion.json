@@ -1,54 +1,58 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				307,
 				150
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "Left"
+			"fps": 24,
+			"name": "Left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				104,
 				36
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "Down"
+			"fps": 24,
+			"name": "Down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				24,
 				135
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "Up"
+			"fps": 24,
+			"name": "Up",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				5,
 				53
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "Right"
+			"fps": 24,
+			"name": "Right",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				30,
 				120
 			],
+			"anim": "danceLeft",
+			"fps": 24,
+			"name": "Idle",
 			"indices": [
 				24,
 				25,
@@ -64,17 +68,17 @@
 				7,
 				8,
 				9
-			],
-			"fps": 24,
-			"anim": "danceLeft",
-			"loop": false,
-			"name": "Idle"
+			]
 		},
 		{
+			"loop": false,
 			"offsets": [
 				30,
 				120
 			],
+			"anim": "danceRight",
+			"fps": 24,
+			"name": "Idle",
 			"indices": [
 				10,
 				11,
@@ -90,17 +94,13 @@
 				21,
 				22,
 				23
-			],
-			"fps": 24,
-			"anim": "danceRight",
-			"loop": false,
-			"name": "Idle"
+			]
 		}
 	],
-	"no_antialiasing": false,
+	"no_antialiasing": true,
 	"image": "characters/Pooper",
 	"position": [
-		0,
+		-40,
 		130
 	],
 	"healthicon": "minion",
@@ -112,8 +112,8 @@
 	],
 	"camera_position": [
 		0,
-		40
+		-10
 	],
 	"sing_duration": 6.1,
-	"scale": 0.8
+	"scale": 0.85
 }

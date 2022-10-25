@@ -1017,20 +1017,10 @@
 				]
 			],
 			[
-				82560,
-				[
-					[
-						"Thunderstorm type black screen",
-						"1",
-						""
-					]
-				]
-			],
-			[
 				84480,
 				[
 					[
-						"Thunderstorm type black screen",
+						"Toggle Blocked Glitch",
 						"0",
 						""
 					],
@@ -2287,20 +2277,10 @@
 				]
 			],
 			[
-				144000,
-				[
-					[
-						"Thunderstorm type black screen",
-						"1",
-						""
-					]
-				]
-			],
-			[
 				145920,
 				[
 					[
-						"Thunderstorm type black screen",
+						"Toggle Blocked Glitch",
 						"0",
 						""
 					],

@@ -1103,7 +1103,7 @@ class PlayState extends MusicBeatState
 
 
 				case 'ourple':
-						defaultCamZoom = 0.755;
+						defaultCamZoom = 0.65;
 						curStage = 'ourple';
 		
 						ourple = new FlxSprite(-1500, -900).loadGraphic(Paths.image('bpASSets/poipman/urple'));
@@ -1118,8 +1118,8 @@ class PlayState extends MusicBeatState
 					//	{
 							var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
 							testshader.waveAmplitude = 0.1;
-							testshader.waveFrequency = 5;
-							testshader.waveSpeed = 2;
+							testshader.waveFrequency = 3;
+							testshader.waveSpeed = 1.5;
 							ourple.shader = testshader.shader;
 							curbg = ourple;
 			case 'bambersHell':
@@ -4726,7 +4726,7 @@ class PlayState extends MusicBeatState
 				if(!daNote.mustPress) {
 					strumGroup = opponentStrums;
 					if(daNote.altStrum) strumGroup = altStrums;
-					daNote.scrollFactor.set(1.1, 1.1);
+					daNote.scrollFactor.set(1.5, 1.5);
 				}
 				var strumX:Float = strumGroup.members[daNote.noteData].x;
 				var strumY:Float = strumGroup.members[daNote.noteData].y;
