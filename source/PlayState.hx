@@ -5603,9 +5603,11 @@ class PlayState extends MusicBeatState
 		timeBarBG.visible = false;
 		timeBar.visible = false;
 		timeTxt.visible = false;
-		evilBarBG.visible = false;
-		evilBar.visible = false;
-		evilTxt.visible = false;
+		if(SONG.song.toLowerCase() == "antagonism") {
+			evilBarBG.visible = false;
+			evilBar.visible = false;
+			evilTxt.visible = false;
+		}
 		canPause = false;
 		endingSong = true;
 		camZooming = false;
@@ -6605,9 +6607,11 @@ class PlayState extends MusicBeatState
 	    	timeBar.visible = false;
 	    	timeBarBG.visible = false;
 			timeTxt.visible = false;
-			evilBar.visible = false;
-	    	evilBarBG.visible = false;
-			evilTxt.visible = false;
+			if(SONG.song.toLowerCase() == "antagonism") {
+				evilBar.visible = false;
+		    	evilBarBG.visible = false;
+				evilTxt.visible = false;
+			}
 		}
 	}
 	
