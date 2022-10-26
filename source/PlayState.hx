@@ -6684,9 +6684,11 @@ class PlayState extends MusicBeatState
 			timeBar.visible = false;
 			timeBarBG.visible = false;
 			timeTxt.visible = false;
-			evilBar.visible = false;
-	    	evilBarBG.visible = false;
-			evilTxt.visible = false;
+			if(SONG.song.toLowerCase() == "antagonism") {
+				evilBar.visible = false;
+		    	evilBarBG.visible = false;
+				evilTxt.visible = false;
+			}
 	    }
 		showCombo = false;
 		showComboNum = false;
