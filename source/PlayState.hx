@@ -4725,8 +4725,10 @@ class PlayState extends MusicBeatState
 				var strumGroup:FlxTypedGroup<StrumNote> = playerStrums;
 				if(!daNote.mustPress) {
 					strumGroup = opponentStrums;
-					if(daNote.altStrum) strumGroup = altStrums;
-					daNote.scrollFactor.set(1.5, 1.5);
+					if(daNote.altStrum) {
+						strumGroup = altStrums;
+						daNote.scrollFactor.set(1.1, 1.1);
+					}
 				}
 				var strumX:Float = strumGroup.members[daNote.noteData].x;
 				var strumY:Float = strumGroup.members[daNote.noteData].y;
