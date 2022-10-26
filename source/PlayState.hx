@@ -3815,7 +3815,7 @@ class PlayState extends MusicBeatState
 				babyArrow = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player);
 			else {
 				babyArrow = new StrumNote(altStrumLine.x, altStrumLine.y, i, 0);
-				babyArrow.scrollFactor.set(1.1,1.1);
+				babyArrow.scrollFactor.set(1.5,1.5);
 				babyArrow.alpha = 0;
 			}
 
@@ -4727,7 +4727,7 @@ class PlayState extends MusicBeatState
 					strumGroup = opponentStrums;
 					if(daNote.altStrum) {
 						strumGroup = altStrums;
-						daNote.scrollFactor.set(1.1, 1.1);
+						daNote.scrollFactor.set(1.5, 1.5);
 					}
 				}
 				var strumX:Float = strumGroup.members[daNote.noteData].x;
