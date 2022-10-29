@@ -1743,7 +1743,7 @@ class PlayState extends MusicBeatState
 		startCharacterLua(dad.curCharacter);
 
 		player3 = new Character(0, 0, SONG.player3);
-		if (SONG.player3 == null || SONG.player3 == '') player3.visible = false;
+		if (SONG.player3 == null || SONG.player3 == '') player3.alpha = 0.00001;
 		startCharacterPos(player3, true);
 		player3Group.add(player3);
 		startCharacterLua(player3.curCharacter);
@@ -5346,10 +5346,10 @@ class PlayState extends MusicBeatState
 								addCharacterToList(value2, charType);
 							}
 
-							var lastAlpha:Float = player3.alpha;
+							var lastAlpha:Float = (SONG.player3 == null || SONG.player3 == '') ? 1 : player3.alpha;
 							player3.alpha = 0.00001;
 							player3 = player3Map.get(value2);
-							player3.alpha = lastAlpha;
+							player3.alpha = (value2 == '') ? 0.00001 : lastAlpha;
 							// iconP2.changeIcon(dad.healthIcon);
 						}
 						// setOnLuas('dadName', dad.curCharacter);
