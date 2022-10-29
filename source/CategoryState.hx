@@ -159,8 +159,6 @@ class CategoryState extends MusicBeatState
 		
 						new FlxTimer().start(0.2, function(Dumbshit:FlxTimer)
 						{
-							loadingPack = true;
-							
 							for (item in icons) { FlxTween.tween(item, {alpha: 0, y: item.y - 200}, 0.5, {ease: FlxEase.cubeInOut}); }
 							for (item in titles) { FlxTween.tween(item, {alpha: 0, y: item.y - 200}, 0.5, {ease: FlxEase.cubeInOut}); }
 							FlxTween.tween(camera, {'alpha': 0}, 0.4, {ease: FlxEase.cubeInOut}); // i tried to do an a lil different transition
@@ -170,13 +168,14 @@ class CategoryState extends MusicBeatState
 								for (item in titles) { item.visible = false; }
 		
 								LoadProperPack();
-								loadingPack = false;
+								loadingCategory = false;
 							});
 						});
 					}
 				if (controls.BACK)
 					{
-						FlxG.switchState(new MainMenuState());
+						FlxG.sound.play(Paths.sound('cancelMenu'));
+						MusicBeatState.switchState(new MainMenuState());
 					}	
 				
 					return;
