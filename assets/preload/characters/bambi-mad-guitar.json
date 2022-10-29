@@ -2,88 +2,121 @@
 	"animations": [
 		{
 			"offsets": [
-				-80,
-				30
+				30,
+				-45
 			],
-			"loop": true,
+			"loop": false,
 			"fps": 24,
 			"anim": "idle",
 			"indices": [],
-			"name": "shredder idle"
+			"name": "Shred Idle"
 		},
 		{
 			"offsets": [
-				-47,
-				34
+				119,
+				65
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singLEFT",
 			"indices": [],
-			"name": "shredder left"
+			"name": "Shred Left"
 		},
 		{
 			"offsets": [
-				-62,
-				0
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singDOWN",
-			"indices": [],
-			"name": "shredder down"
-		},
-		{
-			"offsets": [
-				-160,
-				29
+				-45,
+				66
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singRIGHT",
 			"indices": [],
-			"name": "shredder right"
+			"name": "Shred Right"
 		},
 		{
 			"offsets": [
-				-86,
-				53
+				3,
+				82
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singUP",
 			"indices": [],
-			"name": "shredder up"
+			"name": "Shred Up"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				-47,
-				43
+				45,
+				-69
 			],
-			"anim": "take out",
-			"fps": 40,
-			"name": "shredder take out",
-			"indices": []
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Shred Down"
+		},
+		{
+			"offsets": [
+				76,
+				-31
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "TakeOut",
+			"indices": [],
+			"name": "Shred Take Out"
+		},
+		{
+			"offsets": [
+				120,
+				150
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "Break1",
+			"loop": false,
+			"name": "ShredBreak_1"
+		},
+		{
+			"offsets": [
+				120,
+				150
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "Break2",
+			"loop": false,
+			"name": "ShredBreak_2"
+		},
+		{
+			"offsets": [
+				120,
+				150
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "Break3",
+			"loop": false,
+			"name": "ShredBreak_3"
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/bambi-mad-guitarn",
 	"position": [
-		60,
-		450
+		170,
+		370
 	],
-	"healthicon": "bambiMad",
+	"healthicon": "bambi",
 	"flip_x": false,
 	"healthbar_colors": [
-		0,
-		181,
-		0
+		183,
+		216,
+		-2147483648
 	],
 	"camera_position": [
-		50,
-		80
+		20,
+		120
 	],
-	"sing_duration": 4.00000000000001,
+	"sing_duration": 4,
 	"scale": 1
 }
