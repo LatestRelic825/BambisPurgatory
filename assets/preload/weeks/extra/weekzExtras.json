@@ -18,13 +18,40 @@
 	"songs": [
 		[
 			"rsod",
-			"bambi3dUnfair",
+			"bombuExpunged",
 			[
-				10,
+				215,
 				0,
 				0
 			]
-		]
+		],
+		[
+			"Crimson Corridor",
+			"bombuExpunged",
+			[
+				215,
+				0,
+				0
+			]
+		],
+		[
+			"Disappointment",
+			"gary",
+			[
+				0,
+				215,
+				0
+			]
+		],
+		[
+			"Number 15",
+			"bamburg",
+			[
+				215,
+				169,
+				0
+			]
+		],
 	],
 	"weekName": "Custom Week"
 }
