@@ -116,11 +116,13 @@ class PlayState extends MusicBeatState
 	#if (haxe >= "4.0.0")
 	public var boyfriendMap:Map<String, Boyfriend> = new Map();
 	public var dadMap:Map<String, Character> = new Map();
+	public var player3Map:Map<String, Character> = new Map();
 	public var gfMap:Map<String, Character> = new Map();
 	public var variables:Map<String, Dynamic> = new Map();
 	#else
 	public var boyfriendMap:Map<String, Boyfriend> = new Map<String, Boyfriend>();
 	public var dadMap:Map<String, Character> = new Map<String, Character>();
+	public var player3Map:Map<String, Character> = new Map<String, Character>();
 	public var gfMap:Map<String, Character> = new Map<String, Character>();
 	public var variables:Map<String, Dynamic> = new Map<String, Dynamic>();
 	#end
@@ -139,6 +141,7 @@ class PlayState extends MusicBeatState
 
 	public var boyfriendGroup:FlxSpriteGroup;
 	public var dadGroup:FlxSpriteGroup;
+	public var player3Group:FlxSpriteGroup;
 	public var gfGroup:FlxSpriteGroup;
 	public static var curStage:String = '';
 	public static var isPixelStage:Bool = false;
@@ -630,6 +633,7 @@ class PlayState extends MusicBeatState
 
 		boyfriendGroup = new FlxSpriteGroup(BF_X, BF_Y);
 		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
+		player3Group = new FlxSpriteGroup(DAD_X-180, DAD_Y);
 		gfGroup = new FlxSpriteGroup(GF_X, GF_Y);
 
 		switch (curStage)
@@ -1604,6 +1608,7 @@ class PlayState extends MusicBeatState
 			add(limo);
 
 		add(dadGroup);
+		add(player3Group);
 		add(boyfriendGroup);
 
 		switch(curStage)
@@ -1740,8 +1745,7 @@ class PlayState extends MusicBeatState
 		player3 = new Character(0, 0, SONG.player3);
 		if (SONG.player3 == null || SONG.player3 == '') player3.visible = false;
 		startCharacterPos(player3, true);
-		dadGroup.add(player3);
-		player3.x -= 180;
+		player3Group.add(player3);
 		startCharacterLua(player3.curCharacter);
 
 		boyfriend = new Boyfriend(0, 0, SONG.player1);
@@ -2608,6 +2612,16 @@ class PlayState extends MusicBeatState
 					startCharacterPos(newGf);
 					newGf.alpha = 0.00001;
 					startCharacterLua(newGf.curCharacter);
+				}
+
+			case 3:
+				if(!player3Map.exists(newCharacter)) {
+					var newPlayer3:Character = new Character(0, 0, newCharacter);
+					player3Map.set(newCharacter, newPlayer3);
+					player3Group.add(newPlayer3);
+					startCharacterPos(newPlayer3, true);
+					newPlayer3.alpha = 0.00001;
+					startCharacterLua(newPlayer3.curCharacter);
 				}
 		}
 	}
@@ -4051,18 +4065,19 @@ class PlayState extends MusicBeatState
 		var floatyChars:Array<Character> = [dad, gf, boyfriend, player3];
 		for (who in floatyChars) {
 			var cammy:Bool = (who == boyfriend) ? cameraOnBF : cameraOnDad;
+			var floatOffset:Float = floatyChars.indexOf(who) * 0.3;
 			if(funnyFloatyBoys.contains(who.curCharacter.toLowerCase()) && canFloat && !laggingRSOD) {
-				who.y += (Math.sin(elapsedtime) * 0.6);
+				who.y += (Math.sin(elapsedtime + floatOffset) * 0.6);
 				if(who.animation.curAnim != null && !who.animation.curAnim.name.startsWith('idle') && cammy)
 					camFollow.y += (Math.sin(elapsedtime) * 0.6);
 			}
 			if(funnySideFloatyBoys.contains(who.curCharacter.toLowerCase()) && canSlide && !laggingRSOD) {
-				who.x += (Math.cos(elapsedtime) * 0.6);
+				who.x += (Math.cos(elapsedtime + floatOffset) * 0.6);
 				if(who.animation.curAnim != null && !who.animation.curAnim.name.startsWith('idle') && cammy)
 					camFollow.x += (Math.sin(elapsedtime) * 0.6);
 			}
 			if(funnyRotatorBoys.contains(who.curCharacter.toLowerCase()) && canRotate && !laggingRSOD) {
-				who.angle += (Math.sin(elapsedtime) * 0.015);
+				who.angle += (Math.sin(elapsedtime + floatOffset) * 0.015);
 				// FlxTween.angle(dad, -5, 5, Conductor.crochet / 300, {ease: FlxEase.sineInOut, type: PINGPONG});
 			}
 		}
@@ -5261,6 +5276,8 @@ class PlayState extends MusicBeatState
 						charType = 2;
 					case 'dad' | 'opponent':
 						charType = 1;
+					case 'player3' | 'alt opponent':
+						charType = 3;
 					default:
 						charType = Std.parseInt(value1);
 						if(Math.isNaN(charType)) charType = 0;
@@ -5322,6 +5339,21 @@ class PlayState extends MusicBeatState
 							}
 							setOnLuas('gfName', gf.curCharacter);
 						}
+
+					case 3:
+						if(player3.curCharacter != value2) {
+							if(!player3Map.exists(value2)) {
+								addCharacterToList(value2, charType);
+							}
+
+							var lastAlpha:Float = player3.alpha;
+							player3.alpha = 0.00001;
+							player3 = player3Map.get(value2);
+							player3.alpha = lastAlpha;
+							// iconP2.changeIcon(dad.healthIcon);
+						}
+						// setOnLuas('dadName', dad.curCharacter);
+						// refreshTrail(1);
 				}
 				reloadHealthBarColors();
 
