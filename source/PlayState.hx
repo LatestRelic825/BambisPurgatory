@@ -2119,6 +2119,9 @@ class PlayState extends MusicBeatState
 			// add pyramix's songs here
 			case 'technology':
 				composersWatermark = 'Pyramix';
+			// add cheemy's songs here
+			case 'double act':
+				composersWatermark = 'Cheemy';
 			// add tsu's songs here
 			case 'newest': //troll
 				composersWatermark = 'Tsuchi';
@@ -7021,7 +7024,7 @@ class PlayState extends MusicBeatState
 			if(!laggingRSOD)
 				gf.dance();
 		}
-		if(!laggingRSOD) {
+		if(curBeat % 2 == 0 && !laggingRSOD) {
 			if (!uphIntroTime) {
 				FlxTween.angle(iconP1, -15, 0, Conductor.crochet / 1300 * gfSpeed, {ease: FlxEase.quadOut});
 				FlxTween.angle(iconP2, 15, 0, Conductor.crochet / 1300 * gfSpeed, {ease: FlxEase.quadOut});
