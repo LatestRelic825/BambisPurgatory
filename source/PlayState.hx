@@ -3621,7 +3621,7 @@ class PlayState extends MusicBeatState
 				swagNote.scrollFactor.set();
 
 				if (swagNote.noteType == 'Alt Strum') {
-					swagNote.scrollFactor.set(1,1);
+					swagNote.scrollFactor.set(1.25,1.25);
 					swagNote.cameras = [camGame];
 					swagNote.mustPress = false; // since you're probably only gonna use it for the opponent
 				}
@@ -3643,8 +3643,9 @@ class PlayState extends MusicBeatState
 						sustainNote.noteType = swagNote.noteType;
 						sustainNote.scrollFactor.set();
 						if (sustainNote.noteType == 'Alt Strum') {
-							sustainNote.scrollFactor.set(1,1);
+							sustainNote.scrollFactor.set(1.25,1.25);
 							sustainNote.cameras = [camGame];
+							sustainNote.mustPress = false; // since you're probably only gonna use it for the opponent
 						}
 						swagNote.tail.push(sustainNote);
 						sustainNote.parent = swagNote;
@@ -3721,6 +3722,8 @@ class PlayState extends MusicBeatState
 						charType = 2;
 					case 'dad' | 'opponent' | '0':
 						charType = 1;
+					case 'player3' | 'alt opponent':
+						charType = 3;
 					default:
 						charType = Std.parseInt(event.value1);
 						if(Math.isNaN(charType)) charType = 0;
