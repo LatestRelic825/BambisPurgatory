@@ -420,6 +420,8 @@ class PlayState extends MusicBeatState
 	var bgshitH2:DepthSprite;
 	var cloudsH:BGSprite;
 	var bgrsod:FlxSprite;
+	var banbodeez:FlxSprite;
+
 	var olddavesky:FlxSprite;
 	var olddaveGrass:FlxSprite;
 	var olddaveGate:FlxSprite;
@@ -1126,6 +1128,29 @@ class PlayState extends MusicBeatState
 							testshader.waveSpeed = 1.5;
 							ourple.shader = testshader.shader;
 							curbg = ourple;
+
+			case 'scaryAnnihilate':
+				defaultCamZoom = 0.755;
+				curStage = 'scaryAnnihilate';
+
+				banbodeez = new FlxSprite(-600, 0).loadGraphic(Paths.image('bpASSets/banbodi/annihilate'));
+			    banbodeez.antialiasing = false;
+				banbodeez.scrollFactor.set(0.6, 0.6);
+				banbodeez.screenCenter(X);
+				banbodeez.active = true;
+				banbodeez.scale.set(1.75, 1.75);
+				add(banbodeez);
+
+				//if(ClientPrefs.waving)
+			//	{
+			    	var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
+					testshader.waveAmplitude = 0.1;
+					testshader.waveFrequency = 5;
+					testshader.waveSpeed = 2;
+					banbodeez.shader = testshader.shader;
+					curbg = banbodeez;
+			//	}
+
 			case 'bambersHell':
 				{
 					defaultCamZoom = 0.7;

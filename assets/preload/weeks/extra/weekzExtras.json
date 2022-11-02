@@ -52,6 +52,16 @@
 				0
 			]
 		]
+		,
+		[
+			"Annihilation",
+			"banbodi",
+			[
+				40,
+				40,
+				40
+			]
+		]
 	],
 	"weekName": "Custom Week"
 }
