@@ -206,6 +206,9 @@ class PlayState extends MusicBeatState
 	public var evilBar:FlxBar;
 	var showTime:Bool = (ClientPrefs.timeBarType != 'Disabled');
 
+	var bfNoteCamOffset:Array<Float> = new Array<Float>();
+	var dadNoteCamOffset:Array<Float> = new Array<Float>();
+
 	public var ratingsData:Array<Rating> = [];
 	public var sicks:Int = 0;
 	public var goods:Int = 0;
@@ -5580,6 +5583,12 @@ class PlayState extends MusicBeatState
 			}
 
 			tweenCamIn();
+
+			bfNoteCamOffset[0] = 0;
+			bfNoteCamOffset[1] = 0;
+
+			camFollow.x += dadNoteCamOffset[0];
+			camFollow.y += dadNoteCamOffset[1];
 		}
 		else
 		{
@@ -5608,6 +5617,12 @@ class PlayState extends MusicBeatState
 				if(SONG.song.toLowerCase() == 'rsod' && camZooming)
 					defaultCamZoom = 0.755;
 			}
+
+			dadNoteCamOffset[0] = 0;
+			dadNoteCamOffset[1] = 0;
+
+			camFollow.x += bfNoteCamOffset[0];
+			camFollow.y += bfNoteCamOffset[1];
 		}
 	}
 
@@ -6259,8 +6274,11 @@ class PlayState extends MusicBeatState
 			}
 			else if (boyfriend.animation.curAnim != null && boyfriend.holdTimer > Conductor.stepCrochet * 0.0011 * boyfriend.singDuration && boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.animation.curAnim.name.endsWith('miss'))
 			{
-				if(!laggingRSOD)
+				if(!laggingRSOD) {
 					boyfriend.dance();
+					bfNoteCamOffset[0] = 0;
+					bfNoteCamOffset[1] = 0;
+				}
 				//boyfriend.animation.curAnim.finish();
 			}
 		}
@@ -6277,6 +6295,34 @@ class PlayState extends MusicBeatState
 						onKeyRelease(new KeyboardEvent(KeyboardEvent.KEY_UP, true, true, -1, keysArray[i][0]));
 				}
 			}
+		}
+	}
+
+	function cameraMoveOnNote(note:Int, character:String)
+	{
+		var amount:Array<Float> = new Array<Float>();
+		var followAmount:Float = ClientPrefs.follownote ? 40 : 0;
+		switch (note)
+		{
+			case 0:
+				amount[0] = -followAmount;
+				amount[1] = 0;
+			case 1:
+				amount[0] = 0;
+				amount[1] = followAmount;
+			case 2:
+				amount[0] = 0;
+				amount[1] = -followAmount;
+			case 3:
+				amount[0] = followAmount;
+				amount[1] = 0;
+		}
+		switch (character)
+		{
+			case 'dad':
+				dadNoteCamOffset = amount;
+			case 'bf':
+				bfNoteCamOffset = amount;
 		}
 	}
 
@@ -6427,6 +6473,8 @@ class PlayState extends MusicBeatState
 					char.playAnim(animToPlay, true);
 				char.holdTimer = 0;
 			}
+
+			cameraMoveOnNote(note.noteData, 'dad');
 		}
 
 		switch (curSong.toLowerCase()){
@@ -6562,6 +6610,7 @@ class PlayState extends MusicBeatState
 						gf.heyTimer = 0.6;
 					}
 				}
+				cameraMoveOnNote(note.noteData, 'bf');
 			}
 
 			if(cpuControlled) {
@@ -7052,7 +7101,7 @@ class PlayState extends MusicBeatState
 			if(!laggingRSOD)
 				gf.dance();
 		}
-		if(curBeat % 2 == 0 && !laggingRSOD) {
+		if(!laggingRSOD) {
 			if (!uphIntroTime) {
 				FlxTween.angle(iconP1, -15, 0, Conductor.crochet / 1300 * gfSpeed, {ease: FlxEase.quadOut});
 				FlxTween.angle(iconP2, 15, 0, Conductor.crochet / 1300 * gfSpeed, {ease: FlxEase.quadOut});
@@ -7060,22 +7109,22 @@ class PlayState extends MusicBeatState
 
 			if (curBeat % boyfriend.danceEveryNumBeats == 0 && boyfriend.animation.curAnim != null && !boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.stunned)
 			{
-				if(!laggingRSOD)
-					boyfriend.dance();
-			//	boyfriend.playAnim('idle', true);
-			//  nope, we're setting the dance function to ,true for better compatibility lol
+				boyfriend.dance();
+				//	boyfriend.playAnim('idle', true);
+				//  nope, we're setting the dance function to ,true for better compatibility lol
 			}
 			if (curBeat % dad.danceEveryNumBeats == 0 && dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('sing') && !dad.stunned)
 			{
-				if(!laggingRSOD)
-					dad.dance();
-			//	dad.playAnim('idle', true);
+				dad.dance();
+
+				dadNoteCamOffset[0] = 0;
+				dadNoteCamOffset[1] = 0;
+				//	dad.playAnim('idle', true);
 			}
 			if (curBeat % player3.danceEveryNumBeats == 0 && player3.animation.curAnim != null && !player3.animation.curAnim.name.startsWith('sing') && !player3.stunned)
 			{
-				if(!laggingRSOD)
-					player3.dance();
-			//	dad.playAnim('idle', true);
+				player3.dance();
+				//	dad.playAnim('idle', true);
 			}
 		}
 
