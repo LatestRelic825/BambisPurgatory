@@ -6301,7 +6301,7 @@ class PlayState extends MusicBeatState
 	function cameraMoveOnNote(note:Int, character:String)
 	{
 		var amount:Array<Float> = new Array<Float>();
-		var followAmount:Float = ClientPrefs.follownote ? 30 : 0;
+		var followAmount:Float = ClientPrefs.follownote ? 20 : 0;
 		switch (note)
 		{
 			case 0:
@@ -6474,7 +6474,7 @@ class PlayState extends MusicBeatState
 				char.holdTimer = 0;
 			}
 
-			cameraMoveOnNote(note.noteData, 'dad');
+			if (!note.altStrum) cameraMoveOnNote(note.noteData, 'dad');
 		}
 
 		switch (curSong.toLowerCase()){
