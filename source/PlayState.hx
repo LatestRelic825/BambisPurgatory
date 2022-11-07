@@ -4336,14 +4336,14 @@ class PlayState extends MusicBeatState
 						camZoomSnap = true;
 					case 512:
 						camTilt = true;
-					case 1024:
+					case 768:
 						camZoomSnap = false;
 						camTilt = false;
 						FlxTween.tween(camHUD, {angle: 0}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
-					case 1280:
+					case 1024:
 						camZoomSnap = true;
 						camTilt = true;
-					case 1792:
+					case 1280:
 						camZoomSnap = false;
 						camTilt = false;
 						FlxTween.tween(camHUD, {angle: 0}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
