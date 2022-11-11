@@ -1633,6 +1633,12 @@ class PlayState extends MusicBeatState
 			introSoundsSuffix = '-pixel';
 		}
 
+		//shhhhhhh
+		var boyfriendShadow:BGSprite = new BGSprite('bpASSets/generalBGshit/shadow', 0, 775, 1, 1);
+		var dadShadow:BGSprite = new BGSprite('bpASSets/generalBGshit/shadow', 0, 775, 1, 1);
+		add(boyfriendShadow);
+		add(dadShadow);
+
 		add(gfGroup); //Needed for blammed lights
 
 		// Shitty layering but whatev it works LOL
@@ -1810,6 +1816,12 @@ class PlayState extends MusicBeatState
 
 			case 'inside-house':
 				gf.scale.set(0.95,0.95);
+
+				boyfriendShadow.x = boyfriend.getMidpoint().x - 125;
+				boyfriendShadow.visible = true;
+				dadShadow.x = dad.getMidpoint().x - 75;
+				dadShadow.y += 10;
+				dadShadow.visible = true;
 		}
 
 		scaryTrail = new FlxTrail(dad, null, 4, 12, 0.3, 0.069); //nice
