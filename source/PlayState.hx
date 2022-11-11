@@ -809,6 +809,10 @@ class PlayState extends MusicBeatState
 		    grill.updateHitbox();
 		    add(grill);
 
+		case 'inside-house':
+			var bg:BGSprite = new BGSprite('bpASSets/dave/inside_house', -1000, -350, 1, 1);
+			add(bg);
+
 		case '3dGreen':
 			{
 				defaultCamZoom = 0.85;
