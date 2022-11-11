@@ -1634,9 +1634,15 @@ class PlayState extends MusicBeatState
 		}
 
 		//shhhhhhh
-		var boyfriendShadow:BGSprite = new BGSprite('bpASSets/generalBGshit/shadow', 0, 775, 1, 1);
-		var dadShadow:BGSprite = new BGSprite('bpASSets/generalBGshit/shadow', 0, 775, 1, 1);
+		var gfShadow:BGSprite = new BGSprite('bpASSets/generalBGshit/shadow', 0, GF_Y+590, 1, 1);
+		gfShadow.visible = false;
+		gfShadow.scale.set(1.85,1);
+		add(gfShadow);
+		var boyfriendShadow:BGSprite = new BGSprite('bpASSets/generalBGshit/shadow', 0, BF_Y+690, 1, 1);
+		boyfriendShadow.visible = false;
 		add(boyfriendShadow);
+		var dadShadow:BGSprite = new BGSprite('bpASSets/generalBGshit/shadow', 0, DAD_Y+690, 1, 1);
+		dadShadow.visible = false;
 		add(dadShadow);
 
 		add(gfGroup); //Needed for blammed lights
@@ -1804,6 +1810,10 @@ class PlayState extends MusicBeatState
 				gf.visible = false;
 		}
 
+		gfShadow.x = gf.getMidpoint().x - 200;
+		boyfriendShadow.x = boyfriend.getMidpoint().x - 180;
+		dadShadow.x = dad.getMidpoint().x - 75;
+
 		switch(curStage)
 		{
 			case 'limo':
@@ -1817,10 +1827,9 @@ class PlayState extends MusicBeatState
 			case 'inside-house':
 				gf.scale.set(0.95,0.95);
 
-				boyfriendShadow.x = boyfriend.getMidpoint().x - 125;
+				gfShadow.visible = true;
+				gfShadow.scale.set(1.75,0.95);
 				boyfriendShadow.visible = true;
-				dadShadow.x = dad.getMidpoint().x - 75;
-				dadShadow.y += 10;
 				dadShadow.visible = true;
 		}
 
