@@ -1807,6 +1807,9 @@ class PlayState extends MusicBeatState
 			case 'schoolEvil':
 				evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069); //nice
 				addBehindDad(evilTrail);
+
+			case 'inside-house':
+				gf.scale.set(0.95,0.95);
 		}
 
 		scaryTrail = new FlxTrail(dad, null, 4, 12, 0.3, 0.069); //nice
