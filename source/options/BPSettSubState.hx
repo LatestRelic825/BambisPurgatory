@@ -49,6 +49,14 @@ class BPSettSubState extends BaseOptionsMenu
 			['Disabled', 'Simple', 'Advanced']);
 		addOption(option);
 
+		var option:Option = new Option('UI Style:',
+			"Changes which UI style is shown\nduring gameplay.",
+			'uiStyle',
+			'string',
+			'Purgatory',
+			['Purgatory', 'Kade Engine', 'Psych Engine', 'Dave Engine']);
+		addOption(option);
+
 		var option:Option = new Option('Sections Note Combo',
 			"Shows the notes combo",
 			'noteCombo',

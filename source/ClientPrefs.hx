@@ -39,6 +39,7 @@ class ClientPrefs {
 	public static var laneunderlay:Bool = false;
 	public static var laneTransparency:Float = 0.5;
 	public static var judgementCounter:String = 'Disabled';
+	public static var uiStyle:String = 'Purgatory';
 	public static var noteCombo:Bool = true;
 	public static var fastZoom:Bool = true;
 	public static var ratingsinHUD:Bool = true;
@@ -146,6 +147,7 @@ class ClientPrefs {
 		FlxG.save.data.laneunderlay = laneunderlay;
 		FlxG.save.data.laneTransparency = laneTransparency;
 		FlxG.save.data.judgementCounter = judgementCounter;
+		FlxG.save.data.uiStyle = uiStyle;
 		FlxG.save.data.noteCombo = noteCombo;
 		FlxG.save.data.fastZoom = fastZoom;
 		FlxG.save.data.ratingsinHUD = ratingsinHUD;
@@ -280,6 +282,9 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.judgementCounter != null) {
 			judgementCounter = FlxG.save.data.judgementCounter;
+		}
+		if(FlxG.save.data.uiStyle != null) {
+			uiStyle = FlxG.save.data.uiStyle;
 		}
 		if(FlxG.save.data.noteCombo != null) {
 			noteCombo = FlxG.save.data.noteCombo;

@@ -104,6 +104,18 @@ class PlayState extends MusicBeatState
 		['AAAAA', 1], //from 99.9935 to 100%
 		['AAAAA', 1] //The value on this one isn't used actually, since Perfect is always "1" // your m
 	];
+	public static var ratingStuffPsych:Array<Dynamic> = [
+		['You Suck!', 0.2], //From 0% to 19%
+		['Shit', 0.4], //From 20% to 39%
+		['Bad', 0.5], //From 40% to 49%
+		['Bruh', 0.6], //From 50% to 59%
+		['Meh', 0.69], //From 60% to 68%
+		['Nice', 0.7], //69%
+		['Good', 0.8], //From 70% to 79%
+		['Great', 0.9], //From 80% to 89%
+		['Sick!', 1], //From 90% to 99%
+		['Perfect!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
+	];
 	public var modchartTweens:Map<String, FlxTween> = new Map<String, FlxTween>();
 	public var modchartSprites:Map<String, ModchartSprite> = new Map<String, ModchartSprite>();
 	public var modchartTimers:Map<String, FlxTimer> = new Map<String, FlxTimer>();
@@ -2118,10 +2130,27 @@ class PlayState extends MusicBeatState
 		songinfoBar.borderSize = 1.25;
 		add(songinfoBar);
 
-		scoreTxt = new FlxText(0, healthBarBG.y + 50, FlxG.width, "", 20);
-		scoreTxt.setFormat(Paths.font("comic.ttf"), 17, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		if (ClientPrefs.uiStyle == 'Purgatory') {
+			scoreTxt = new FlxText(0, healthBarBG.y + 50, FlxG.width, "", 20);
+			scoreTxt.setFormat(Paths.font("comic.ttf"), 17, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			scoreTxt.borderSize = 1.25;
+		}
+		if (ClientPrefs.uiStyle == 'Kade Engine') {
+			scoreTxt = new FlxText(0, healthBarBG.y + 55, FlxG.width, "", 20);
+			scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			scoreTxt.borderSize = 1.25;
+		}
+		if (ClientPrefs.uiStyle == 'Psych Engine') {
+			scoreTxt = new FlxText(0, healthBarBG.y + 36, FlxG.width, "", 20);
+			scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			scoreTxt.borderSize = 1.25;
+		}
+		if (ClientPrefs.uiStyle == 'Dave Engine') {
+			scoreTxt = new FlxText(0, healthBarBG.y + 50, FlxG.width, "", 20);
+			scoreTxt.setFormat(Paths.font("comic.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			scoreTxt.borderSize = 1.5;
+		}
 		scoreTxt.scrollFactor.set();
-		scoreTxt.borderSize = 1.25;
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
@@ -3471,13 +3500,35 @@ class PlayState extends MusicBeatState
 
 	public function updateScore()
 	{
-		scoreTxt.text =  'NPS: ' + nps
-		+ ' (Max ' + maxNPS + ')' 
-		+ ' | ' + 'Score: ' + songScore 
-		+ ' | Combo Breaks: ' + songMisses 
-		+ ' | Accuracy: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%' 
-		+ ' | '
-		+ (ratingName != '?' ? '($ratingFC) ' + ratingName : 'N/A');
+		if (ClientPrefs.uiStyle == 'Purgatory') {
+			scoreTxt.text =  'NPS: ' + nps
+			+ ' (Max ' + maxNPS + ')' 
+			+ ' | ' + 'Score: ' + songScore 
+			+ ' | Combo Breaks: ' + songMisses 
+			+ ' | Accuracy: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%' 
+			+ ' | '
+			+ (ratingName != '?' ? '($ratingFC) ' + ratingName : 'N/A');
+		}
+		if (ClientPrefs.uiStyle == 'Kade Engine') {
+			scoreTxt.text =  'NPS:' + nps
+			+ ' (Max ' + maxNPS + ')' 
+			+ ' | ' + 'Score:' + songScore 
+			+ ' | Combo Breaks:' + songMisses 
+			+ ' | Accuracy:' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%' 
+			+ ' | '
+			+ (ratingName != '?' ? '($ratingFC) ' + ratingName : 'N/A');
+		}
+		if (ClientPrefs.uiStyle == 'Psych Engine') {
+			scoreTxt.text = 'Score: ' + songScore
+			+ ' | Misses: ' + songMisses
+			+ ' | Rating: ' + ratingNamePsych
+			+ (ratingNamePsych != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
+		}
+		if (ClientPrefs.uiStyle == 'Dave Engine') {
+			scoreTxt.text = 'Score:' + songScore
+			+ ' | Misses:' + songMisses
+			+ ' | Accuracy:' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%';
+		}
 	}
 
 	public function setSongTime(time:Float)
@@ -7309,6 +7360,7 @@ class PlayState extends MusicBeatState
 	}
 
 	public var ratingName:String = '?';
+	public var ratingNamePsych:String = '?';
 	public var ratingPercent:Float;
 	public var ratingFC:String;
 	public function RecalculateRating(badHit:Bool = false) {
@@ -7325,7 +7377,13 @@ class PlayState extends MusicBeatState
 		if(ret != FunkinLua.Function_Stop)
 		{
 			if(totalPlayed < 1) //Prevent divide by 0
-				ratingName = '?';
+				if (ClientPrefs.uiStyle == 'Psych Engine') {
+					ratingNamePsych = '?';
+				}
+				else
+				{
+					ratingName = '?';
+				}
 			else
 			{
 				// Rating Percent
@@ -7335,18 +7393,38 @@ class PlayState extends MusicBeatState
 				// Rating Name
 				if(ratingPercent >= 1)
 				{
+					if (ClientPrefs.uiStyle == 'Psych Engine') {
+						ratingNamePsych = ratingStuffPsych[ratingStuffPsych.length-1][0]; //Uses last string
+					}
+					else 
+						{
 					ratingName = ratingStuff[ratingStuff.length-1][0]; //Uses last string
+					}
 				}
 				else
 				{
-					for (i in 0...ratingStuff.length-1)
-					{
-						if(ratingPercent < ratingStuff[i][1])
+					if (ClientPrefs.uiStyle == 'Psych Engine') {
+						for (i in 0...ratingStuffPsych.length-1)
 						{
-							ratingName = ratingStuff[i][0];
-							break;
+							if(ratingPercent < ratingStuffPsych[i][1])
+							{
+								ratingNamePsych = ratingStuffPsych[i][0];
+								break;
+							}
 						}
 					}
+					else
+					{
+						for (i in 0...ratingStuff.length-1)
+						{
+							if(ratingPercent < ratingStuff[i][1])
+							{
+								ratingName = ratingStuff[i][0];
+								break;
+							}
+						}
+					}
+					
 				}
 			}
 
@@ -7360,6 +7438,7 @@ class PlayState extends MusicBeatState
 		}
 		setOnLuas('rating', ratingPercent);
 		setOnLuas('ratingName', ratingName);
+		setOnLuas('ratingNamePsych', ratingNamePsych);
 		setOnLuas('ratingFC', ratingFC);
 		if (ClientPrefs.judgementCounter == 'Advanced') {
 			judgementCounter.text = 'Total Notes: ${totalPlayed}\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nCombo: ${combo}\nMisses: ${songMisses}';
