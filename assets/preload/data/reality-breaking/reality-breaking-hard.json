@@ -13780,34 +13780,64 @@
 				"bpm": 255
 			},
 			{
-				"gfSection": false,
-				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
-				"bpm": 255,
 				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 255,
 				"changeBPM": false,
 				"mustHitSection": true
 			},
 			{
-				"gfSection": false,
-				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
-				"bpm": 255,
 				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 255,
 				"changeBPM": false,
 				"mustHitSection": true
 			},
 			{
-				"gfSection": false,
-				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
-				"bpm": 255,
 				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 255,
 				"changeBPM": false,
 				"mustHitSection": true
+			},
+			{
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 255,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 255,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 255
 			},
 			{
 				"gfSection": false,
@@ -14314,21 +14344,11 @@
 				]
 			],
 			[
-				150117.647058824,
-				[
-					[
-						"Hide or Show HUD elements with Fade",
-						"0",
-						""
-					]
-				]
-			],
-			[
 				150588.235294118,
 				[
 					[
-						"Hide or Show HUD elements with Fade",
-						"1",
+						"Hide or Show HUD elements",
+						"2",
 						""
 					]
 				]
@@ -14378,7 +14398,7 @@
 				[
 					[
 						"Toggle Blocked Glitch",
-						"0",
+						"1",
 						""
 					]
 				]
@@ -14398,7 +14418,17 @@
 				[
 					[
 						"Toggle Blocked Glitch",
-						"1",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				165649.509803921,
+				[
+					[
+						"Hide or Show HUD elements with Fade",
+						"0",
 						""
 					]
 				]

@@ -128,7 +128,7 @@ class StoryMenuState extends MusicBeatState
 		text.scrollFactor.set();
 		menuItems.add(text);
 		
-		arrowshit = new FlxSprite(-80).loadGraphic(Paths.image('stupidarrows'));
+		arrowshit = new FlxSprite(-80).loadGraphic(Paths.image('stupidarrowsright'));
 		arrowshit.setGraphicSize(Std.int(arrowshit.width * 1));
 		arrowshit.updateHitbox();
 		arrowshit.screenCenter();
@@ -174,6 +174,11 @@ class StoryMenuState extends MusicBeatState
 			MusicBeatState.switchState(new MainMenuState());
 		}
 		
+		if(FlxG.keys.justPressed.CONTROL)
+		{
+			persistentUpdate = false;
+			openSubState(new GameplayChangersSubstate());
+		}
 		
 		if (controls.UI_RIGHT_P)
 		{
@@ -368,7 +373,7 @@ class Section2Substate extends MusicBeatSubstate
 		text.scrollFactor.set();
 		menuItemsSub.add(text);
 		
-		arrowshitSub = new FlxSprite(-80).loadGraphic(Paths.image('stupidarrows'));
+		arrowshitSub = new FlxSprite(-80).loadGraphic(Paths.image('stupidarrowsleft'));
 		arrowshitSub.setGraphicSize(Std.int(arrowshitSub.width * 1));
 		arrowshitSub.updateHitbox();
 		arrowshitSub.screenCenter();
@@ -397,7 +402,7 @@ class Section2Substate extends MusicBeatSubstate
 			lol5 = true;
 			FlxG.sound.play(Paths.sound('confirmMenu'));
 			FlxG.mouse.visible = false;
-			startSong5("beefin'/beefin-hard", 'technology', 'devastation');	
+			startSong5("beefin'/beefin-hard", 'Technology');	
 		}
 		
 		
@@ -414,13 +419,18 @@ class Section2Substate extends MusicBeatSubstate
 			close();
 			FlxG.sound.play(Paths.sound('scrollMenu'));
 		}
+
+		if(FlxG.keys.justPressed.CONTROL)
+		{
+			persistentUpdate = false;
+			openSubState(new GameplayChangersSubstate());
+		}
 		
 		if(controls.BACK)
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			FlxG.mouse.visible = false;
 			MusicBeatState.switchState(new MainMenuState());
-				
 		}
 		
 		super.update(elapsed);
@@ -440,7 +450,7 @@ class Section2Substate extends MusicBeatSubstate
 			FlxTween.tween(FlxG.camera, {zoom: 5}, 0.8, {ease: FlxEase.expoIn});
 			//FlxTween.tween(bg, {angle: 45}, 0.8, {ease: FlxEase.expoIn});
 			//FlxTween.tween(bg, {alpha: 0}, 0.8, {ease: FlxEase.expoIn});
-			menuItems.forEach(function(spr:FlxSprite) {
+			menuItemsSub.forEach(function(spr:FlxSprite) {
 			FlxTween.tween(camera, {alpha: 0}, 0.8, {ease: FlxEase.expoIn});
 			FlxTween.tween(spr, {alpha: 0}, 0.4, {
 				  ease: FlxEase.quadOut,
@@ -457,11 +467,11 @@ class Section2Substate extends MusicBeatSubstate
 		   });
 		}
 
-		function startSong5(songName1:String, songName2:String, songName3:String)
+		function startSong5(songName1:String, songName2:String)
 			{
 			   FlxFlicker.flicker(week5, 1, 0.06, false, false, function(flick:FlxFlicker)
 			   {
-				PlayState.storyPlaylist = [songName1, songName2, songName3];
+				PlayState.storyPlaylist = [songName1, songName2];
 				PlayState.isStoryMode = true;
 				PlayState.storyWeek = 2;
 				PlayState.storyDifficulty = 2;
@@ -471,7 +481,7 @@ class Section2Substate extends MusicBeatSubstate
 				FlxTween.tween(FlxG.camera, {zoom: 5}, 0.8, {ease: FlxEase.expoIn});
 				//FlxTween.tween(bg, {angle: 45}, 0.8, {ease: FlxEase.expoIn});
 				//FlxTween.tween(bg, {alpha: 0}, 0.8, {ease: FlxEase.expoIn});
-				menuItems.forEach(function(spr:FlxSprite) {
+				menuItemsSub.forEach(function(spr:FlxSprite) {
 				FlxTween.tween(camera, {alpha: 0}, 0.8, {ease: FlxEase.expoIn});
 				FlxTween.tween(spr, {alpha: 0}, 0.4, {
 					  ease: FlxEase.quadOut,
@@ -502,7 +512,7 @@ class Section2Substate extends MusicBeatSubstate
 					FlxTween.tween(FlxG.camera, {zoom: 5}, 0.8, {ease: FlxEase.expoIn});
 					//FlxTween.tween(bg, {angle: 45}, 0.8, {ease: FlxEase.expoIn});
 					//FlxTween.tween(bg, {alpha: 0}, 0.8, {ease: FlxEase.expoIn});
-					menuItems.forEach(function(spr:FlxSprite) {
+					menuItemsSub.forEach(function(spr:FlxSprite) {
 					FlxTween.tween(camera, {alpha: 0}, 0.8, {ease: FlxEase.expoIn});
 					FlxTween.tween(spr, {alpha: 0}, 0.4, {
 						  ease: FlxEase.quadOut,

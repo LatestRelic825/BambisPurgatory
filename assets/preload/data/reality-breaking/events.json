@@ -482,21 +482,11 @@
 				]
 			],
 			[
-				150117.647058824,
-				[
-					[
-						"Hide or Show HUD elements with Fade",
-						"0",
-						""
-					]
-				]
-			],
-			[
 				150588.235294118,
 				[
 					[
-						"Hide or Show HUD elements with Fade",
-						"1",
+						"Hide or Show HUD elements",
+						"2",
 						""
 					]
 				]

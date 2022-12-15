@@ -81,7 +81,7 @@ class CategoryState extends MusicBeatState
 			CurrentSongIcon.x = (1000 * i + 1) + (1000 - CurrentSongIcon.width);
 			CurrentSongIcon.y = (FlxG.height / 2) - 256;
 			CurrentSongIcon.setGraphicSize(Std.int(CurrentSongIcon.width * 0.7));
-			CurrentSongIcon.antialiasing = false;
+			CurrentSongIcon.antialiasing = true;
 	
 			var NameAlpha:Alphabet = new Alphabet(40, (FlxG.height / 2) - 282, AllPossibleSongs[i], true, false);
 			NameAlpha.x = CurrentSongIcon.x;
