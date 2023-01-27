@@ -15,7 +15,7 @@ function onCreate()
 end
 
 function onCreatePost()
-    setProperty('healthBar.x', 820)
+    setProperty('healthBar.x', 240)
     setProperty('healthBar.y', 360)
 end
 

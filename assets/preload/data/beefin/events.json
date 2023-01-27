@@ -1,0 +1,356 @@
+{
+	"song": {
+		"events": [
+			[
+				0,
+				[
+					[
+						"Set GF Speed",
+						"2",
+						""
+					]
+				]
+			],
+			[
+				21250,
+				[
+					[
+						"Thunderstorm type black screen",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				21333.3333333333,
+				[
+					[
+						"Add Camera Zoom",
+						"0.11",
+						""
+					],
+					[
+						"Hide or Show HUD elements",
+						"1",
+						""
+					],
+					[
+						"Change the Default Camera Zoom",
+						"1.25",
+						""
+					]
+				]
+			],
+			[
+				21666.6666666667,
+				[
+					[
+						"Add Camera Zoom",
+						"0.11",
+						""
+					]
+				]
+			],
+			[
+				22000,
+				[
+					[
+						"Add Camera Zoom",
+						"0.11",
+						""
+					]
+				]
+			],
+			[
+				22333.3333333333,
+				[
+					[
+						"Add Camera Zoom",
+						"0.11",
+						""
+					]
+				]
+			],
+			[
+				22666.6666666667,
+				[
+					[
+						"Add Camera Zoom",
+						"0.11",
+						""
+					]
+				]
+			],
+			[
+				23000,
+				[
+					[
+						"Add Camera Zoom",
+						"0.11",
+						""
+					]
+				]
+			],
+			[
+				23333.3333333333,
+				[
+					[
+						"Add Camera Zoom",
+						"0.11",
+						""
+					]
+				]
+			],
+			[
+				23666.6666666667,
+				[
+					[
+						"Add Camera Zoom",
+						"0.11",
+						""
+					]
+				]
+			],
+			[
+				24000,
+				[
+					[
+						"Flash effect",
+						"0",
+						""
+					],
+					[
+						"Change Scroll Speed",
+						"1.2",
+						"0.01"
+					],
+					[
+						"Hide or Show HUD elements",
+						"2",
+						""
+					],
+					[
+						"Thunderstorm type black screen",
+						"0",
+						""
+					],
+					[
+						"Change the Default Camera Zoom",
+						"0.75",
+						""
+					],
+					[
+						"Set GF Speed",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				44666.6666666667,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"1.25",
+						""
+					],
+					[
+						"Set GF Speed",
+						"4",
+						""
+					]
+				]
+			],
+			[
+				45333.3333333333,
+				[
+					[
+						"Change the Default Camera Zoom",
+						"0.85",
+						""
+					],
+					[
+						"Change Scroll Speed",
+						"1",
+						"1"
+					]
+				]
+			],
+			[
+				56000,
+				[
+					[
+						"Change Scroll Speed",
+						"1.1",
+						"0.01"
+					],
+					[
+						"Flash effect",
+						"0",
+						""
+					],
+					[
+						"Set GF Speed",
+						"2",
+						""
+					]
+				]
+			],
+			[
+				77250,
+				[
+					[
+						"Thunderstorm type black screen",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				77333.3333333333,
+				[
+					[
+						"Thunderstorm type black screen",
+						"1",
+						""
+					],
+					[
+						"Hide or Show HUD elements",
+						"1",
+						""
+					],
+					[
+						"Change Scroll Speed",
+						"1.2",
+						"0.01"
+					],
+					[
+						"Change the Default Camera Zoom",
+						"1.15",
+						""
+					],
+					[
+						"Set GF Speed",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				80000,
+				[
+					[
+						"Flash effect",
+						"0",
+						""
+					],
+					[
+						"Change Scroll Speed",
+						"1.2",
+						"0.01"
+					],
+					[
+						"Hide or Show HUD elements",
+						"2",
+						""
+					],
+					[
+						"Thunderstorm type black screen",
+						"0",
+						""
+					],
+					[
+						"Change the Default Camera Zoom",
+						"0.75",
+						""
+					],
+					[
+						"Set GF Speed",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				100666.666666667,
+				[
+					[
+						"Add Camera Zoom",
+						"0.05",
+						""
+					]
+				]
+			],
+			[
+				100833.333333333,
+				[
+					[
+						"Add Camera Zoom",
+						"0.05",
+						""
+					]
+				]
+			],
+			[
+				101000,
+				[
+					[
+						"Add Camera Zoom",
+						"0.05",
+						""
+					]
+				]
+			],
+			[
+				101166.666666667,
+				[
+					[
+						"Add Camera Zoom",
+						"0.05",
+						""
+					]
+				]
+			],
+			[
+				101333.333333333,
+				[
+					[
+						"Set GF Speed",
+						"2",
+						""
+					],
+					[
+						"Change Scroll Speed",
+						"1.3",
+						"1"
+					]
+				]
+			],
+			[
+				122666.666666667,
+				[
+					[
+						"Change Scroll Speed",
+						"1",
+						"1"
+					],
+					[
+						"Flash effect",
+						"2",
+						""
+					],
+					[
+						"Hide or Show HUD elements with Fade",
+						"0",
+						""
+					],
+					[
+						"Quick note spin",
+						"",
+						""
+					]
+				]
+			]
+		]
+	}
+}

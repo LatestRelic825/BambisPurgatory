@@ -283,7 +283,11 @@ class TitleState extends MusicBeatState
 		add(bg);
 
 		// var slider:FlxBackdrop;
+		#if (flixel  < "5.0.0")
 		slider = new FlxBackdrop(Paths.image('hahaslider'),1,0,true,false);
+		#else
+		slider = new FlxBackdrop(Paths.image('hahaslider'),X);
+		#end
 		slider.velocity.set(-14,0);
 		slider.x = -20;
 		slider.y = 350;

@@ -91,7 +91,11 @@ class MainMenuState extends MusicBeatState
 		add(bg);
 
 		var slider2:FlxBackdrop;
+		#if (flixel  < "5.0.0")
 		slider2 = new FlxBackdrop(Paths.image('hahaslider'),1,0,true,false);
+		#else
+		slider2 = new FlxBackdrop(Paths.image('hahaslider'),X);
+		#end
 		slider2.velocity.set(-14,0);
 		slider2.x = -20;
 		slider2.y = 350;

@@ -69,7 +69,11 @@ class StoryMenuState extends MusicBeatState
 		add(bg);
 
 		var slider2:FlxBackdrop;
+		#if (flixel  < "5.0.0")
 		slider2 = new FlxBackdrop(Paths.image('hahaslider'),1,0,true,false);
+		#else
+		slider2 = new FlxBackdrop(Paths.image('hahaslider'),XY);
+		#end
 		slider2.velocity.set(-14,0);
 		slider2.x = -20;
 		slider2.y = 350;
@@ -315,7 +319,11 @@ class Section2Substate extends MusicBeatSubstate
 		add(bg2);
 
 		var slider22:FlxBackdrop;
+		#if (flixel  < "5.0.0")
 		slider22 = new FlxBackdrop(Paths.image('hahaslider'),1,0,true,false);
+		#else
+		slider22 = new FlxBackdrop(Paths.image('hahaslider'),X);
+		#end
 		slider22.velocity.set(-14,0);
 		slider22.x = -20;
 		slider22.y = 350;

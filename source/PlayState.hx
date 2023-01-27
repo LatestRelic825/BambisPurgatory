@@ -341,6 +341,7 @@ class PlayState extends MusicBeatState
 	public static var deathCounter:Int = 0;
 
 	public var defaultCamZoom:Float = 1.05;
+	public var zoomAdd:Float = 0;
 	public var autoZoom:Bool = true;
 	var prevDFCZ:Float = 1;
 
@@ -349,7 +350,7 @@ class PlayState extends MusicBeatState
 	private var singAnimations:Array<String> = ['singLEFT', 'singDOWN', 'singUP', 'singRIGHT'];
 
 	//goofy characters
-	var funnyFloatyBoys:Array<String> = ['dave-3d', 'bambi-3d', 'baiburg', 'crusturn', 'god-expunged-1', 'bambi-unfair', 'expunged', 'bambi-piss-3d', 'bambi-scaryooo', 'hell-1', 'hell-2', 'bambi-god2d', 'bambi-god-2-24fps', 'bambi-hell', 'bombureal', 'bombai', 'crimson-dave', 'crimson-bambi', 'gary', 'bamburg', 'bamburg-player'];
+	var funnyFloatyBoys:Array<String> = ['dave-3d', 'bambi-3d', 'baiburg', 'crusturn', 'god-expunged-1', 'bambi-unfair', 'expunged', 'bambi-piss-3d', 'bambi-scaryooo', 'hell-1', 'hell-2', 'bambi-god2d', 'bambi-god-2-24fps', 'bambi-hell', 'bombureal', 'bombai', 'crimson-dave', 'crimson-bambi', 'gary', 'bamburg', 'bamburg-player', '404'];
 	var funnySideFloatyBoys:Array<String> = ['bombureal', 'god-expunged-1', 'bombai'];
 	var funnyRotatorBoys:Array<String> = ['hell-2', 'god-expunged-1'];
 	var canSlide:Bool = true;
@@ -4863,12 +4864,12 @@ class PlayState extends MusicBeatState
 		{
 			if (ClientPrefs.fastZoom)
 			{
-				FlxG.camera.zoom = FlxMath.lerp(defaultCamZoom, FlxG.camera.zoom, CoolUtil.boundTo(0.95 - (elapsed * 2.125 * camZoomingDecay), 0, 1));
+				FlxG.camera.zoom = FlxMath.lerp(defaultCamZoom + zoomAdd, FlxG.camera.zoom, CoolUtil.boundTo(0.95 - (elapsed * 2.125 * camZoomingDecay), 0, 1));
 				camHUD.zoom = FlxMath.lerp(1, camHUD.zoom, CoolUtil.boundTo(0.95 - (elapsed * 2.125 * camZoomingDecay) , 0, 1));
 			} 
 			else
 			{
-				FlxG.camera.zoom = FlxMath.lerp(defaultCamZoom, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125 * camZoomingDecay), 0, 1));
+				FlxG.camera.zoom = FlxMath.lerp(defaultCamZoom + zoomAdd, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125 * camZoomingDecay), 0, 1));
 				camHUD.zoom = FlxMath.lerp(1, camHUD.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125 * camZoomingDecay), 0, 1));
 			}	
 		}
@@ -5722,11 +5723,15 @@ class PlayState extends MusicBeatState
 
 			if (autoZoom && !laggingRSOD)
 			{
-			if (SONG.song.toLowerCase() == 'rebound' || SONG.song.toLowerCase() == 'disposition' || SONG.song.toLowerCase() == 'upheaval')
-				defaultCamZoom = 0.55;
+				if (SONG.song.toLowerCase() == 'rebound' || SONG.song.toLowerCase() == 'disposition' || SONG.song.toLowerCase() == 'upheaval') {
+					//defaultCamZoom = 0.55;
+					zoomAdd	= -0.15;
+				}
 
-			if(SONG.song.toLowerCase() == 'rsod' && camZooming)
-				defaultCamZoom = 0.475;
+				if(SONG.song.toLowerCase() == 'rsod' && camZooming) {
+					//defaultCamZoom = 0.475;
+					zoomAdd	= -0.28;
+				}
 			}
 
 			tweenCamIn();
@@ -5758,11 +5763,15 @@ class PlayState extends MusicBeatState
 
 			if (autoZoom && !laggingRSOD)
 			{
-				if (SONG.song.toLowerCase() == 'rebound' || SONG.song.toLowerCase() == 'disposition' || SONG.song.toLowerCase() == 'upheaval')
-					defaultCamZoom = 0.7;
+				if (SONG.song.toLowerCase() == 'rebound' || SONG.song.toLowerCase() == 'disposition' || SONG.song.toLowerCase() == 'upheaval') {
+					//defaultCamZoom = 0.7;
+					zoomAdd = 0;
+				}
 
-				if(SONG.song.toLowerCase() == 'rsod' && camZooming)
-					defaultCamZoom = 0.755;
+				if(SONG.song.toLowerCase() == 'rsod' && camZooming) {
+					//defaultCamZoom = 0.755;
+					zoomAdd = 0;
+				}
 			}
 
 			dadNoteCamOffset[0] = 0;
@@ -7234,9 +7243,11 @@ class PlayState extends MusicBeatState
 
 		if(goofyZoom) {
 			if(curBeat % 4 == 0)
-				defaultCamZoom = defaultCamZoom - 0.25;
+				//defaultCamZoom = defaultCamZoom - 0.25;
+				zoomAdd	= 0;
 			if(curBeat % 4 == 2)
-				defaultCamZoom = defaultCamZoom + 0.25;
+				//defaultCamZoom = defaultCamZoom + 0.25;
+				zoomAdd	= 0.25;
 		}
 
 		if(camTilt) {
