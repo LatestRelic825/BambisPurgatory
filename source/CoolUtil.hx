@@ -18,7 +18,6 @@ using StringTools;
 class CoolUtil
 {
 	public static var defaultDifficulties:Array<String> = [
-		'Normal',
 		'Hard',
 		'Insane'
 	];
@@ -44,7 +43,7 @@ class CoolUtil
 		}
 		else
 		{
-			fileSuffix = '';
+			fileSuffix = '-hard';
 		}
 		return Paths.formatToSongPath(fileSuffix);
 	}
