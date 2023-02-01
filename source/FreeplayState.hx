@@ -152,6 +152,7 @@ class FreeplayState extends MusicBeatState
 		diffText.font = scoreText.font;
 		diffText.x = 20;
 		diffText.y = 40;
+		add(diffText);
 
 		add(scoreText); // it should be done
 
