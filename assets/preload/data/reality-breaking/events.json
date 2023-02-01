@@ -395,7 +395,7 @@
 				60240.1960784314,
 				[
 					[
-						"Toggle Eyesores",
+						"Toggle Blocked Glitch",
 						"1",
 						""
 					]
@@ -405,7 +405,7 @@
 				90352.9411764707,
 				[
 					[
-						"Toggle Eyesores",
+						"Toggle Blocked Glitch",
 						"0",
 						""
 					]
@@ -455,7 +455,7 @@
 				120473.039215686,
 				[
 					[
-						"Toggle Eyesores",
+						"Toggle Blocked Glitch",
 						"1",
 						""
 					]
@@ -536,26 +536,6 @@
 				[
 					[
 						"Toggle Blocked Glitch",
-						"1",
-						""
-					]
-				]
-			],
-			[
-				150602.941176471,
-				[
-					[
-						"Toggle Eyesores",
-						"0",
-						""
-					]
-				]
-			],
-			[
-				165647.058823529,
-				[
-					[
-						"Toggle Blocked Glitch",
 						"0",
 						""
 					]
@@ -566,16 +546,6 @@
 				[
 					[
 						"Hide or Show HUD elements with Fade",
-						"0",
-						""
-					]
-				]
-			],
-			[
-				166588.235294117,
-				[
-					[
-						"Toggle Blocked Glitch",
 						"0",
 						""
 					]

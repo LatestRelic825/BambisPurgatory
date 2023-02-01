@@ -43,6 +43,7 @@ function onCreatePost()
     setObjectCamera('barRight', 'camother')
     addLuaSprite('barRight', true)
 
+    setProperty('dad.alpha', 0)
     setProperty('camHUD.visible', false)
     setProperty('gfSpeed', 2)
     setProperty('camGame.zoom', 1.25)
@@ -69,9 +70,9 @@ function onStepHit()
         doTweenAngle("gfTweenAn", "gf", 10, 3.5, 'cubein')
         doTweenAlpha("gfTweenAlpha", "gf", 0, 3.5)
 
-        doTweenY("dadTweenY", "dad", getProperty('dad.y') - 400, 2, 'cubein')
-        doTweenAngle("dadTweenAn", "dad", 10, 2, 'cubein')
-        doTweenAlpha("dadTweenAlpha", "dad", 0, 2)
+        --doTweenY("dadTweenY", "dad", getProperty('dad.y') - 400, 2, 'cubein')
+        --doTweenAngle("dadTweenAn", "dad", 10, 2, 'cubein')
+        --doTweenAlpha("dadTweenAlpha", "dad", 0, 2)
     end
     if curStep == 512 then
         darkenChar = true
@@ -80,7 +81,7 @@ function onStepHit()
         cancelTween('camTweenAn')
         cancelTween('dadTweenAlpha')
 
-        doTweenAlpha("dadTweenAlpha2", "dad", 1, 0.000000000000001)
+        setProperty('dad.alpha', 1)
         setProperty('camGame.angle', 0)
         setProperty('camHUD.visible', true)
 

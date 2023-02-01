@@ -1663,13 +1663,19 @@ class PlayState extends MusicBeatState
 		//shhhhhhh
 		var gfShadow:BGSprite = new BGSprite('bpASSets/generalBGshit/shadow', 0, GF_Y+590, 1, 1);
 		gfShadow.visible = false;
+		gfShadow.alpha = 0.4;
+		gfShadow.blend = MULTIPLY;
 		gfShadow.scale.set(1.85,1);
 		add(gfShadow);
 		var boyfriendShadow:BGSprite = new BGSprite('bpASSets/generalBGshit/shadow', 0, BF_Y+690, 1, 1);
 		boyfriendShadow.visible = false;
+		boyfriendShadow.alpha = 0.4;
+		boyfriendShadow.blend = MULTIPLY;
 		add(boyfriendShadow);
 		var dadShadow:BGSprite = new BGSprite('bpASSets/generalBGshit/shadow', 0, DAD_Y+690, 1, 1);
 		dadShadow.visible = false;
+		dadShadow.alpha = 0.4;
+		dadShadow.blend = MULTIPLY;
 		add(dadShadow);
 
 		add(gfGroup); //Needed for blammed lights
@@ -1750,6 +1756,9 @@ class PlayState extends MusicBeatState
         screenshader.waveFrequency = 2;
         screenshader.waveSpeed = 1;
         screenshader.shader.uTime.value[0] = new flixel.math.FlxRandom().float(-100000, 100000);
+
+        FlxG.camera.setFilters([new ShaderFilter(screenshader.shader)]); 
+		//    /\/\ this is very stupid but doesn't effect memory all that much so
 
         camHUD.setFilters([new ShaderFilter(glitchShader.shader)]); 
 
@@ -4284,9 +4293,6 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		FlxG.camera.setFilters([new ShaderFilter(screenshader.shader)]); 
-		//    /\/\ this is very stupid but doesn't effect memory all that much so
-
 		if (shakeCam && eyesoreson)
 		{
 			if(SONG.song.toLowerCase() != "reality breaking")
@@ -4417,7 +4423,7 @@ class PlayState extends MusicBeatState
 					case 15:
 						showonlystrums();
 					case 1792:
-						FlxTween.tween(FlxG.camera, {zoom:1.30}, 10.82 / playbackRate);
+						FlxTween.tween(this, {defaultCamZoom:1.30}, 10.82 / playbackRate);
 						FlxTween.tween(scoreTxt, {alpha:0}, 1 / playbackRate);
 						FlxTween.tween(timeBarBG, {alpha:0}, 1 / playbackRate);
 						FlxTween.tween(timeBar, {alpha:0}, 1 / playbackRate);
@@ -4432,9 +4438,9 @@ class PlayState extends MusicBeatState
 						FlxTween.tween(botplayTxt, {alpha:0}, 1 / playbackRate);
 					case 1920:
 						defaultCamZoom = 1.30;
-						FlxTween.tween(FlxG.camera, {zoom:0.55}, 10.82 / playbackRate);
+						FlxTween.tween(this, {defaultCamZoom:0.7}, 10.82 / playbackRate);
 					case 2048:
-						defaultCamZoom = 0.55;
+						defaultCamZoom = 0.7;
 						FlxTween.tween(scoreTxt, {alpha:1}, 1 / playbackRate);
 						FlxTween.tween(timeBarBG, {alpha:1}, 1 / playbackRate);
 						FlxTween.tween(timeBar, {alpha:1}, 1 / playbackRate);
