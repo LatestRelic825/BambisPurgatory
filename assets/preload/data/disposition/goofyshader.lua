@@ -1,4 +1,4 @@
-Chromacrap = 0;
+local Chromacrap = 0;
 
 function boundTo(value, min, max)
     return math.max(min, math.min(max, value))
@@ -12,7 +12,10 @@ function setChrome(chromeOffset)
 end
 
 function opponentNoteHit(id, noteData, noteType, isSustainNote)
-    Chromacrap = Chromacrap + 0.015 -- edit this
+    Chromacrap = Chromacrap + 0.0025 -- edit this
+    if Chromacrap > 0.01 then
+        Chromacrap = 0.01
+    end
 end
 
 function onCreatePost()
@@ -25,9 +28,10 @@ function onCreatePost()
     
     addHaxeLibrary("ShaderFilter", "openfl.filters")
     runHaxeCode([[
-        trace(ShaderFilter);
-        game.camGame.setFilters([new ShaderFilter(game.getLuaObject("temporaryShader").shader)]);
-        game.camHUD.setFilters([new ShaderFilter(game.getLuaObject("temporaryShader").shader)]);
+        //trace(ShaderFilter);
+        //game.camGame.setFilters([new ShaderFilter(game.getLuaObject("temporaryShader").shader)]);
+        //game.camHUD.setFilters([new ShaderFilter(game.getLuaObject("temporaryShader").shader)]);
+        game.dad.shader = game.getLuaObject("temporaryShader").shader;
     ]])
 end
 

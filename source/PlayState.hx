@@ -565,6 +565,7 @@ class PlayState extends MusicBeatState
 		redGlow.antialiasing = true;
 		redGlow.active = true;
 		redGlow.screenCenter();
+		redGlow.blend = ADD;
 		add(redGlow);
 		redGlow.visible = false;
 
@@ -1684,7 +1685,8 @@ class PlayState extends MusicBeatState
 		if (curStage == 'limo')
 			add(limo);
 
-		add(dadGroup);
+		if (SONG.song.toLowerCase() != 'reality breaking')
+			add(dadGroup);
 		add(player3Group);
 		add(boyfriendGroup);
 
@@ -1694,6 +1696,25 @@ class PlayState extends MusicBeatState
 				add(halloweenWhite);
 			case 'tank':
 				add(foregroundSprites);
+			case 'farmNight':
+				var filter:BGSprite = new BGSprite('bpASSets/generalBGshit/nightGradient', -500, -300, 0, 0);
+				filter.screenCenter();
+				filter.blend = MULTIPLY;
+				add(filter);
+				if (SONG.song.toLowerCase() == 'reality breaking')
+				{
+					trace('hello!');
+					add(dadGroup);
+				}
+
+				var glow:BGSprite = new BGSprite('bpASSets/generalBGshit/nightGlow', -500, -300, 0.4, 0);
+				glow.screenCenter();
+				glow.x += 25;
+				glow.y += 25;
+				if (SONG.song.toLowerCase() == 'fallowed')
+					glow.color = 0xFFFF0000;
+				glow.blend = ADD;
+				add(glow);
 		}
 		if (colorFilter != null) add(colorFilter);
 
@@ -2268,9 +2289,9 @@ class PlayState extends MusicBeatState
 			// add randomness songs here
 			case 'shattered' | 'triple-threat':
 				composersWatermark = 'Epicrandomness11';
-			// add randomness & bas songs here
+			// add randomness & bezie songs here
 			case 'fallowed':
-				composersWatermark = 'Epicrandomness11 & Bas';
+				composersWatermark = 'Epicrandomness11 & BezieAnims';
 			// add aadsta's songs here
 			case 'acquaintance':
 				composersWatermark = 'AadstaPinwheel';
@@ -4361,11 +4382,15 @@ class PlayState extends MusicBeatState
 			case 'reality breaking':
 				switch (curStep)
 				{
-					case 1024 | 2048:
+					case 1024 | 2560:
 						goofyZoom = true;
-				    case 1536 | 2815:
+						redGlow.visible = true;
+						redGlow.alpha = 0;
+						FlxTween.tween(redGlow, {alpha: 1}, 1, {ease: FlxEase.cubeOut});
+				    case 1536 | 3072:
 						goofyZoom = false;
 						defaultCamZoom = prevDFCZ;
+						FlxTween.tween(redGlow, {alpha: 0}, 1, {ease: FlxEase.cubeOut});
 				}		
 			case 'upheaval':
 				switch (curStep)
@@ -5634,11 +5659,11 @@ class PlayState extends MusicBeatState
                     case 0:
 						glitchCam = false;
 						defaultCamZoom -= 0.1;
-						FlxTween.tween(blackScreendeez, {alpha: 0}, Conductor.stepCrochet / 500);
+						//FlxTween.tween(blackScreendeez, {alpha: 0}, Conductor.stepCrochet / 500);
 					case 1: 
 						glitchCam = true;
 						defaultCamZoom += 0.1;
-						FlxTween.tween(blackScreendeez, {alpha: 0.35}, Conductor.stepCrochet / 500);
+						//FlxTween.tween(blackScreendeez, {alpha: 0.35}, Conductor.stepCrochet / 500);
 				}
 			case 'Toggle Opponent Trail':
 				var poot:Int = Std.parseInt(value1);
@@ -6641,6 +6666,11 @@ class PlayState extends MusicBeatState
 		}
 
 		switch (curSong.toLowerCase()){
+			case 'reality breaking':
+				  if(ClientPrefs.flashing) {
+				  	camHUD.shake(0.0065, 0.1);
+				  	FlxG.camera.shake(0.0065, 0.1);
+				  }
 			case 'disposition':
 				  if(ClientPrefs.flashing) camHUD.shake(0.0065, 0.1);
 				if(health > 0.05) health -= 0.01;

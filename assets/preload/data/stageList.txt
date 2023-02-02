@@ -7,3 +7,6 @@ mallEvil
 school
 schoolEvil
 tank
+farmDay
+farmSunset
+farmNight

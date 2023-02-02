@@ -14,7 +14,7 @@ end
 
 function opponentNoteHit(id, noteData, noteType, isSustainNote)
     if shityourself then
-        Chromacrap = Chromacrap + 0.008 -- edit this
+        --Chromacrap = Chromacrap + 0.008 -- edit this
     end
 end
 
@@ -41,12 +41,13 @@ function onUpdatePost(elapsed)
 
     if curStep == 1024 then shityourself = false end
     if curStep == 1536 then shityourself = true end
-    if curStep == 2048 then shityourself = false end
-    if curStep == 2815 then shityourself = true end
+    if curStep == 2560 then shityourself = false end
+    if curStep == 3072 then shityourself = true end
+    if curStep == 3328 then shityourself = false end
 
     runHaxeCode([[
         // trace(ShaderFilter);
-        game.camGame.setFilters([new ShaderFilter(game.getLuaObject("temporaryShader").shader), new ShaderFilter(game.screenshader.shader)]);
+        //game.camGame.setFilters([new ShaderFilter(game.getLuaObject("temporaryShader").shader), new ShaderFilter(game.screenshader.shader)]);
         game.camHUD.setFilters([new ShaderFilter(game.getLuaObject("temporaryShader").shader), new ShaderFilter(game.glitchShader.shader)]);
     ]])
 end

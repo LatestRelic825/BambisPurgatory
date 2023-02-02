@@ -1,81 +1,70 @@
 {
 	"animations": [
 		{
-			"offsets": [
-				85,
-				-14
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				305,
+				6
+			],
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "Left"
+			"fps": 24,
+			"name": "Left",
+			"indices": []
 		},
 		{
-			"offsets": [
-				13,
-				-43
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				3,
+				-11
+			],
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "Right"
+			"fps": 24,
+			"name": "Right",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-1,
-				23
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				119,
+				145
+			],
 			"anim": "singUP",
-			"indices": [],
-			"name": "Up"
+			"fps": 24,
+			"name": "Up",
+			"indices": []
 		},
 		{
-			"offsets": [
-				29,
-				-50
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				126,
+				-46
+			],
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "Down"
-		},
-		{
-			"offsets": [
-				0,
-				-40
-			],
-			"loop": false,
 			"fps": 24,
-			"anim": "danceLeft",
-			"indices": [],
-			"name": "Idle_1"
+			"name": "Down",
+			"indices": []
 		},
 		{
 			"offsets": [
-				0,
-				-40
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "danceRight",
-			"indices": [],
-			"name": "Idle_2"
-		},
-		{
-			"loop": false,
-			"offsets": [
-				42,
+				30,
 				-30
 			],
-			"anim": "Idiot",
+			"indices": [],
 			"fps": 24,
-			"name": "FuckingIdiot",
-			"indices": []
+			"anim": "danceLeft",
+			"loop": false,
+			"name": "Idle1"
+		},
+		{
+			"offsets": [
+				30,
+				-30
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "danceRight",
+			"loop": false,
+			"name": "Idle2"
 		}
 	],
 	"no_antialiasing": false,
