@@ -1063,7 +1063,7 @@ class PlayState extends MusicBeatState
 				add(sign);
 				*/
 
-				var sky:BGSprite = new BGSprite('bambi/night/skye_gapple_reference', -1550, -1200, 0, 0);
+				var sky:BGSprite = new BGSprite('bambi/night/skye_gapple_reference', -1500, -1200, 0, 0);
 				sky.scale.set(0.5,0.5);
 				add(sky);
 
@@ -7072,8 +7072,8 @@ class PlayState extends MusicBeatState
 					case 3328:
 						defaultCamZoom += 0.1;
 						FlxTween.tween(redGlow, {alpha: 1}, 1, {ease: FlxEase.cubeOut});
-					case 3356:
-						FlxTween.tween(FlxG.camera, {zoom: 2.5}, Conductor.crochet*0.001, {ease: FlxEase.backIn});
+					case 3352:
+						FlxTween.tween(FlxG.camera, {zoom: 2.5}, 2*Conductor.crochet*0.001, {ease: FlxEase.backIn});
 					case 3360:
 						FlxG.camera.visible = false;
 						FlxTween.tween(redGlow, {alpha: 0}, 1, {ease: FlxEase.cubeOut});
