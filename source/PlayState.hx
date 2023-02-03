@@ -408,6 +408,7 @@ class PlayState extends MusicBeatState
 	var goofyZoom:Bool = false;
 
 	var camZoomTween:FlxTween;
+	var camTiltTween:FlxTween;
 
 	// some stuff for icons //
 	var dnbBounce:Bool = true;
@@ -447,6 +448,8 @@ class PlayState extends MusicBeatState
 	var olddaveGrass:FlxSprite;
 	var olddaveGate:FlxSprite;
 	var olddaveHills:FlxSprite;
+
+	var glow:BGSprite;
 
 	// trails!!1 //
 	var evilTrail:FlxTrail;
@@ -568,6 +571,7 @@ class PlayState extends MusicBeatState
 		redGlow.blend = ADD;
 		add(redGlow);
 		redGlow.visible = false;
+		redGlow.cameras = [camOther];
 
 		if(SONG.song.toLowerCase() == "shattered") { 
 			// preload scared bf
@@ -1707,7 +1711,7 @@ class PlayState extends MusicBeatState
 					add(dadGroup);
 				}
 
-				var glow:BGSprite = new BGSprite('bpASSets/generalBGshit/nightGlow', -500, -300, 0.4, 0);
+				glow = new BGSprite('bpASSets/generalBGshit/nightGlow', -500, -300, 0.4, 0);
 				glow.screenCenter();
 				glow.x += 25;
 				glow.y += 25;
@@ -2275,16 +2279,13 @@ class PlayState extends MusicBeatState
 		switch (SONG.song.toLowerCase())
 		{
 			// add pyramix's songs here
-			case 'technology':
+			case 'reality breaking' | 'technology':
 				composersWatermark = 'Pyramix';
-			// add cheemy's songs here
-			case 'double act':
-				composersWatermark = 'Cheemy';
 			// add tsu's songs here
 			case 'newest': //troll
 				composersWatermark = 'Tsuchi';
 			// add ville's songs here
-			case 'rascal' | 'gilded':
+			case 'rascal' | 'gilded' | 'double act':
 				composersWatermark = 'Villezen';
 			// add randomness songs here
 			case 'shattered' | 'triple-threat':
@@ -2361,7 +2362,6 @@ class PlayState extends MusicBeatState
 		timeBar.cameras = [camHUD];
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
-		redGlow.cameras = [camHUD];
 		doof.cameras = [camHUD];
 		if(SONG.song.toLowerCase() == "antagonism") {
 		    evilBar.cameras = [camHUD];
@@ -4376,225 +4376,6 @@ class PlayState extends MusicBeatState
 				maxNPS = nps;
 		}
 
-		// MID SONG EVENTS !! //
-		switch (SONG.song.toLowerCase())
-		{
-			case 'reality breaking':
-				switch (curStep)
-				{
-					case 1024 | 2560:
-						goofyZoom = true;
-						redGlow.visible = true;
-						redGlow.alpha = 0;
-						FlxTween.tween(redGlow, {alpha: 1}, 1, {ease: FlxEase.cubeOut});
-				    case 1536 | 3072:
-						goofyZoom = false;
-						defaultCamZoom = prevDFCZ;
-						FlxTween.tween(redGlow, {alpha: 0}, 1, {ease: FlxEase.cubeOut});
-				}		
-			case 'upheaval':
-				switch (curStep)
-				{
-					/* im testing my modchart rn -barrier
-					case 0:
-						FlxG.camera.alpha = 0;
-					    hideshit();
-						//openfl.Lib.application.window.title = "Friday Night Funkin' | VS DAVE";
-					case 1:
-						camHUD.alpha = 0;
-						restoreHUDElements();
-					case 191:
-						for(str in playerStrums) {
-							str.angle = 10;
-							str.alpha = 0;
-							FlxTween.tween(str, {angle: 0, alpha: 1}, 5, {ease: FlxEase.circOut});
-
-						}
-						for(str in opponentStrums) {
-							str.angle = -10;
-							str.alpha = 0;
-							FlxTween.tween(str, {angle: 0, alpha: 1}, 5, {ease: FlxEase.circOut});
-						}
-
-						FlxTween.tween(camHUD, {alpha: 1}, 1, {ease: FlxEase.circOut});
-						FlxTween.tween(camHUD, {angle: 5}, 25);
-					case 223:
-						FlxTween.tween(scoreTxt.scale, {x: 10.25, y: 3.25}, 20);
-					case 256:
-						FlxTween.tween(songinfoBar.scale, {x: 1.25, y: 10.25}, 19);
-					case 508:
-						//uphIntroTime = false; */
-					case 512:
-						gf.visible = false;
-						FlxG.camera.alpha = 1;
-						camOther.flash(FlxColor.WHITE, 3);
-						scoreTxt.scale.x = 1;
-						scoreTxt.scale.y = 1;
-						songinfoBar.scale.x = 1;
-						songinfoBar.scale.y = 1;
-						healthBar.angle = 0;
-					//	FlxG.camera.angle = 0;
-					    camHUD.angle = 0;
-					case 767:
-						ogCamBopVAL = 0.05;
-						ogCamHUDBopVAL = 0.1;
-						camOther.flash(FlxColor.WHITE, 1.5);
-				}
-			case 'rebound':
-				switch (curStep)
-				{
-					case 0:
-						hideshit();
-					case 15:
-						showonlystrums();
-					case 1792:
-						FlxTween.tween(this, {defaultCamZoom:1.30}, 10.82 / playbackRate);
-						FlxTween.tween(scoreTxt, {alpha:0}, 1 / playbackRate);
-						FlxTween.tween(timeBarBG, {alpha:0}, 1 / playbackRate);
-						FlxTween.tween(timeBar, {alpha:0}, 1 / playbackRate);
-						FlxTween.tween(timeTxt, {alpha:0}, 1 / playbackRate);
-						FlxTween.tween(judgementCounter, {alpha:0}, 1 / playbackRate);
-						FlxTween.tween(songinfoBar, {alpha:0}, 1 / playbackRate);
-						FlxTween.tween(healthBar, {alpha:0}, 1 / playbackRate);
-						FlxTween.tween(healthBarOverlay, {alpha:0}, 1 / playbackRate);
-						FlxTween.tween(healthBarBG, {alpha:0}, 1 / playbackRate);
-						FlxTween.tween(iconP1, {alpha:0}, 1 / playbackRate);
-						FlxTween.tween(iconP2, {alpha:0}, 1 / playbackRate);
-						FlxTween.tween(botplayTxt, {alpha:0}, 1 / playbackRate);
-					case 1920:
-						defaultCamZoom = 1.30;
-						FlxTween.tween(this, {defaultCamZoom:0.7}, 10.82 / playbackRate);
-					case 2048:
-						defaultCamZoom = 0.7;
-						FlxTween.tween(scoreTxt, {alpha:1}, 1 / playbackRate);
-						FlxTween.tween(timeBarBG, {alpha:1}, 1 / playbackRate);
-						FlxTween.tween(timeBar, {alpha:1}, 1 / playbackRate);
-						FlxTween.tween(timeTxt, {alpha:1}, 1 / playbackRate);
-						FlxTween.tween(judgementCounter, {alpha:1}, 1 / playbackRate);
-						FlxTween.tween(songinfoBar, {alpha:1}, 1 / playbackRate);
-						FlxTween.tween(healthBar, {alpha:1}, 1 / playbackRate);
-						FlxTween.tween(healthBarOverlay, {alpha:1}, 1 / playbackRate);
-						FlxTween.tween(healthBarBG, {alpha:1}, 1 / playbackRate);
-						FlxTween.tween(iconP1, {alpha:1}, 1 / playbackRate);
-						FlxTween.tween(iconP2, {alpha:1}, 1 / playbackRate);
-						FlxTween.tween(botplayTxt, {alpha:1}, 1 / playbackRate);
-				}
-			case 'shattered':
-				switch (curStep)
-				{
-					case 0:
-						hideshit();
-					case 1:
-						camHUD.alpha = 0;
-						restoreHUDElements();
-					case 120:
-						showHUDFade();
-					case 895:
-						add(blackScreen);
-					case 896:
-						FlxTween.tween(blackScreen, {alpha:0}, 10);
-					case 1024:
-						FlxTween.tween(blackScreen, {alpha:1}, 5);
-					case 1090:
-						FlxTween.tween(blackScreen, {alpha:0}, 2);
-					case 1665:
-						triggerEventNote('Change Character', '0', 'bf-scared');
-						boyfriend.playAnim('hurt', true);
-					case 1792:
-						redGlow.visible = true;
-				}
-			case 'acquaintance':
-				switch (curStep)
-				{
-					case 0:
-						camZoomSnap = true;
-					case 512:
-						camTilt = true;
-					case 768:
-						camZoomSnap = false;
-						camTilt = false;
-						FlxTween.tween(camHUD, {angle: 0}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
-					case 1024:
-						camZoomSnap = true;
-						camTilt = true;
-					case 1280:
-						camZoomSnap = false;
-						camTilt = false;
-						FlxTween.tween(camHUD, {angle: 0}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
-				}
-			case 'rsod': // i should probably organize this one jesus
-				switch (curStep)
-				{
-					case 32:
-						FlxTween.tween(tutorialTxt, {alpha: 1}, 0.35, {ease: FlxEase.cubeInOut});
-					case 80:
-						FlxTween.tween(tutorialTxt, {alpha: 0}, 1.25, {ease: FlxEase.cubeInOut});
-					case 112:
-						remove(tutorialTxt);
-					case 368 | 1167 | 2192:
-						FlxTween.tween(notResponding, {alpha: 0.5}, 0.5);
-						boyfriend.animation.stop();
-						dad.animation.stop();
-						gf.animation.stop();
-						laggingRSOD = true;		
-						camZooming = false;
-						bgrsod.active = false;
-						openfl.Lib.application.window.title = "Bambi's Purgatory (Not Responding)";
-                    case 400 | 1200 | 2224:
-				    	rsod.visible = true;
-						showonlystrums();
-						camHUD.shake(0.0055, 0.35);
-						FlxG.camera.visible = false;
-						camZooming = false;
-						camHUD.zoom = 1;
-						poop();
-						notResponding.alpha = 0;
-					case 401 | 1201 | 2225: // in case the game skips a beat cuz it does that usuallyFUCK YOU FLIXEL
-						rsod.visible = true;
-						showonlystrums();
-						FlxG.camera.visible = false;
-						poop();
-						camZooming = false;
-					case 416 | 1216 | 2240:
-						rsod.visible = false;
-						notResponding.alpha = 0;
-						FlxG.camera.visible = true;
-						camOther.flash(FlxColor.BLACK, 0.55);
-						FlxG.camera.flash(FlxColor.BLACK, 0.55);
-						restoreHUDElements();
-						camZooming = true;
-						laggingRSOD = false;
-						bgrsod.active = true;
-						crap();
-						restoreTitleWin();
-						//resetSprBfAnim(note:Note);
-					case 417 | 1217 | 2241:
-						rsod.visible = false;
-						notResponding.alpha = 0;
-						FlxG.camera.visible = true;
-						restoreHUDElements();
-						laggingRSOD = false;
-						crap();
-						camZooming = true; 
-						bgrsod.active = true;
-						restoreTitleWin();
-						// STOP SKIPPING THE FUCKING STEP
-					case 544 | 831 | 1856:
-						camZoomSnap = true;
-					case 799 | 1344 | 2367:
-						camZoomSnap = false;
-					case 815:
-						camZooming = false;
-						camHUD.zoom = 1;
-						defaultCamZoom += 0.0375;
-						FlxTween.tween(FlxG.camera, {zoom: 1.375}, 0.95, {ease: FlxEase.cubeInOut});
-					case 832:
-						camZooming = true;
-					case 2628:
-						camZooming = false;
-				}
-			
-		}
 		// just shitted out my ass //
 
 		switch (curStage)
@@ -7216,6 +6997,287 @@ class PlayState extends MusicBeatState
 			return;
 		}
 
+		// MID SONG EVENTS !! //
+		switch (SONG.song.toLowerCase())
+		{
+			case 'reality breaking':
+				switch (curStep)
+				{
+					case 256:
+						camZooming = true;
+						camZoomingMult = 0;
+					case 512:
+						redGlow.visible = true;
+						redGlow.alpha = 0.5;
+						camZoomingMult = 1;
+					case 624 | 880:
+						defaultCamZoom += 0.2;
+					case 640 | 896:
+						defaultCamZoom -= 0.2;
+					case 992 | 1008:
+						defaultCamZoom += 0.1;
+					case 1016 | 1020:
+						FlxG.camera.zoom += 0.075;
+					case 1024:
+						defaultCamZoom -= 0.2;
+						goofyZoom = true;
+						FlxTween.tween(redGlow, {alpha: 1}, 1, {ease: FlxEase.cubeOut});
+					case 1536:
+						goofyZoom = false;
+						defaultCamZoom = prevDFCZ;
+						FlxTween.tween(redGlow, {alpha: 0.5}, 1, {ease: FlxEase.cubeOut});
+					case 1560 | 1592 | 1688:
+						defaultCamZoom += 0.1;
+					case 1568 | 1600 | 1696:
+						defaultCamZoom -= 0.1;
+					case 1648 | 1776:
+						defaultCamZoom += 0.1;
+					case 1656 | 1784:
+						defaultCamZoom += 0.2;
+					case 1664 | 1792:
+						defaultCamZoom -= 0.3;
+					case 2048:
+						cameraSpeed = 0.5;
+						FlxTween.tween(this, {defaultCamZoom: defaultCamZoom + 0.3}, 64*Conductor.crochet*0.001);
+						FlxTween.tween(redGlow, {alpha: 0}, 64*Conductor.crochet*0.001, {ease: FlxEase.cubeOut});
+						for (spr in [songinfoBar, healthBar, healthBarBG, healthBarOverlay, iconP1, iconP2, scoreTxt]) {
+							FlxTween.tween(spr, {alpha: 0}, 1);
+						}
+					case 2304:
+						cameraSpeed = 1;
+						defaultCamZoom -= 0.1;
+					case 2528:
+						defaultCamZoom -= 0.2;
+						FlxTween.tween(redGlow, {alpha: 0.5}, 1, {ease: FlxEase.cubeOut});
+						for (spr in [songinfoBar, healthBar, healthBarBG, healthBarOverlay, iconP1, iconP2, scoreTxt]) {
+							FlxTween.tween(spr, {alpha: 1}, 1);
+						}
+				    case 2560:
+				    	camTilt = true;
+				    	cameraSpeed = 1.5;
+				    	defaultCamZoom += 0.2;
+				    	FlxTween.tween(redGlow, {alpha: 1}, 1, {ease: FlxEase.cubeOut});
+				    case 3072:
+				    	camTilt = false;
+				    	defaultCamZoom -= 0.1;
+						FlxTween.tween(redGlow, {alpha: 0}, 60*Conductor.crochet*0.001, {ease: FlxEase.cubeOut});
+					case 3073:
+						if (camTiltTween != null) camTiltTween.cancel();
+				    	camTiltTween = FlxTween.tween(camHUD, {angle: 0}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
+					case 3328:
+						defaultCamZoom += 0.1;
+						FlxTween.tween(redGlow, {alpha: 1}, 1, {ease: FlxEase.cubeOut});
+					case 3356:
+						FlxTween.tween(FlxG.camera, {zoom: 2.5}, Conductor.crochet*0.001, {ease: FlxEase.backIn});
+					case 3360:
+						FlxG.camera.visible = false;
+						FlxTween.tween(redGlow, {alpha: 0}, 1, {ease: FlxEase.cubeOut});
+				}		
+			case 'upheaval':
+				switch (curStep)
+				{
+					/* im testing my modchart rn -barrier
+					case 0:
+						FlxG.camera.alpha = 0;
+					    hideshit();
+						//openfl.Lib.application.window.title = "Friday Night Funkin' | VS DAVE";
+					case 1:
+						camHUD.alpha = 0;
+						restoreHUDElements();
+					case 191:
+						for(str in playerStrums) {
+							str.angle = 10;
+							str.alpha = 0;
+							FlxTween.tween(str, {angle: 0, alpha: 1}, 5, {ease: FlxEase.circOut});
+
+						}
+						for(str in opponentStrums) {
+							str.angle = -10;
+							str.alpha = 0;
+							FlxTween.tween(str, {angle: 0, alpha: 1}, 5, {ease: FlxEase.circOut});
+						}
+
+						FlxTween.tween(camHUD, {alpha: 1}, 1, {ease: FlxEase.circOut});
+						FlxTween.tween(camHUD, {angle: 5}, 25);
+					case 223:
+						FlxTween.tween(scoreTxt.scale, {x: 10.25, y: 3.25}, 20);
+					case 256:
+						FlxTween.tween(songinfoBar.scale, {x: 1.25, y: 10.25}, 19);
+					case 508:
+						//uphIntroTime = false; */
+					case 512:
+						gf.visible = false;
+						FlxG.camera.alpha = 1;
+						camOther.flash(FlxColor.WHITE, 3);
+						scoreTxt.scale.x = 1;
+						scoreTxt.scale.y = 1;
+						songinfoBar.scale.x = 1;
+						songinfoBar.scale.y = 1;
+						healthBar.angle = 0;
+					//	FlxG.camera.angle = 0;
+					    camHUD.angle = 0;
+					case 767:
+						ogCamBopVAL = 0.05;
+						ogCamHUDBopVAL = 0.1;
+						camOther.flash(FlxColor.WHITE, 1.5);
+				}
+			case 'rebound':
+				switch (curStep)
+				{
+					case 0:
+						hideshit();
+					case 15:
+						showonlystrums();
+					case 1792:
+						FlxTween.tween(this, {defaultCamZoom:1.30}, 10.82 / playbackRate);
+						FlxTween.tween(scoreTxt, {alpha:0}, 1 / playbackRate);
+						FlxTween.tween(timeBarBG, {alpha:0}, 1 / playbackRate);
+						FlxTween.tween(timeBar, {alpha:0}, 1 / playbackRate);
+						FlxTween.tween(timeTxt, {alpha:0}, 1 / playbackRate);
+						FlxTween.tween(judgementCounter, {alpha:0}, 1 / playbackRate);
+						FlxTween.tween(songinfoBar, {alpha:0}, 1 / playbackRate);
+						FlxTween.tween(healthBar, {alpha:0}, 1 / playbackRate);
+						FlxTween.tween(healthBarOverlay, {alpha:0}, 1 / playbackRate);
+						FlxTween.tween(healthBarBG, {alpha:0}, 1 / playbackRate);
+						FlxTween.tween(iconP1, {alpha:0}, 1 / playbackRate);
+						FlxTween.tween(iconP2, {alpha:0}, 1 / playbackRate);
+						FlxTween.tween(botplayTxt, {alpha:0}, 1 / playbackRate);
+					case 1920:
+						defaultCamZoom = 1.30;
+						FlxTween.tween(this, {defaultCamZoom:0.7}, 10.82 / playbackRate);
+					case 2048:
+						defaultCamZoom = 0.7;
+						FlxTween.tween(scoreTxt, {alpha:1}, 1 / playbackRate);
+						FlxTween.tween(timeBarBG, {alpha:1}, 1 / playbackRate);
+						FlxTween.tween(timeBar, {alpha:1}, 1 / playbackRate);
+						FlxTween.tween(timeTxt, {alpha:1}, 1 / playbackRate);
+						FlxTween.tween(judgementCounter, {alpha:1}, 1 / playbackRate);
+						FlxTween.tween(songinfoBar, {alpha:1}, 1 / playbackRate);
+						FlxTween.tween(healthBar, {alpha:1}, 1 / playbackRate);
+						FlxTween.tween(healthBarOverlay, {alpha:1}, 1 / playbackRate);
+						FlxTween.tween(healthBarBG, {alpha:1}, 1 / playbackRate);
+						FlxTween.tween(iconP1, {alpha:1}, 1 / playbackRate);
+						FlxTween.tween(iconP2, {alpha:1}, 1 / playbackRate);
+						FlxTween.tween(botplayTxt, {alpha:1}, 1 / playbackRate);
+				}
+			case 'shattered':
+				switch (curStep)
+				{
+					case 0:
+						hideshit();
+					case 1:
+						camHUD.alpha = 0;
+						restoreHUDElements();
+					case 120:
+						showHUDFade();
+					case 895:
+						add(blackScreen);
+					case 896:
+						FlxTween.tween(blackScreen, {alpha:0}, 10);
+					case 1024:
+						FlxTween.tween(blackScreen, {alpha:1}, 5);
+					case 1090:
+						FlxTween.tween(blackScreen, {alpha:0}, 2);
+					case 1665:
+						triggerEventNote('Change Character', '0', 'bf-scared');
+						boyfriend.playAnim('hurt', true);
+						glow.color = 0xFFFF0000;
+					case 1792:
+						redGlow.visible = true;
+				}
+			case 'acquaintance':
+				switch (curStep)
+				{
+					case 0:
+						camZoomSnap = true;
+					case 512:
+						camTilt = true;
+					case 768:
+						camZoomSnap = false;
+						camTilt = false;
+						FlxTween.tween(camHUD, {angle: 0}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
+					case 1024:
+						camZoomSnap = true;
+						camTilt = true;
+					case 1280:
+						camZoomSnap = false;
+						camTilt = false;
+						FlxTween.tween(camHUD, {angle: 0}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
+				}
+			case 'rsod': // i should probably organize this one jesus
+				switch (curStep)
+				{
+					case 32:
+						FlxTween.tween(tutorialTxt, {alpha: 1}, 0.35, {ease: FlxEase.cubeInOut});
+					case 80:
+						FlxTween.tween(tutorialTxt, {alpha: 0}, 1.25, {ease: FlxEase.cubeInOut});
+					case 112:
+						remove(tutorialTxt);
+					case 368 | 1167 | 2192:
+						FlxTween.tween(notResponding, {alpha: 0.5}, 0.5);
+						boyfriend.animation.stop();
+						dad.animation.stop();
+						gf.animation.stop();
+						laggingRSOD = true;		
+						camZooming = false;
+						bgrsod.active = false;
+						openfl.Lib.application.window.title = "Bambi's Purgatory (Not Responding)";
+                    case 400 | 1200 | 2224:
+				    	rsod.visible = true;
+						showonlystrums();
+						camHUD.shake(0.0055, 0.35);
+						FlxG.camera.visible = false;
+						camZooming = false;
+						camHUD.zoom = 1;
+						poop();
+						notResponding.alpha = 0;
+					case 401 | 1201 | 2225: // in case the game skips a beat cuz it does that usuallyFUCK YOU FLIXEL
+						rsod.visible = true;
+						showonlystrums();
+						FlxG.camera.visible = false;
+						poop();
+						camZooming = false;
+					case 416 | 1216 | 2240:
+						rsod.visible = false;
+						notResponding.alpha = 0;
+						FlxG.camera.visible = true;
+						camOther.flash(FlxColor.BLACK, 0.55);
+						FlxG.camera.flash(FlxColor.BLACK, 0.55);
+						restoreHUDElements();
+						camZooming = true;
+						laggingRSOD = false;
+						bgrsod.active = true;
+						crap();
+						restoreTitleWin();
+						//resetSprBfAnim(note:Note);
+					case 417 | 1217 | 2241:
+						rsod.visible = false;
+						notResponding.alpha = 0;
+						FlxG.camera.visible = true;
+						restoreHUDElements();
+						laggingRSOD = false;
+						crap();
+						camZooming = true; 
+						bgrsod.active = true;
+						restoreTitleWin();
+						// STOP SKIPPING THE FUCKING STEP
+					case 544 | 831 | 1856:
+						camZoomSnap = true;
+					case 799 | 1344 | 2367:
+						camZoomSnap = false;
+					case 815:
+						camZooming = false;
+						camHUD.zoom = 1;
+						defaultCamZoom += 0.0375;
+						FlxTween.tween(FlxG.camera, {zoom: 1.375}, 0.95, {ease: FlxEase.cubeInOut});
+					case 832:
+						camZooming = true;
+					case 2628:
+						camZooming = false;
+				}
+			
+		}
+
 		lastStepHit = curStep;
 		setOnLuas('curStep', curStep);
 		callOnLuas('onStepHit', []);
@@ -7287,10 +7349,11 @@ class PlayState extends MusicBeatState
 		}
 
 		if(camTilt) {
-			if(curBeat % 8 == 0)
-				FlxTween.tween(camHUD, {angle: -2}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
-			if(curBeat % 8 == 4)
-				FlxTween.tween(camHUD, {angle: 2}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
+			if (camTiltTween != null) camTiltTween.cancel();
+			if(curBeat % 4 == 0)
+				var camTiltTween = FlxTween.tween(camHUD, {angle: -2}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
+			if(curBeat % 4 == 2)
+				var camTiltTween = FlxTween.tween(camHUD, {angle: 2}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
 		}
 
 		if (gf != null && curBeat % Math.round(gfSpeed * gf.danceEveryNumBeats) == 0 && gf.animation.curAnim != null && !gf.animation.curAnim.name.startsWith("sing") && !gf.stunned)

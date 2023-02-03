@@ -43,7 +43,6 @@ function onUpdatePost(elapsed)
     if curStep == 1536 then shityourself = true end
     if curStep == 2560 then shityourself = false end
     if curStep == 3072 then shityourself = true end
-    if curStep == 3328 then shityourself = false end
 
     runHaxeCode([[
         // trace(ShaderFilter);

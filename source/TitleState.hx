@@ -221,6 +221,31 @@ class TitleState extends MusicBeatState
 			}
 			#end
 
+			#if debug
+			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+			
+			var songLowercase:String = Paths.formatToSongPath('reality-breaking');
+			var poop:String = Highscore.formatSong(songLowercase, 0);
+			/*#if MODS_ALLOWED
+			if(!sys.FileSystem.exists(Paths.modsJson(songLowercase + '/' + poop)) && !sys.FileSystem.exists(Paths.json(songLowercase + '/' + poop))) {
+			#else
+			if(!OpenFlAssets.exists(Paths.json(songLowercase + '/' + poop))) {
+			#end
+				poop = songLowercase;
+				curDifficulty = 1;
+				trace('Couldnt find file');
+			}*/
+			trace(poop);
+
+			PlayState.SONG = Song.loadFromJson(poop, songLowercase);
+			PlayState.isStoryMode = false;
+			PlayState.storyDifficulty = 0;
+			PlayState.storyWeek = 0;
+
+			trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
+
+			LoadingState.loadAndSwitchState(new PlayState());
+			#else
 			if (initialized)
 				startIntro();
 			else
@@ -230,6 +255,7 @@ class TitleState extends MusicBeatState
 					startIntro();
 				});
 			}
+			#end
 		}
 		#end
 	}
