@@ -1063,7 +1063,7 @@ class PlayState extends MusicBeatState
 				add(sign);
 				*/
 
-				var sky:BGSprite = new BGSprite('bambi/night/skye_gapple_reference', -1600, -1200, 0, 0);
+				var sky:BGSprite = new BGSprite('bambi/night/skye_gapple_reference', -1550, -1200, 0, 0);
 				sky.scale.set(0.5,0.5);
 				add(sky);
 
@@ -1705,20 +1705,26 @@ class PlayState extends MusicBeatState
 				filter.screenCenter();
 				filter.blend = MULTIPLY;
 				add(filter);
+
 				if (SONG.song.toLowerCase() == 'reality breaking')
 				{
 					trace('hello!');
 					add(dadGroup);
 				}
 
-				glow = new BGSprite('bpASSets/generalBGshit/nightGlow', -500, -300, 0.4, 0);
+				var glowPrefix = 'nightGlow';
+				if (SONG.song.toLowerCase() == 'reality breaking')
+					glowPrefix = 'rbGlow';
+				glow = new BGSprite('bpASSets/generalBGshit/'+glowPrefix, -500, -300, 0, 0);
 				glow.screenCenter();
-				glow.x += 25;
-				glow.y += 25;
+				//glow.x += 25;
+				//glow.y += 25;
 				if (SONG.song.toLowerCase() == 'fallowed')
 					glow.color = 0xFFFF0000;
 				glow.blend = ADD;
 				add(glow);
+				if (SONG.song.toLowerCase() == 'reality breaking')
+					glow.scale.set(1.25, 1.25);
 		}
 		if (colorFilter != null) add(colorFilter);
 
@@ -7038,8 +7044,8 @@ class PlayState extends MusicBeatState
 						defaultCamZoom -= 0.3;
 					case 2048:
 						cameraSpeed = 0.5;
-						FlxTween.tween(this, {defaultCamZoom: defaultCamZoom + 0.3}, 64*Conductor.crochet*0.001);
-						FlxTween.tween(redGlow, {alpha: 0}, 64*Conductor.crochet*0.001, {ease: FlxEase.cubeOut});
+						FlxTween.tween(this, {defaultCamZoom: defaultCamZoom + 0.3}, 63*Conductor.crochet*0.001);
+						FlxTween.tween(redGlow, {alpha: 0}, 32*Conductor.crochet*0.001, {ease: FlxEase.cubeOut});
 						for (spr in [songinfoBar, healthBar, healthBarBG, healthBarOverlay, iconP1, iconP2, scoreTxt]) {
 							FlxTween.tween(spr, {alpha: 0}, 1);
 						}
@@ -7057,13 +7063,12 @@ class PlayState extends MusicBeatState
 				    	cameraSpeed = 1.5;
 				    	defaultCamZoom += 0.2;
 				    	FlxTween.tween(redGlow, {alpha: 1}, 1, {ease: FlxEase.cubeOut});
-				    case 3072:
+				    case 3071:
 				    	camTilt = false;
+				    case 3072:
 				    	defaultCamZoom -= 0.1;
 						FlxTween.tween(redGlow, {alpha: 0}, 60*Conductor.crochet*0.001, {ease: FlxEase.cubeOut});
-					case 3073:
-						if (camTiltTween != null) camTiltTween.cancel();
-				    	camTiltTween = FlxTween.tween(camHUD, {angle: 0}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
+				    	FlxTween.tween(camHUD, {angle: 0}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
 					case 3328:
 						defaultCamZoom += 0.1;
 						FlxTween.tween(redGlow, {alpha: 1}, 1, {ease: FlxEase.cubeOut});

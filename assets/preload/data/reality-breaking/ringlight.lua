@@ -3,7 +3,11 @@ function onCreatePost()
 
     setSpriteShader("boyfriend", "dropShadow")
     setShaderFloat('boyfriend', '_alpha', 0.5)
-    setShaderFloat('boyfriend', '_disx', 15)
+    if not getProperty('boyfriend.flipX') then
+        setShaderFloat('boyfriend', '_disx', 15)
+    else
+        setShaderFloat('boyfriend', '_disx', -15)
+    end
     setShaderFloat('boyfriend', '_disy', 5)
     setShaderBool('boyfriend', 'inner', true)
     setShaderBool('boyfriend', 'inverted', true)
