@@ -2,65 +2,65 @@
 	"animations": [
 		{
 			"offsets": [
-				195,
+				0,
 				0
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "idle",
 			"indices": [],
-			"name": "Idle"
+			"name": "idle"
 		},
 		{
 			"offsets": [
-				385,
-				-6
+				0,
+				0
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singLEFT",
 			"indices": [],
-			"name": "Left"
+			"name": "left"
 		},
 		{
 			"offsets": [
-				270,
-				-51
+				0,
+				0
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singDOWN",
 			"indices": [],
-			"name": "Down"
+			"name": "down"
 		},
 		{
 			"offsets": [
-				295,
-				257
+				0,
+				0
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singUP",
 			"indices": [],
-			"name": "Up"
+			"name": "up"
 		},
 		{
 			"loop": false,
 			"offsets": [
-				-78,
-				-17
+				0,
+				0
 			],
 			"anim": "singRIGHT",
 			"fps": 24,
-			"name": "Right",
+			"name": "right",
 			"indices": []
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/bombu",
 	"position": [
-		-200,
-		-100
+		-300,
+		-250
 	],
 	"healthicon": "bombu",
 	"flip_x": false,
@@ -71,8 +71,7 @@
 	],
 	"camera_position": [
 		0,
-		0
+		75
 	],
-	"sing_duration": 4,
-	"scale": 0.8
+	"sing_duration": 4
 }

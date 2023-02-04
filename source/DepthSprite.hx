@@ -10,6 +10,8 @@ class DepthSprite extends FlxSprite
 {
 	public var depth:Float = 1;
 	public var defaultScale:Float = 1;
+	public var defaultScrollX:Float = 1;
+	public var defaultScrollY:Float = 1;
 
 	private var idleAnim:String;
 	public function new(image:String, x:Float = 0, y:Float = 0, ?scrollX:Float = 1, ?scrollY:Float = 1, ?animArray:Array<String> = null, ?loop:Bool = false)
@@ -32,6 +34,8 @@ class DepthSprite extends FlxSprite
 			}
 			//active = false;
 		}
+		defaultScrollX = scrollX;
+		defaultScrollY = scrollY;
 		scrollFactor.set(scrollX, scrollY);
 		antialiasing = ClientPrefs.globalAntialiasing;
 	}
@@ -43,8 +47,8 @@ class DepthSprite extends FlxSprite
 		//trace("hi");
 		var cam:FlxCamera = cameras[0];
 		var toScale:Float = 1 / ((cam.zoom - 1) * (1-this.depth) +1);
+		scrollFactor.set(toScale * this.defaultScrollX, toScale * this.defaultScrollY);
 		toScale = toScale * this.defaultScale;
 		scale.set(toScale, toScale);
-
 	}
 }

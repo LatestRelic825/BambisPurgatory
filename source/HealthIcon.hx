@@ -15,6 +15,31 @@ class HealthIcon extends FlxSprite
 	public var isAnim:Bool = false;
 	private var char:String = '';
 
+	private var noAntialiasing:Array<String> = [
+		'bambi3d',
+		'bambi3dUnfair',
+		'trueexpunged',
+		'404',
+		'god-expunged-1',
+		'Godly_Goober_2',
+		'bambiGod',
+		'bambiGod-2',
+		'hell1',
+		'hell2',
+		'bamburg',
+		'bamburg_crazy',
+		'homo',
+		'bombu',
+		'bombuExpunged',
+		'crusti',
+		'crusturn',
+		'dave3d',
+		'crimsondave',
+		'minion',
+		'doubleee',
+		'ohfuck'
+	];
+
 	public function new(char:String = 'bf', isPlayer:Bool = false)
 	{
 		super();
@@ -111,7 +136,7 @@ class HealthIcon extends FlxSprite
 			this.char = char;
 
 			antialiasing = ClientPrefs.globalAntialiasing;
-			if(char.endsWith('-pixel')) {
+			if(char.endsWith('-pixel') || noAntialiasing.contains(char)) {
 				antialiasing = false;
 			}
 		}

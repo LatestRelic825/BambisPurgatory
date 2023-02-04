@@ -350,8 +350,8 @@ class PlayState extends MusicBeatState
 	private var singAnimations:Array<String> = ['singLEFT', 'singDOWN', 'singUP', 'singRIGHT'];
 
 	//goofy characters
-	var funnyFloatyBoys:Array<String> = ['dave-3d', 'bambi-3d', 'baiburg', 'crusturn', 'god-expunged-1', 'bambi-unfair', 'expunged', 'bambi-piss-3d', 'bambi-scaryooo', 'hell-1', 'hell-2', 'bambi-god2d', 'bambi-god-2-24fps', 'bambi-hell', 'bombureal', 'bombai', 'crimson-dave', 'crimson-bambi', 'gary', 'bamburg', 'bamburg-player', '404'];
-	var funnySideFloatyBoys:Array<String> = ['bombureal', 'god-expunged-1', 'bombai'];
+	var funnyFloatyBoys:Array<String> = ['dave-3d', 'bambi-3d', 'baiburg', 'crusturn', 'god-expunged-1', 'bambi-unfair', 'expunged', 'bambi-piss-3d', 'bambi-scaryooo', 'hell-1', 'hell-2', 'bambi-god2d', 'bambi-god-2-24fps', 'bambi-hell', 'bombu', 'bombai', 'crimson-dave', 'crimson-bambi', 'gary', 'bamburg', 'bamburg-player', '404'];
+	var funnySideFloatyBoys:Array<String> = ['bombu', 'god-expunged-1', 'bombai'];
 	var funnyRotatorBoys:Array<String> = ['hell-2', 'god-expunged-1'];
 	var canSlide:Bool = true;
 	var canFloat:Bool = true;
@@ -434,7 +434,9 @@ class PlayState extends MusicBeatState
 	var farm:DepthSprite;
 	var pcworld:FlxSprite;
 	var burger:FlxSprite;
-	var ourple:FlxSprite;
+
+	var ourple:DepthSprite;
+	var phones:DepthSprite;
 
 	var gridBG:FlxSprite;
 	var gridSine:Float = 0;
@@ -1147,26 +1149,61 @@ class PlayState extends MusicBeatState
 					curbg = burger;
 
 
-				case 'ourple':
-						defaultCamZoom = 0.65;
-						curStage = 'ourple';
-		
-						ourple = new FlxSprite(-1500, -800).loadGraphic(Paths.image('bpASSets/poipman/urple'));
-						ourple.antialiasing = false;
-						ourple.scrollFactor.set(0.6, 0.6);
-						ourple.screenCenter(X);
-						ourple.active = true;
-						ourple.scale.set(1.75, 1.75);
-						add(ourple);
-		
-						//if(ClientPrefs.waving)
-					//	{
-							var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
-							testshader.waveAmplitude = 0.1;
-							testshader.waveFrequency = 3;
-							testshader.waveSpeed = 1.5;
-							ourple.shader = testshader.shader;
-							curbg = ourple;
+			case 'ourple':
+				defaultCamZoom = 0.65;
+				zoomAdd = 0.1;
+				curStage = 'ourple';
+
+				ourple = new DepthSprite('bpASSets/poipman/poipBG', -1500, -800, 0.2, 0.2);
+				ourple.antialiasing = true;
+				ourple.depth = 0.2;
+				ourple.defaultScale = 0.65;
+				ourple.screenCenter();
+				ourple.active = true;
+				add(ourple);
+
+				var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
+				testshader.waveAmplitude = 0.01;
+				testshader.waveFrequency = 5;
+				testshader.waveSpeed = 2;
+				ourple.shader = testshader.shader;
+				curbg = ourple;
+
+				phones = new DepthSprite('bpASSets/poipman/phones', -1500, -300, 0.6, 0.6);
+				phones.antialiasing = false;
+				phones.depth = 0.6;
+				phones.screenCenter(X);
+				phones.x -= 100;
+				phones.active = true;
+				add(phones);
+
+			case 'double':
+				defaultCamZoom = 0.65;
+				zoomAdd = 0.1;
+				curStage = 'double';
+
+				ourple = new DepthSprite('bpASSets/poipman/POPI_AND_CRUSTI_OMGGGGG', -1500, -800, 0.2, 0.2);
+				ourple.antialiasing = true;
+				ourple.depth = 0.2;
+				ourple.defaultScale = 0.65;
+				ourple.screenCenter();
+				ourple.active = true;
+				add(ourple);
+
+				var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
+				testshader.waveAmplitude = 0.01;
+				testshader.waveFrequency = 5;
+				testshader.waveSpeed = 2;
+				ourple.shader = testshader.shader;
+				curbg = ourple;
+
+				phones = new DepthSprite('bpASSets/poipman/UWU', -1500, -300, 0.6, 0.6);
+				phones.antialiasing = false;
+				phones.depth = 0.6;
+				phones.screenCenter(X);
+				phones.x -= 100;
+				phones.active = true;
+				add(phones);
 
 			case 'scaryAnnihilate':
 				defaultCamZoom = 0.755;
@@ -2295,13 +2332,13 @@ class PlayState extends MusicBeatState
 				composersWatermark = 'Villezen';
 			// add randomness songs here
 			case 'shattered' | 'triple-threat':
-				composersWatermark = 'Epicrandomness11';
+				composersWatermark = 'Randomness';
 			// add randomness & bezie songs here
 			case 'fallowed':
-				composersWatermark = 'Epicrandomness11 & BezieAnims';
+				composersWatermark = 'Randomness & BezieAnims';
 			// add aadsta's songs here
 			case 'acquaintance':
-				composersWatermark = 'AadstaPinwheel';
+				composersWatermark = 'Aadsta';
 			// shredboi high definition songs here
 			case 'rebound' | 'disposition' | 'roundabout' | 'rsod':
 				composersWatermark = 'ShredBoi';
@@ -4243,15 +4280,6 @@ class PlayState extends MusicBeatState
 		}*/
 		callOnLuas('onUpdate', [elapsed]);
 
-		if (SONG.stage == 'bambersHell') { // curStage didnt work for some reason wtf
-			gridSine += 180 * elapsed;
-			gridBG.alpha = 1 - Math.sin((Math.PI * gridSine) / 180);
-
-			bgshitH.y += (Math.sin(elapsedtime*0.7) * 0.55);
-			bgshitH2.y += (Math.sin(elapsedtime*0.6) * 0.5);
-			cloudsH.x += (Math.sin(elapsedtime*0.45) * 0.75);
-		}
-
 		switch (SONG.stage) {
 			// some stuff //
 			case '3dRed' | '3dScary' | '3dFucked' | 'houseroof' | 'farmNight': // Dark character thing
@@ -4512,6 +4540,16 @@ class PlayState extends MusicBeatState
 						heyTimer = 0;
 					}
 				}
+			case 'bambersHell':
+				gridSine += 180 * elapsed;
+				gridBG.alpha = 1 - Math.sin((Math.PI * gridSine) / 180);
+
+				bgshitH.y += (Math.sin(elapsedtime*0.7) * 0.55);
+				bgshitH2.y += (Math.sin(elapsedtime*0.6) * 0.5);
+				cloudsH.x += (Math.sin(elapsedtime*0.45) * 0.75);
+			case 'ourple' | 'double':
+				phones.angle = Math.sin(elapsedtime*0.7) * 1;
+				phones.y += (Math.sin(elapsedtime*0.7) * 0.1);
 		}
 
 		if(!inCutscene) {
@@ -5180,7 +5218,7 @@ class PlayState extends MusicBeatState
 					if (camZoomTween != null) camZoomTween.cancel();
 					camZoomTween = null;
 					if (duration > 0) {
-						camZoomTween = FlxTween.tween(FlxG.camera, {zoom: mZoom}, duration, {ease: FlxEase.quadInOut,
+						camZoomTween = FlxTween.tween(FlxG.camera, {zoom: mZoom + zoomAdd}, duration, {ease: FlxEase.quadInOut,
 							onComplete: function(twn:FlxTween) {
 								camZoomTween = null;
 						}});
@@ -7063,12 +7101,12 @@ class PlayState extends MusicBeatState
 				    	cameraSpeed = 1.5;
 				    	defaultCamZoom += 0.2;
 				    	FlxTween.tween(redGlow, {alpha: 1}, 1, {ease: FlxEase.cubeOut});
-				    case 3071:
-				    	camTilt = false;
 				    case 3072:
 				    	defaultCamZoom -= 0.1;
 						FlxTween.tween(redGlow, {alpha: 0}, 60*Conductor.crochet*0.001, {ease: FlxEase.cubeOut});
-				    	FlxTween.tween(camHUD, {angle: 0}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
+				    	camTilt = false;
+				    	if (camTiltTween != null) camTiltTween.cancel();
+						camTiltTween = FlxTween.tween(camHUD, {angle: 0}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
 					case 3328:
 						defaultCamZoom += 0.1;
 						FlxTween.tween(redGlow, {alpha: 1}, 1, {ease: FlxEase.cubeOut});
@@ -7200,14 +7238,16 @@ class PlayState extends MusicBeatState
 					case 768:
 						camZoomSnap = false;
 						camTilt = false;
-						FlxTween.tween(camHUD, {angle: 0}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
+						if (camTiltTween != null) camTiltTween.cancel();
+						camTiltTween = FlxTween.tween(camHUD, {angle: 0}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
 					case 1024:
 						camZoomSnap = true;
 						camTilt = true;
 					case 1280:
 						camZoomSnap = false;
 						camTilt = false;
-						FlxTween.tween(camHUD, {angle: 0}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
+						if (camTiltTween != null) camTiltTween.cancel();
+						camTiltTween = FlxTween.tween(camHUD, {angle: 0}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
 				}
 			case 'rsod': // i should probably organize this one jesus
 				switch (curStep)
@@ -7353,12 +7393,13 @@ class PlayState extends MusicBeatState
 				zoomAdd	= 0.25;
 		}
 
-		if(camTilt) {
+		if(camTilt) 
+		{
 			if (camTiltTween != null) camTiltTween.cancel();
 			if(curBeat % 4 == 0)
-				var camTiltTween = FlxTween.tween(camHUD, {angle: -2}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
+				camTiltTween = FlxTween.tween(camHUD, {angle: -2}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
 			if(curBeat % 4 == 2)
-				var camTiltTween = FlxTween.tween(camHUD, {angle: 2}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
+				camTiltTween = FlxTween.tween(camHUD, {angle: 2}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
 		}
 
 		if (gf != null && curBeat % Math.round(gfSpeed * gf.danceEveryNumBeats) == 0 && gf.animation.curAnim != null && !gf.animation.curAnim.name.startsWith("sing") && !gf.stunned)
