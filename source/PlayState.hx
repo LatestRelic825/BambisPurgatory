@@ -572,6 +572,7 @@ class PlayState extends MusicBeatState
 		redGlow.screenCenter();
 		redGlow.blend = ADD;
 		add(redGlow);
+		redGlow.alpha = 0.5;
 		redGlow.visible = false;
 		redGlow.cameras = [camOther];
 
