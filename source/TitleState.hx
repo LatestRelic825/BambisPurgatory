@@ -224,7 +224,7 @@ class TitleState extends MusicBeatState
 			#if debug
 			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 
-			var songLowercase:String = Paths.formatToSongPath('acquaintance');
+			var songLowercase:String = Paths.formatToSongPath('rebound');
 			var poop:String = Highscore.formatSong(songLowercase, 0);
 			/*#if MODS_ALLOWED
 			if(!sys.FileSystem.exists(Paths.modsJson(songLowercase + '/' + poop)) && !sys.FileSystem.exists(Paths.json(songLowercase + '/' + poop))) {

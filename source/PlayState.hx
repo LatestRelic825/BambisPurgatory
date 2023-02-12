@@ -1276,12 +1276,13 @@ class PlayState extends MusicBeatState
 					bgshitH.defaultScale = 1.25;
 					add(bgshitH);
 
-					cloudsH = new BGSprite('bpASSets/purgatory/scaryclouds', -600, -200, 0.2, 0.2);
+					cloudsH = new BGSprite('bpASSets/purgatory/scaryclouds', -400, 250, 1.2, 1.2);
 					cloudsH.updateHitbox();
-					cloudsH.screenCenter(X);
 					cloudsH.antialiasing = true;
-					cloudsH.scale.set(1.45, 1.55);
-					add(cloudsH);
+					cloudsH.screenCenter(Y);
+					cloudsH.y += 150;
+					cloudsH.alpha = 0.8;
+					cloudsH.scale.set(1.75, 1.75);
 
 					/*if(SONG.song.toLowerCase() == 'upheaval') {
 						defaultCamZoom = 0.9;
@@ -1763,6 +1764,8 @@ class PlayState extends MusicBeatState
 				add(glow);
 				if (SONG.song.toLowerCase() == 'reality breaking')
 					glow.scale.set(1.25, 1.25);
+			case 'bambersHell':
+				add(cloudsH);
 		}
 		if (colorFilter != null) add(colorFilter);
 
