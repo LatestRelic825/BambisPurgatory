@@ -2,36 +2,6 @@
 	"song": {
 		"events": [
 			[
-				0,
-				[
-					[
-						"Hide or Show HUD elements with Fade",
-						"0",
-						""
-					]
-				]
-			],
-			[
-				4193.54838709677,
-				[
-					[
-						"Hide or Show HUD elements",
-						"1",
-						""
-					]
-				]
-			],
-			[
-				4516.12903225806,
-				[
-					[
-						"Hide or Show HUD elements with Fade",
-						"1",
-						""
-					]
-				]
-			],
-			[
 				10322.5806451613,
 				[
 					[

@@ -1,18 +1,7 @@
 {
 	"song": {
 		"player1": "bf",
-		"events": [
-			[
-				10322.5806451613,
-				[
-					[
-						"Hide or Show HUD elements",
-						"2",
-						""
-					]
-				]
-			]
-		],
+		"events": [],
 		"gfVersion": "gf",
 		"player2": "404",
 		"notes": [

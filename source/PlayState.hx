@@ -1299,7 +1299,7 @@ class PlayState extends MusicBeatState
 					cloudsH.screenCenter(Y);
 					cloudsH.y += 150;
 					cloudsH.alpha = 0.8;
-					cloudsH.scale.set(1.75, 1.75);
+					cloudsH.scale.set(2, 1.75);
 
 					/*if(SONG.song.toLowerCase() == 'upheaval') {
 						defaultCamZoom = 0.9;
@@ -3426,6 +3426,8 @@ class PlayState extends MusicBeatState
 			switch (curSong.toLowerCase()) {
 				case 'roundabout' | 'upheaval':
 			    	skipCountdown = true;
+			    case 'rebound':
+			    	hideshit();
 			}
 			// ass //
 
@@ -6846,26 +6848,32 @@ class PlayState extends MusicBeatState
 	function hideshit() // basically a camHUD.visible = false; except it doesnt fuck up dialogue (and i didnt want to do another camera for the dialogue)
 	{
 		if(!ClientPrefs.hideHud) {
-			songinfoBar.visible = false;
-			healthBar.visible = false;
-			healthBarBG.visible = false;
-			healthBarOverlay.visible = false;
-			iconP1.visible = false;
-			iconP2.visible = false;
-			scoreTxt.visible = false;
+			songinfoBar.alpha = 0;
+			healthBar.alpha = 0;
+			healthBarBG.alpha = 0;
+			healthBarOverlay.alpha = 0;
+			iconP1.alpha = 0;
+			iconP2.alpha = 0;
+			scoreTxt.alpha = 0;
 		}
-		judgementCounter.visible = false;  
-		strumLineNotes.visible = false;
-		grpNoteSplashes.visible = false;
-		notes.visible = false;
+		judgementCounter.alpha = 0;  
+		strumLineNotes.forEachAlive(function(spr:FlxSprite) {
+			spr.alpha = 0;
+		});
+		grpNoteSplashes.forEachAlive(function(spr:FlxSprite) {
+			spr.alpha = 0;
+		});
+		notes.forEachAlive(function(spr:FlxSprite) {
+			spr.alpha = 0;
+		});
 		if(showTime) {
-	    	timeBar.visible = false;
-	    	timeBarBG.visible = false;
-			timeTxt.visible = false;
+	    	timeBar.alpha = 0;
+	    	timeBarBG.alpha = 0;
+			timeTxt.alpha = 0;
 			if(SONG.song.toLowerCase() == "antagonism") {
-				evilBar.visible = false;
-		    	evilBarBG.visible = false;
-				evilTxt.visible = false;
+				evilBar.alpha = 0;
+		    	evilBarBG.alpha = 0;
+				evilTxt.alpha = 0;
 			}
 		}
 	}
@@ -6873,53 +6881,65 @@ class PlayState extends MusicBeatState
 	function restoreHUDElements()
 	{
 		if(!ClientPrefs.hideHud) {
-			songinfoBar.visible = true;
-			healthBar.visible = true;
-			healthBarBG.visible = true;
-			healthBarOverlay.visible = true;
-			iconP1.visible = true;
-			iconP2.visible = true;
-			scoreTxt.visible = true;
+			songinfoBar.alpha = 1;
+			healthBar.alpha = 1;
+			healthBarBG.alpha = 1;
+			healthBarOverlay.alpha = 1;
+			iconP1.alpha = 1;
+			iconP2.alpha = 1;
+			scoreTxt.alpha = 1;
 		} 
-		judgementCounter.visible = true;
-		strumLineNotes.visible = true;
-		grpNoteSplashes.visible = true;
-		notes.visible = true;
+		judgementCounter.alpha = 1;
+		strumLineNotes.forEachAlive(function(spr:FlxSprite) {
+			spr.alpha = 1;
+		});
+		grpNoteSplashes.forEachAlive(function(spr:FlxSprite) {
+			spr.alpha = 1;
+		});
+		notes.forEachAlive(function(spr:FlxSprite) {
+			spr.alpha = 1;
+		});
 		if(showTime) {
-	    	timeBar.visible = true;
-	    	timeBarBG.visible = true;
-		    timeTxt.visible = true; 
+	    	timeBar.alpha = 1;
+	    	timeBarBG.alpha = 1;
+		    timeTxt.alpha = 1; 
 			if(SONG.song.toLowerCase() == "antagonism") {
-			    evilBar.visible = true;
-	    	    evilBarBG.visible = true;
-			    evilTxt.visible = true;
+			    evilBar.alpha = 1;
+	    	    evilBarBG.alpha = 1;
+			    evilTxt.alpha = 1;
 			}
 		}
 	}
 	
 	function showonlystrums() // does the thing that it says
 	{
-		songinfoBar.visible = true;
+		songinfoBar.alpha = 1;
 		if(!ClientPrefs.hideHud) {
-	    	healthBar.visible = false;
-	     	healthBarBG.visible = false;
-	     	healthBarOverlay.visible = false;
-	        iconP1.visible = false;
-	    	iconP2.visible = false;
-			scoreTxt.visible = false;
+	    	healthBar.alpha = 0;
+	     	healthBarBG.alpha = 0;
+	     	healthBarOverlay.alpha = 0;
+	        iconP1.alpha = 0;
+	    	iconP2.alpha = 0;
+			scoreTxt.alpha = 0;
 		}
-		judgementCounter.visible = true;
-		strumLineNotes.visible = true;
-		grpNoteSplashes.visible = true;
-		notes.visible = true;
+		judgementCounter.alpha = 1;
+		strumLineNotes.forEachAlive(function(spr:FlxSprite) {
+			spr.alpha = 1;
+		});
+		grpNoteSplashes.forEachAlive(function(spr:FlxSprite) {
+			spr.alpha = 1;
+		});
+		notes.forEachAlive(function(spr:FlxSprite) {
+			spr.alpha = 1;
+		});
 		if(showTime) {
-	     	timeBar.visible = true;
-	     	timeBarBG.visible = true;
-	     	timeTxt.visible = true;
+	     	timeBar.alpha = 1;
+	     	timeBarBG.alpha = 1;
+	     	timeTxt.alpha = 1;
 			if(SONG.song.toLowerCase() == "antagonism") {
-			    evilBar.visible = true;
-			    evilBarBG.visible = true;
-			    evilTxt.visible = true;
+			    evilBar.alpha = 1;
+			    evilBarBG.alpha = 1;
+			    evilTxt.alpha = 1;
 			}
 		}
 	}
@@ -6936,38 +6956,38 @@ class PlayState extends MusicBeatState
 
 	function poop() {
 		if(showTime) {
-			timeBar.visible = false;
-			timeBarBG.visible = false;
-			timeTxt.visible = false;
+			timeBar.alpha = 0;
+			timeBarBG.alpha = 0;
+			timeTxt.alpha = 0;
 			if(SONG.song.toLowerCase() == "antagonism") {
-				evilBar.visible = false;
-		    	evilBarBG.visible = false;
-				evilTxt.visible = false;
+				evilBar.alpha = 0;
+		    	evilBarBG.alpha = 0;
+				evilTxt.alpha = 0;
 			}
 	    }
 		showCombo = false;
 		showComboNum = false;
 		showRating = false;
-		songinfoBar.visible = false;
+		songinfoBar.alpha = 0;
 		opponentStrums.forEach(function(spr:FlxSprite) {
 			if(ClientPrefs.opponentStrums) spr.alpha = 0;
 		});
 	}
 	function crap() {
 		if(showTime) {
-			timeBar.visible = true;
-			timeBarBG.visible = true;
-			timeTxt.visible = true;
+			timeBar.alpha = 1;
+			timeBarBG.alpha = 1;
+			timeTxt.alpha = 1;
 			if(SONG.song.toLowerCase() == "antagonism")  {
-				evilBar.visible = true;
-		    	evilBarBG.visible = true;
-		    	evilTxt.visible = true;
+				evilBar.alpha = 1;
+		    	evilBarBG.alpha = 1;
+		    	evilTxt.alpha = 1;
 		    }
 	    }
 		showCombo = true;
 		showComboNum = true;
 		showRating = true;
-		songinfoBar.visible = true;
+		songinfoBar.alpha = 1;
 		opponentStrums.forEach(function(spr:FlxSprite) {
 			if(ClientPrefs.opponentStrums) spr.alpha = 1;
 		});
@@ -7292,8 +7312,6 @@ class PlayState extends MusicBeatState
 				{
 					case 0:
 						hideshit();
-					case 15:
-						showonlystrums();
 					case 1792:
 						FlxTween.tween(this, {defaultCamZoom:1.30}, 10.82 / playbackRate);
 						FlxTween.tween(scoreTxt, {alpha:0}, 1 / playbackRate);
