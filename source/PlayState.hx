@@ -4659,7 +4659,7 @@ class PlayState extends MusicBeatState
 			iconP2.changeIconStatus(2);
 			if(curBeat % 2 == 0)
 				//FlxTween.tween(scoreTxt, {color:0xFFFF0000}, 0.1 / playbackRate);
-		    	FlxTween.color(scoreTxt, 0.1 / playbackRate, 0xFFFF0000, FlxColor.WHITE, {ease: FlxEase.linear});
+		    	FlxTween.color(scoreTxt, Conductor.stepCrochet / 500, 0xFFFF0000, FlxColor.WHITE, {ease: FlxEase.circOut});
 		//	if(curBeat % 4 == 2)
 			//	FlxTween.tween(scoreTxt, {color:0xFFFFFFFF}, 0.1 / playbackRate);
 		}
@@ -5564,21 +5564,31 @@ class PlayState extends MusicBeatState
 					case 1: curCamera = camHUD;					
 					case 2: curCamera = camOther;
 				}
-				// BAD CODE ALERT !!
+				
 				var penisId2:Int = Std.parseInt(value2);
-				switch (penisId2) {
-					case 0: curcolor = FlxColor.WHITE;
-					case 1: curcolor = FlxColor.BLACK;					
-					case 2: curcolor = FlxColor.RED;
-					case 3: curcolor = FlxColor.ORANGE;
-					case 4: curcolor = FlxColor.YELLOW;
-					case 5: curcolor = FlxColor.LIME;
-					case 6: curcolor = FlxColor.GREEN;
-					case 7: curcolor = FlxColor.CYAN;
-					case 8: curcolor = FlxColor.BLUE;
-					case 9: curcolor = FlxColor.PINK;
-					case 10: curcolor = FlxColor.PURPLE;
+				if (ClientPrefs.flashing)
+				{
+					// BAD CODE ALERT !!
+					switch (penisId2) {
+						case 0: curcolor = FlxColor.WHITE;
+						case 1: curcolor = FlxColor.BLACK;					
+						case 2: curcolor = FlxColor.RED;
+						case 3: curcolor = FlxColor.ORANGE;
+						case 4: curcolor = FlxColor.YELLOW;
+						case 5: curcolor = FlxColor.LIME;
+						case 6: curcolor = FlxColor.GREEN;
+						case 7: curcolor = FlxColor.CYAN;
+						case 8: curcolor = FlxColor.BLUE;
+						case 9: curcolor = FlxColor.PINK;
+						case 10: curcolor = FlxColor.PURPLE;
+					}
+				} else {
+					switch (penisId2) { 
+					    case 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10:
+						    curcolor = FlxColor.BLACK;		
+					}
 				}
+
 				curCamera.flash(curcolor, 1, true);
 			case 'Smooth Camera Zoom': // only smooth for camgame!
 				if(ClientPrefs.camZooms) {
