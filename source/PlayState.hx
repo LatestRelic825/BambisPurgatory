@@ -2347,7 +2347,7 @@ class PlayState extends MusicBeatState
 			case 'newest': //troll
 				composersWatermark = 'Tsuchi';
 			// add ville's songs here
-			case 'rascal' | 'gilded' | 'double act':
+			case 'rascal' | 'gilded' | 'double act' | 'beefin':
 				composersWatermark = 'Villezen';
 			// add randomness songs here
 			case 'shattered' | 'triple-threat':
