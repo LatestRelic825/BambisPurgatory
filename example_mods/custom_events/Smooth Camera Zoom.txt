@@ -1,0 +1,4 @@
+Only smooth for camgame not the hud!
+Value 1: Camera zoom add (Default: 0.015)
+Value 2: UI zoom add (Default: 0.05)
+Leave the values blank if you want to use Default.

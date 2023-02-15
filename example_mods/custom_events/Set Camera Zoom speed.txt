@@ -1,0 +1,5 @@
+(In value 1)
+
+Change the camera zoom speed
+leave it blank for default values 
+(0.95 w fast camera zooming, 1 without it)

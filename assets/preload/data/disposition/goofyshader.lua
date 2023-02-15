@@ -19,23 +19,31 @@ function opponentNoteHit(id, noteData, noteType, isSustainNote)
 end
 
 function onCreatePost()
-    initLuaShader("vcr")
-    
-    makeLuaSprite("temporaryShader")
-    makeGraphic("temporaryShader", screenWidth, screenHeight)
-    
-    setSpriteShader("temporaryShader", "vcr")
-    
-    addHaxeLibrary("ShaderFilter", "openfl.filters")
-    runHaxeCode([[
-        //trace(ShaderFilter);
-        //game.camGame.setFilters([new ShaderFilter(game.getLuaObject("temporaryShader").shader)]);
-        //game.camHUD.setFilters([new ShaderFilter(game.getLuaObject("temporaryShader").shader)]);
-        game.dad.shader = game.getLuaObject("temporaryShader").shader;
-    ]])
+
 end
 
 function onUpdate(elapsed)
-    Chromacrap = math.lerp(Chromacrap, 0, boundTo(elapsed * 20, 0, 1))
-    setChrome(Chromacrap)
+    if curBeat >= 30 then
+        Chromacrap = math.lerp(Chromacrap, 0, boundTo(elapsed * 20, 0, 1))
+        setChrome(Chromacrap)
+    end
+end
+
+function onBeatHit()
+    if curBeat == 30 then --cant believe this shit didnt crash wtf!
+        initLuaShader("vcr")
+    
+        makeLuaSprite("temporaryShader")
+        makeGraphic("temporaryShader", screenWidth, screenHeight)
+        
+        setSpriteShader("temporaryShader", "vcr")
+        
+        addHaxeLibrary("ShaderFilter", "openfl.filters")
+        runHaxeCode([[
+            //trace(ShaderFilter);
+            //game.camGame.setFilters([new ShaderFilter(game.getLuaObject("temporaryShader").shader)]);
+            //game.camHUD.setFilters([new ShaderFilter(game.getLuaObject("temporaryShader").shader)]);
+            game.dad.shader = game.getLuaObject("temporaryShader").shader;
+        ]])
+    end
 end

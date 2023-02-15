@@ -1,0 +1,10 @@
+Flashes the screen (Default values are camGame [1] and WHITE flash)
+
+[ON VALUE 1:
+select the camera that you want to do the flash effect.
+(0 is camGame, 1 is camHUD, 2 is camOther)]
+
+[ON VALUE 2:
+type the color for the screen flash
+(0: WHITE. 1: BLACK 2: RED. 3: ORANGE. 4: YELLOW. 5: LIME.
+6: GREEN. 7: CYAN. 8: BLUE. 9: PINK. 10: PURPLE)]

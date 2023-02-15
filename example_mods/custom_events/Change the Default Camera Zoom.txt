@@ -1,0 +1,2 @@
+Value 1: Sets the Camera zoom value (try it to see what i mean)
+leaving this blank will reset the camera zoom value
