@@ -42,7 +42,7 @@ class ClientPrefs {
 	public static var uiStyle:String = 'Purgatory';
 	public static var noteCombo:Bool = true;
 	public static var fastZoom:Bool = true;
-	public static var ratingsinHUD:Bool = true;
+	public static var ratingsinHUD:Bool = false;
 	// ENDS HERE
 	public static var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
