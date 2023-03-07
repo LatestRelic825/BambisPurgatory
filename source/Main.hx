@@ -104,6 +104,8 @@ class Main extends Sprite
 		#end
 	}
 
+	public static var changeID:Int = 0;
+
 	// Code was entirely made by sqirra-rng for their fnf engine named "Izzy Engine", big props to them!!!
 	// very cool person for real they don't get enough credit for their work
 	#if CRASH_HANDLER
