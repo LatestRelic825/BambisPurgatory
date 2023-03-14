@@ -43,6 +43,7 @@ class StoryMenuState extends MusicBeatState
 	var arrowshit:FlxSprite;
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	var text:FlxText;
+	var text2:FlxText;
 
 	public static var weekCompleted:Map<String, Bool> = new Map<String, Bool>();
 
@@ -131,13 +132,19 @@ class StoryMenuState extends MusicBeatState
 		text.setFormat(Paths.font("comic-sans.ttf"), 18, FlxColor.WHITE, CENTER);
 		text.scrollFactor.set();
 		menuItems.add(text);
+
+		var leText2:String = "Press CTRL to open the Gameplay Modifier Menu";
+		text2 = new FlxText(10, 690, 0, leText2, 21);
+		text2.setFormat(Paths.font("comic-sans.ttf"), 18, FlxColor.WHITE, LEFT);
+		text2.scrollFactor.set();
+		menuItems.add(text2);
 		
 		arrowshit = new FlxSprite(-80).loadGraphic(Paths.image('stupidarrowsright'));
 		arrowshit.setGraphicSize(Std.int(arrowshit.width * 1));
 		arrowshit.updateHitbox();
 		arrowshit.screenCenter();
 		arrowshit.antialiasing = ClientPrefs.globalAntialiasing;
-		menuItems.add(arrowshit);
+		//menuItems.add(arrowshit); // Disabled for Part 1. - Relic
 		
 	}
 	  override public function update(elapsed:Float)
@@ -184,11 +191,11 @@ class StoryMenuState extends MusicBeatState
 			openSubState(new GameplayChangersSubstate());
 		}
 		
-		if (controls.UI_RIGHT_P)
+		/*if (controls.UI_RIGHT_P)
 		{
 			openSubState(new Section2Substate());
 			FlxG.sound.play(Paths.sound('scrollMenu'));
-		}
+		}*/  // Disabled for Part 1. - Relic
 			
 		
 		super.update(elapsed);
@@ -302,6 +309,7 @@ class Section2Substate extends MusicBeatSubstate
 	var lol5:Bool = false;
 	var lol6:Bool = false;
 	var text:FlxText;
+	var text2:FlxText;
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	var week4:FlxSprite;
 	var week5:FlxSprite;
@@ -380,6 +388,12 @@ class Section2Substate extends MusicBeatSubstate
 		text.setFormat(Paths.font("comic-sans.ttf"), 18, FlxColor.WHITE, CENTER);
 		text.scrollFactor.set();
 		menuItemsSub.add(text);
+
+		var leText2:String = "Press CTRL to open the Gameplay Modifier Menu";
+		text2 = new FlxText(10, 690, 0, leText2, 21);
+		text2.setFormat(Paths.font("comic-sans.ttf"), 18, FlxColor.WHITE, CENTER);
+		text2.scrollFactor.set();
+		menuItemsSub.add(text2);
 		
 		arrowshitSub = new FlxSprite(-80).loadGraphic(Paths.image('stupidarrowsleft'));
 		arrowshitSub.setGraphicSize(Std.int(arrowshitSub.width * 1));
