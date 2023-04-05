@@ -1,0 +1,698 @@
+{
+	"song": {
+		"events": [
+			[
+				0,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				2133.33333333333,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				24533.3333333333,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.15"
+					]
+				]
+			],
+			[
+				24533.3333333333,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				24800,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.15"
+					]
+				]
+			],
+			[
+				25066.6666666668,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.075"
+					]
+				]
+			],
+			[
+				25333.3333333334,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.05"
+					]
+				]
+			],
+			[
+				27733.3333333333,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				53333.3333333333,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				55466.6666666666,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				59733.3333333333,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				62933.3333333333,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				63999.9999999999,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				66133.3333333333,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				67199.9999999999,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				68266.6666666666,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				70400,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				71466.6666666666,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				77866.6666666666,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.15"
+					]
+				]
+			],
+			[
+				77866.6666666667,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1 ",
+						""
+					]
+				]
+			],
+			[
+				78133.3333333333,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.15"
+					]
+				]
+			],
+			[
+				78400.0000000001,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.075"
+					]
+				]
+			],
+			[
+				78666.6666666667,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.05"
+					]
+				]
+			],
+			[
+				81066.6666666667,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				83200,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				85333.3333333334,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				98933.3333333334,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.75"
+					]
+				]
+			],
+			[
+				98937.5000000001,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				99191.6666666667,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				100000,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				100266.666666667,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				106933.333333333,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.025"
+					]
+				]
+			],
+			[
+				107000,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				107733.333333333,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.25"
+					]
+				]
+			],
+			[
+				107733.333333333,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				109866.666666667,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				110933.333333333,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.25"
+					]
+				]
+			],
+			[
+				110933.333333333,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				112000,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.25"
+					]
+				]
+			],
+			[
+				112000,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				115200,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"0",
+						""
+					]
+				],
+				null,
+				"Restart PC Note"
+			],
+			[
+				123723.333333334,
+				[
+					[
+						"Add Camera Zoom",
+						"0.03",
+						"0.05"
+					]
+				]
+			],
+			[
+				123733.333333334,
+				[
+					[
+						"Quick note spin",
+						"",
+						""
+					]
+				]
+			],
+			[
+				146133.333333333,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.15"
+					]
+				]
+			],
+			[
+				146133.333333333,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				146400,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.15"
+					]
+				]
+			],
+			[
+				146666.666666667,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.075"
+					]
+				]
+			],
+			[
+				146933.333333333,
+				[
+					[
+						"Freeze Chart",
+						"true",
+						"0.05"
+					]
+				]
+			],
+			[
+				149333.333333333,
+				[
+					[
+						"Toggle Blocked Glitch",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				157866.666666667,
+				[
+					[
+						"Toggle Opponent Trail",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				162133.333333333,
+				[
+					[
+						"Toggle Opponent Trail",
+						"0",
+						""
+					],
+					[
+						"Toggle Player Trail",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				166400,
+				[
+					[
+						"Toggle Player Trail",
+						"0",
+						""
+					],
+					[
+						"Toggle Opponent Trail",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				170666.666666667,
+				[
+					[
+						"Toggle Opponent Trail",
+						"0",
+						""
+					],
+					[
+						"Toggle Player Trail",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				174933.333333333,
+				[
+					[
+						"Toggle Player Trail",
+						"0",
+						""
+					],
+					[
+						"Toggle Opponent Trail",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				179200,
+				[
+					[
+						"Toggle Opponent Trail",
+						"0",
+						""
+					],
+					[
+						"Toggle Player Trail",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				183466.666666666,
+				[
+					[
+						"Toggle Player Trail",
+						"0",
+						""
+					],
+					[
+						"Toggle Opponent Trail",
+						"1",
+						""
+					],
+					[
+						"Add Camera Zoom",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				186666.666666666,
+				[
+					[
+						"Opponent Fade",
+						"2",
+						"0"
+					]
+				]
+			],
+			[
+				187733.333333333,
+				[
+					[
+						"Toggle Opponent Trail",
+						"0",
+						""
+					],
+					[
+						"Toggle Player Trail",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				190800,
+				[
+					[
+						"Add Camera Zoom",
+						"2",
+						""
+					]
+				]
+			],
+			[
+				190933.333333333,
+				[
+					[
+						"BF Fade",
+						"2",
+						"0"
+					],
+					[
+						"Toggle Player Trail",
+						"0",
+						""
+					],
+					[
+						"",
+						"",
+						""
+					]
+				]
+			],
+			[
+				191066.666666666,
+				[
+					[
+						"Add Camera Zoom",
+						"2",
+						""
+					]
+				]
+			],
+			[
+				191333.333333333,
+				[
+					[
+						"Add Camera Zoom",
+						"2",
+						""
+					]
+				]
+			],
+			[
+				191600,
+				[
+					[
+						"Add Camera Zoom",
+						"2",
+						""
+					]
+				]
+			],
+			[
+				191800,
+				[
+					[
+						"Add Camera Zoom",
+						"2",
+						""
+					]
+				]
+			]
+		]
+	}
+}

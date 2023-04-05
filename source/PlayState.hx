@@ -67,6 +67,7 @@ import flixel.addons.display.FlxRuntimeShader;
 import openfl.filters.ShaderFilter;
 import openfl.display.Shader;
 import Shaders.PulseEffect;
+import Shaders.BlockedGlitchEffect;
 import Shaders;
 #end
 
@@ -169,8 +170,8 @@ class PlayState extends MusicBeatState
 	public static var storyDifficulty:Int = 1;
 
 	public var curbg:FlxSprite;
-	public var screenshader:Shaders.PulseEffect = new PulseEffect();
-	public var glitchShader:Shaders.BlockedGlitchEffect = new BlockedGlitchEffect();
+	public var screenshader:PulseEffect;
+	public var glitchShader:BlockedGlitchEffect;
 
 	public var elapsedtime:Float = 0;
 	public var spawnTime:Float = 2000;
@@ -483,6 +484,10 @@ class PlayState extends MusicBeatState
 		Paths.clearStoredMemory();
 
 		eyesoreson = ClientPrefs.flashing;
+
+		#if debug
+		chartingMode = true;
+		#end
 
 		// for lua
 		instance = this;
@@ -1113,15 +1118,15 @@ class PlayState extends MusicBeatState
 				bgrsod.scale.set(1.75, 1.75);
 				add(bgrsod);
 
-				//if(ClientPrefs.waving)
-			//	{
+				if(ClientPrefs.shaders)
+				{
 			    	var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
 					testshader.waveAmplitude = 0.1;
 					testshader.waveFrequency = 5;
 					testshader.waveSpeed = 2;
 					bgrsod.shader = testshader.shader;
 					curbg = bgrsod;
-			//	}
+				}
 
 			case 'pcworld':
 				defaultCamZoom = 0.755;
@@ -1135,15 +1140,15 @@ class PlayState extends MusicBeatState
 				pcworld.scale.set(1.75, 1.75);
 				add(pcworld);
 
-				//if(ClientPrefs.waving)
-			//	{
+				if(ClientPrefs.shaders)
+				{
 			    	var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
 					testshader.waveAmplitude = 0.1;
 					testshader.waveFrequency = 5;
 					testshader.waveSpeed = 2;
 					pcworld.shader = testshader.shader;
 					curbg = pcworld;
-			//	}
+				}
 
 			case 'burger':
 				defaultCamZoom = 0.755;
@@ -1157,15 +1162,15 @@ class PlayState extends MusicBeatState
 				burger.scale.set(1.75, 1.75);
 				add(burger);
 
-				//if(ClientPrefs.waving)
-			//	{
+				if(ClientPrefs.shaders)
+				{
 			    	var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
 					testshader.waveAmplitude = 0.1;
 					testshader.waveFrequency = 5;
 					testshader.waveSpeed = 2;
 					burger.shader = testshader.shader;
 					curbg = burger;
-
+				}
 
 			case 'ourple':
 				defaultCamZoom = 0.65;
@@ -1180,12 +1185,15 @@ class PlayState extends MusicBeatState
 				ourple.active = true;
 				add(ourple);
 
-				var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
-				testshader.waveAmplitude = 0.01;
-				testshader.waveFrequency = 5;
-				testshader.waveSpeed = 2;
-				ourple.shader = testshader.shader;
-				curbg = ourple;
+				if(ClientPrefs.shaders)
+				{
+					var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
+					testshader.waveAmplitude = 0.01;
+					testshader.waveFrequency = 5;
+					testshader.waveSpeed = 2;
+					ourple.shader = testshader.shader;
+					curbg = ourple;
+				}
 
 				phones = new DepthSprite('bpASSets/poipman/phones', -1500, -300, 0.6, 0.6);
 				phones.antialiasing = false;
@@ -1208,12 +1216,15 @@ class PlayState extends MusicBeatState
 				ourple.active = true;
 				add(ourple);
 
-				var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
-				testshader.waveAmplitude = 0.01;
-				testshader.waveFrequency = 5;
-				testshader.waveSpeed = 2;
-				ourple.shader = testshader.shader;
-				curbg = ourple;
+				if(ClientPrefs.shaders)
+				{
+					var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
+					testshader.waveAmplitude = 0.01;
+					testshader.waveFrequency = 5;
+					testshader.waveSpeed = 2;
+					ourple.shader = testshader.shader;
+					curbg = ourple;
+				}
 
 				phones = new DepthSprite('bpASSets/poipman/UWU', -1500, -300, 0.6, 0.6);
 				phones.antialiasing = false;
@@ -1235,15 +1246,15 @@ class PlayState extends MusicBeatState
 				banbodeez.scale.set(1.75, 1.75);
 				add(banbodeez);
 
-				//if(ClientPrefs.waving)
-			//	{
+				if(ClientPrefs.shaders)
+				{
 			    	var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
 					testshader.waveAmplitude = 0.1;
 					testshader.waveFrequency = 5;
 					testshader.waveSpeed = 2;
 					banbodeez.shader = testshader.shader;
 					curbg = banbodeez;
-			//	}
+				}
 
 			case 'bambersHell':
 				{
@@ -1261,15 +1272,15 @@ class PlayState extends MusicBeatState
 	
 					add(gridBG);
 	
-					//if(ClientPrefs.waving)
-				//	{
+					if(ClientPrefs.shaders)
+					{
 						var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
 						testshader.waveAmplitude = 0.095;
 						testshader.waveFrequency = 5;
 						testshader.waveSpeed = 1.15;
 						gridBG.shader = testshader.shader;
 						curbg = gridBG;
-				//	}
+					}
 				
 					var bgHELL:BGSprite = new BGSprite('bpASSets/purgatory/graysky', -600, -200, 0.2, 0.2);
 					bgHELL.antialiasing = false;
@@ -1349,16 +1360,15 @@ class PlayState extends MusicBeatState
 					bg.active = true;
 	
 					add(bg);
-					//if(ClientPrefs.flashing /*ClientPrefs,waving*/)
-				//	{
-					// below code assumes shaders are always enabled which is bad
-					var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
-					testshader.waveAmplitude = 0.1;
-					testshader.waveFrequency = 5;
-					testshader.waveSpeed = 2;
-					bg.shader = testshader.shader;
-					curbg = bg;
-				//	}
+					if(ClientPrefs.shaders)
+					{
+						var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
+						testshader.waveAmplitude = 0.1;
+						testshader.waveFrequency = 5;
+						testshader.waveSpeed = 2;
+						bg.shader = testshader.shader;
+						curbg = bg;
+				    }
 				}
 	
 	
@@ -1372,16 +1382,15 @@ class PlayState extends MusicBeatState
 					bg.active = true;
 	
 					add(bg);
-					//if(ClientPrefs.flashing /*ClientPrefs,waving*/)
-				//	{
-					// below code assumes shaders are always enabled which is bad
-					var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
-					testshader.waveAmplitude = 0.1;
-					testshader.waveFrequency = 5;
-					testshader.waveSpeed = 2;
-					bg.shader = testshader.shader;
-					curbg = bg;
-					//}
+					if(ClientPrefs.shaders)
+					{
+						var testshader:Shaders.GlitchEffect = new Shaders.GlitchEffect();
+						testshader.waveAmplitude = 0.1;
+						testshader.waveFrequency = 5;
+						testshader.waveSpeed = 2;
+						bg.shader = testshader.shader;
+						curbg = bg;
+					}
 				}
 			// ends here //
 
@@ -1841,15 +1850,19 @@ class PlayState extends MusicBeatState
 			luaArray.push(new FunkinLua(luaFile));
 		#end
 
-		screenshader.waveAmplitude = 1;
-        screenshader.waveFrequency = 2;
-        screenshader.waveSpeed = 1;
-        screenshader.shader.uTime.value[0] = new flixel.math.FlxRandom().float(-100000, 100000);
+		if (ClientPrefs.shaders)
+		{
+			screenshader = new PulseEffect();
+			screenshader.waveAmplitude = 1;
+	        screenshader.waveFrequency = 2;
+	        screenshader.waveSpeed = 1;
+	        screenshader.shader.uTime.value[0] = new flixel.math.FlxRandom().float(-100000, 100000);
 
-        FlxG.camera.setFilters([new ShaderFilter(screenshader.shader)]); 
-		//    /\/\ this is very stupid but doesn't effect memory all that much so
+	        FlxG.camera.setFilters([new ShaderFilter(screenshader.shader)]); 
 
-        camHUD.setFilters([new ShaderFilter(glitchShader.shader)]); 
+			glitchShader = new BlockedGlitchEffect();
+	        camHUD.setFilters([new ShaderFilter(glitchShader.shader)]); 
+    	}
 
 		var gfVersion:String = SONG.gfVersion;
 		if(gfVersion == null || gfVersion.length < 1)
@@ -4370,16 +4383,19 @@ class PlayState extends MusicBeatState
 	     		gf.playAnim('scared', true);
 		    }
 		}
-		screenshader.shader.uTime.value[0] += elapsed;
-		if (shakeCam && eyesoreson) {
-			screenshader.shader.uampmul.value[0] = 1;
-		} else {
-			screenshader.shader.uampmul.value[0] -= (elapsed / 2);
-		}
-		screenshader.Enabled = shakeCam && eyesoreson;
+		if(ClientPrefs.shaders)
+		{
+			screenshader.shader.uTime.value[0] += elapsed;
+			if (shakeCam && eyesoreson) {
+				screenshader.shader.uampmul.value[0] = 1;
+			} else {
+				screenshader.shader.uampmul.value[0] -= (elapsed / 2);
+			}
+			screenshader.Enabled = shakeCam && eyesoreson;
 
-		glitchShader.update(elapsed);
-		glitchShader.set_Enabled(glitchCam);
+			glitchShader.update(elapsed);
+			glitchShader.set_Enabled(glitchCam);
+		}
 
 		if(SONG.song.toLowerCase() == 'rebound')
 		{
@@ -4976,7 +4992,8 @@ class PlayState extends MusicBeatState
 				deathCounter++;
 
 				shakeCam = false;
-				screenshader.Enabled = false;
+				if (ClientPrefs.shaders)
+					screenshader.Enabled = false;
 
 				paused = true;
 
@@ -7187,6 +7204,12 @@ class PlayState extends MusicBeatState
 		// MID SONG EVENTS !! //
 		switch (SONG.song.toLowerCase())
 		{
+			case 'fallowed':
+				switch (curStep)
+				{
+					case 1790:
+						beatOffsetInSteps = -2;
+				}
 			case 'reality breaking':
 				switch (curStep)
 				{
@@ -7456,6 +7479,7 @@ class PlayState extends MusicBeatState
 						camTiltTween = FlxTween.tween(camHUD, {angle: 0}, Conductor.crochet / 1000, {ease: FlxEase.quadOut});
 				}
 			case 'rsod': // i should probably organize this one jesus
+				/*
 				switch (curStep)
 				{
 					case 32:
@@ -7526,7 +7550,7 @@ class PlayState extends MusicBeatState
 					case 2628:
 						camZooming = false;
 				}
-			
+				*/
 		}
 
 		lastStepHit = curStep;

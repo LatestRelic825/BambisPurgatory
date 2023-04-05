@@ -23,6 +23,8 @@ class MusicBeatState extends FlxUIState
 	private var curStep:Int = 0;
 	private var curBeat:Int = 0;
 
+	private var beatOffsetInSteps:Int = 0;
+
 	private var curDecStep:Float = 0;
 	private var curDecBeat:Float = 0;
 	private var controls(get, never):Controls;
@@ -105,8 +107,8 @@ class MusicBeatState extends FlxUIState
 
 	private function updateBeat():Void
 	{
-		curBeat = Math.floor(curStep / 4);
-		curDecBeat = curDecStep/4;
+		curBeat = Math.floor((curStep + beatOffsetInSteps) / 4);
+		curDecBeat = (curDecStep + beatOffsetInSteps)/4;
 	}
 
 	private function updateCurStep():Void
@@ -153,7 +155,7 @@ class MusicBeatState extends FlxUIState
 
 	public function stepHit():Void
 	{
-		if (curStep % 4 == 0)
+		if ((curStep + beatOffsetInSteps) % 4 == 0)
 			beatHit();
 	}
 
